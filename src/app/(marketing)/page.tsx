@@ -1,21 +1,27 @@
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
   ArrowUpRight,
   BarChart3,
   BookOpen,
+  Building2,
   ChevronsRight,
   GraduationCap,
   HeartHandshake,
+  LayoutDashboard,
+  Leaf,
   LineChart,
   Play,
   Sparkles,
-  UserCog,
+  Star,
+  User,
   Users,
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { cn } from "@/lib/utils";
 import { SectionHeading } from "@/components/marketing/section-heading";
 import { CourseCard } from "@/components/marketing/course-card";
 import { HeroVisual } from "@/components/marketing/hero-visual";
@@ -24,28 +30,35 @@ import { courses } from "@/lib/courses-data";
 const audiences = [
   {
     title: "Students",
-    description: "A personalized learning path that adapts to how you learn best, with visible progress every step.",
+    description: "Personalized learning paths, progress tracking, and smart recommendations.",
     icon: GraduationCap,
     href: "/dashboard/student",
   },
   {
     title: "Parents",
-    description: "Clear insight into your child's growth, attendance, and achievements, without the guesswork.",
-    icon: HeartHandshake,
+    description: "Real-time updates, insights, and tools to support your child's growth.",
+    icon: Users,
     href: "/about",
   },
   {
     title: "Teachers",
-    description: "Classroom analytics and recommendations that help you spend more time teaching, less time guessing.",
-    icon: Users,
+    description: "Plan lessons, manage classrooms, assess performance, and inspire learners.",
+    icon: BookOpen,
     href: "/contact",
   },
   {
     title: "School owners",
-    description: "Institution-wide reporting on enrollment, performance, and outcomes in one calm dashboard.",
-    icon: UserCog,
+    description: "Powerful analytics, administration, and decision-making, all in one place.",
+    icon: Building2,
     href: "/contact",
   },
+];
+
+const highlights = [
+  { label: "Personalized Learning", icon: User },
+  { label: "Smart Insights", icon: BarChart3 },
+  { label: "Unified Experience", icon: LayoutDashboard },
+  { label: "Better Outcomes", icon: Star },
 ];
 
 const valueProps = [
@@ -153,33 +166,103 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Who we serve */}
+      {/* Built for every role */}
       <section className="py-24">
         <div className="mx-auto max-w-7xl px-6">
-          <SectionHeading
-            eyebrow="Built for every role"
-            title="One platform, four points of view"
-            description="THRIVE EDU gives every part of the learning ecosystem the view they need, all grounded in the same data."
-          />
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {audiences.map((a) => (
-              <Link
-                key={a.title}
-                href={a.href}
-                className="group flex flex-col gap-4 rounded-2xl border border-border bg-surface p-6 shadow-elevation-1 transition-all duration-200 hover:-translate-y-1 hover:shadow-elevation-3"
+          <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
+            {/* Photo blob */}
+            <div className="relative mx-auto aspect-[4/5] w-full max-w-md lg:max-w-none">
+              <div
+                className="absolute -right-4 -top-4 h-2/3 w-2/3 bg-background"
+                style={{ borderRadius: "40% 60% 65% 35% / 45% 40% 60% 55%" }}
+                aria-hidden
+              />
+              <div
+                className="absolute inset-0 translate-x-3 translate-y-3 bg-leaf-gold"
+                style={{ borderRadius: "68% 32% 27% 73% / 45% 62% 38% 55%" }}
+                aria-hidden
+              />
+              <div
+                className="absolute inset-0 overflow-hidden"
+                style={{ borderRadius: "68% 32% 27% 73% / 45% 62% 38% 55%" }}
               >
-                <span className="flex size-12 items-center justify-center rounded-xl bg-primary/10 text-forest-green transition-colors group-hover:bg-forest-green group-hover:text-white">
-                  <a.icon className="size-5" />
-                </span>
-                <div>
-                  <p className="font-heading text-h5 font-semibold text-text-primary">{a.title}</p>
-                  <p className="mt-1.5 text-small text-text-secondary">{a.description}</p>
+                <Image
+                  src="/images/every-learner.jpg"
+                  alt="A THRIVE EDU learner celebrating, holding up a phone showing the platform"
+                  fill
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  className="object-cover"
+                  priority
+                />
+                <div className="absolute left-8 top-10 grid grid-cols-4 gap-2 opacity-40" aria-hidden>
+                  {Array.from({ length: 16 }).map((_, i) => (
+                    <span key={i} className="size-1 rounded-full bg-white" />
+                  ))}
                 </div>
-                <span className="mt-auto flex items-center gap-1 text-small font-semibold text-forest-green opacity-0 transition-opacity group-hover:opacity-100">
-                  Learn more <ArrowRight className="size-3.5" />
+              </div>
+            </div>
+
+            {/* Content */}
+            <div>
+              <div className="mb-6 flex items-center gap-3">
+                <span className="inline-flex items-center rounded-full bg-subtle-surface px-4 py-2 text-caption font-bold uppercase tracking-wide text-forest-green">
+                  Built for every role
                 </span>
-              </Link>
-            ))}
+                <Leaf className="size-5 text-leaf-gold" aria-hidden />
+              </div>
+              <h2 className="font-heading text-h2 font-bold leading-[1.05] text-text-primary sm:text-h1">
+                One Platform.
+                <br />
+                <span className="text-leaf-gold">Every</span> Learner.
+              </h2>
+              <p className="mt-6 max-w-lg text-body-lg text-text-secondary">
+                THRIVE EDU adapts to the needs of every user: empowering students, supporting families,
+                enabling teachers, and driving schools forward.
+              </p>
+
+              <div className="mt-10 grid grid-cols-2 gap-4">
+                {audiences.map((a, i) => (
+                  <div key={a.title} className="rounded-2xl border border-border bg-surface p-5">
+                    <span
+                      className={cn(
+                        "flex size-11 items-center justify-center rounded-full",
+                        i % 2 === 0 ? "bg-leaf-gold/15 text-leaf-gold" : "bg-warm-amber/20 text-warm-amber"
+                      )}
+                    >
+                      <a.icon className="size-5" />
+                    </span>
+                    <p className="mt-4 font-heading text-body-lg font-bold text-text-primary">{a.title}</p>
+                    <p className="mt-1.5 text-small text-text-secondary">{a.description}</p>
+                    <Link
+                      href={a.href}
+                      aria-label={`Learn more about ${a.title}`}
+                      className={cn(
+                        "mt-3 inline-flex",
+                        i % 2 === 0 ? "text-leaf-gold" : "text-warm-amber"
+                      )}
+                    >
+                      <ArrowRight className="size-4" />
+                    </Link>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-4 rounded-3xl border border-border bg-surface px-6 py-4 sm:rounded-full">
+                {highlights.map((h, i) => (
+                  <div key={h.label} className="flex items-center gap-2">
+                    <span
+                      className={cn(
+                        "flex size-8 items-center justify-center rounded-full",
+                        i % 2 === 0 ? "bg-leaf-gold/15 text-leaf-gold" : "bg-warm-amber/20 text-warm-amber"
+                      )}
+                    >
+                      <h.icon className="size-4" />
+                    </span>
+                    <span className="text-small font-semibold text-text-primary">{h.label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>

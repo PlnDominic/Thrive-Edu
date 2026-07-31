@@ -47,7 +47,7 @@ function CourseCard({ course, ribbon }: CourseCardProps) {
           <span>{course.format}</span>
         </div>
         <div className="flex items-center justify-between border-t border-border pt-4">
-          <span className="font-heading text-h4 font-bold text-text-primary">${course.price}</span>
+          <span className="font-heading text-h4 font-bold text-text-primary">₵{course.price}</span>
           <Button size="sm" className="rounded-full">
             Enroll now
           </Button>

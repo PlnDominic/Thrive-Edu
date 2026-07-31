@@ -51,9 +51,9 @@ function CourseCarouselCard({ course, badge }: CourseCarouselCardProps) {
         </div>
         <div className="mt-3 flex items-center justify-between">
           <div className="flex items-baseline gap-1.5">
-            <span className="font-heading text-body-lg font-bold text-text-primary">${course.price}</span>
+            <span className="font-heading text-body-lg font-bold text-text-primary">₵{course.price}</span>
             {course.compareAtPrice && (
-              <span className="text-caption text-text-secondary line-through">${course.compareAtPrice}</span>
+              <span className="text-caption text-text-secondary line-through">₵{course.compareAtPrice}</span>
             )}
           </div>
           <Link
