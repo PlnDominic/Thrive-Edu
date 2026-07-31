@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Inter_Tight } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
@@ -19,6 +19,11 @@ export const metadata: Metadata = {
   title: "THRIVE EDU | Design System",
   description:
     "A spatial, premium design system for THRIVE EDU: personalized learning journeys for students, parents, teachers, and school owners.",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 0.9,
 };
 
 export default function RootLayout({
