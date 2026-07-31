@@ -38,15 +38,19 @@ export default function CoursesPage() {
               title="Explore our courses"
               description="Live cohorts and self-paced tracks across Mathematics, Science, Language Arts, Arts & Music, Test Prep, and Life Skills, led by certified educators."
             />
-            <div className="relative mx-auto w-full max-w-xs lg:max-w-sm">
+            <div className="relative mx-auto flex w-full max-w-xs items-center justify-center lg:max-w-sm">
+              <span
+                className="absolute left-1/2 top-1/2 size-64 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-dashed border-growth-green/25 lg:size-80"
+                aria-hidden
+              />
               <span className="absolute -right-6 -top-6 -z-10 size-40 rounded-full bg-leaf-gold/15" aria-hidden />
               <Image
-                src="/images/courses-hero.jpg"
+                src="/images/courses-hero.png"
                 alt="A THRIVE EDU learner celebrating while studying on her laptop"
-                width={900}
-                height={1200}
+                width={453}
+                height={597}
                 priority
-                className="h-auto w-full drop-shadow-xl"
+                className="relative z-10 h-auto w-full drop-shadow-xl"
               />
             </div>
           </div>
