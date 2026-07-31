@@ -53,8 +53,8 @@ export default function AboutPage() {
               <Image
                 src="/images/about-founder.png"
                 alt="Dr. Abena Owusu, Founder and CEO of THRIVE EDU"
-                width={414}
-                height={1025}
+                width={566}
+                height={968}
                 priority
                 className="relative z-10 h-full w-auto drop-shadow-xl"
               />

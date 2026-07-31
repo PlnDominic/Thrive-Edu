@@ -35,8 +35,8 @@ function HeroVisual() {
       <Image
         src="/images/hero-student.png"
         alt="THRIVE EDU student celebrating a learning milestone"
-        width={462}
-        height={1005}
+        width={564}
+        height={970}
         priority
         className="relative z-10 h-full w-auto drop-shadow-xl"
       />
