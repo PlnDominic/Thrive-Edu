@@ -26,10 +26,12 @@ function SiteHeader() {
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
         <Link href="/" className="flex items-center gap-2.5" onClick={() => setOpen(false)}>
           <Image src="/thrive-edu-logo.png" alt="THRIVE EDU" width={32} height={32} />
-          <span className="font-heading text-h5 font-bold tracking-tight text-forest-green">THRIVE EDU</span>
+          <span className="font-heading text-h5 font-bold tracking-tight text-forest-green">
+            THRIVE EDU<span className="text-leaf-gold">.</span>
+          </span>
         </Link>
 
-        <nav aria-label="Primary" className="hidden items-center gap-8 md:flex">
+        <nav aria-label="Primary" className="hidden items-center gap-7 lg:flex">
           {navLinks.map((link) => {
             const active = pathname === link.href;
             return (
@@ -38,21 +40,22 @@ function SiteHeader() {
                 href={link.href}
                 aria-current={active ? "page" : undefined}
                 className={cn(
-                  "text-small font-medium text-text-secondary transition-colors hover:text-text-primary",
+                  "flex items-center gap-1.5 text-small font-medium text-text-secondary transition-colors hover:text-text-primary",
                   active && "font-semibold text-forest-green"
                 )}
               >
+                {active && <span className="size-1.5 rounded-full bg-forest-green" aria-hidden />}
                 {link.label}
               </Link>
             );
           })}
         </nav>
 
-        <div className="hidden items-center gap-3 md:flex">
+        <div className="hidden items-center gap-3 lg:flex">
           <Button variant="ghost" size="sm" asChild>
             <Link href="/dashboard/student">Student portal</Link>
           </Button>
-          <Button size="sm" asChild>
+          <Button size="sm" className="rounded-full" asChild>
             <Link href="/courses">Enroll now</Link>
           </Button>
         </div>
@@ -62,14 +65,14 @@ function SiteHeader() {
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           onClick={() => setOpen((o) => !o)}
-          className="flex size-11 items-center justify-center rounded-md text-text-primary transition-colors hover:bg-subtle-surface md:hidden"
+          className="flex size-11 items-center justify-center rounded-md text-text-primary transition-colors hover:bg-subtle-surface lg:hidden"
         >
           {open ? <X className="size-5" /> : <Menu className="size-5" />}
         </button>
       </div>
 
       {open && (
-        <div className="border-t border-border bg-surface px-6 py-4 md:hidden">
+        <div className="border-t border-border bg-surface px-6 py-4 lg:hidden">
           <nav aria-label="Primary" className="flex flex-col gap-1">
             {navLinks.map((link) => {
               const active = pathname === link.href;
@@ -90,10 +93,10 @@ function SiteHeader() {
             })}
           </nav>
           <div className="mt-3 flex flex-col gap-2 border-t border-border pt-3">
-            <Button variant="secondary" onClick={() => setOpen(false)} asChild>
+            <Button variant="secondary" className="rounded-full" onClick={() => setOpen(false)} asChild>
               <Link href="/dashboard/student">Student portal</Link>
             </Button>
-            <Button onClick={() => setOpen(false)} asChild>
+            <Button className="rounded-full" onClick={() => setOpen(false)} asChild>
               <Link href="/courses">Enroll now</Link>
             </Button>
           </div>

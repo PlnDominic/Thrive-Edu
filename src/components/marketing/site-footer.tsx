@@ -1,6 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import type { SVGProps } from "react";
+import { ArrowRight } from "lucide-react";
 
 function FacebookIcon(props: SVGProps<SVGSVGElement>) {
   return (
@@ -72,15 +75,41 @@ const socials = [
 
 function SiteFooter() {
   return (
-    <footer className="border-t border-border bg-subtle-surface">
-      <div className="mx-auto max-w-7xl px-6 py-16">
-        <div className="grid gap-10 md:grid-cols-[2fr_1fr_1fr_1fr]">
+    <footer className="bg-ink text-white">
+      <div className="mx-auto max-w-7xl px-6 py-14">
+        <div className="flex flex-col items-start justify-between gap-6 border-b border-ink-border pb-10 sm:flex-row sm:items-center">
+          <div>
+            <p className="font-heading text-h4 font-bold text-white">Get growth updates in your inbox</p>
+            <p className="mt-1 text-small text-white/60">New courses, learning tips, and platform updates. No spam.</p>
+          </div>
+          <form
+            className="flex w-full max-w-sm items-center gap-2 rounded-full border border-ink-border bg-ink-surface p-1.5 sm:w-auto"
+            onSubmit={(e) => e.preventDefault()}
+          >
+            <input
+              type="email"
+              required
+              placeholder="Enter your email"
+              aria-label="Email address"
+              className="h-10 min-w-0 flex-1 bg-transparent px-3 text-small text-white outline-none placeholder:text-white/40"
+            />
+            <button
+              type="submit"
+              className="flex size-10 shrink-0 items-center justify-center rounded-full bg-leaf-gold text-white transition-transform hover:scale-105"
+              aria-label="Subscribe"
+            >
+              <ArrowRight className="size-4" />
+            </button>
+          </form>
+        </div>
+
+        <div className="grid gap-10 pt-10 md:grid-cols-[2fr_1fr_1fr_1fr]">
           <div>
             <Link href="/" className="flex items-center gap-2.5">
               <Image src="/thrive-edu-logo.png" alt="THRIVE EDU" width={32} height={32} />
-              <span className="font-heading text-h5 font-bold tracking-tight text-forest-green">THRIVE EDU</span>
+              <span className="font-heading text-h5 font-bold tracking-tight text-white">THRIVE EDU</span>
             </Link>
-            <p className="mt-4 max-w-xs text-small text-text-secondary">
+            <p className="mt-4 max-w-xs text-small text-white/60">
               Every learner has a unique path to thrive. Personalized education for students, parents,
               teachers, and school owners.
             </p>
@@ -90,7 +119,7 @@ function SiteFooter() {
                   key={s.label}
                   href={s.href}
                   aria-label={s.label}
-                  className="flex size-9 items-center justify-center rounded-full border border-border bg-surface text-text-secondary transition-colors hover:border-growth-green/50 hover:text-forest-green"
+                  className="flex size-9 items-center justify-center rounded-full border border-ink-border text-white/70 transition-colors hover:border-leaf-gold hover:text-leaf-gold"
                 >
                   <s.icon className="size-4" />
                 </a>
@@ -100,11 +129,13 @@ function SiteFooter() {
 
           {columns.map((col) => (
             <div key={col.heading}>
-              <p className="mb-3 text-caption font-semibold uppercase tracking-wide text-text-secondary">{col.heading}</p>
+              <p className="mb-3 inline-flex rounded-full bg-ink-surface px-3 py-1 text-caption font-semibold uppercase tracking-wide text-leaf-gold">
+                {col.heading}
+              </p>
               <ul className="space-y-2.5">
                 {col.links.map((link) => (
                   <li key={link.label}>
-                    <Link href={link.href} className="text-small text-text-secondary transition-colors hover:text-forest-green">
+                    <Link href={link.href} className="text-small text-white/70 transition-colors hover:text-leaf-gold">
                       {link.label}
                     </Link>
                   </li>
@@ -114,7 +145,7 @@ function SiteFooter() {
           ))}
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-border pt-6 text-caption text-text-secondary sm:flex-row">
+        <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-ink-border pt-6 text-caption text-white/50 sm:flex-row">
           <p>© {new Date().getFullYear()} THRIVE EDU. All rights reserved.</p>
           <p>Accra, Ghana · hello@thriveedu.org</p>
         </div>

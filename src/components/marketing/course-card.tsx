@@ -3,20 +3,28 @@ import { Star, Users } from "lucide-react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { WishlistButton } from "@/components/marketing/wishlist-button";
 import { cn } from "@/lib/utils";
 import { subjectColors, type Course } from "@/lib/courses-data";
 
 export interface CourseCardProps {
   course: Course;
+  ribbon?: "Bestseller" | "New";
 }
 
-function CourseCard({ course }: CourseCardProps) {
+function CourseCard({ course, ribbon }: CourseCardProps) {
   const Icon = course.icon;
 
   return (
-    <Card interactive elevation={2} className="flex flex-col overflow-hidden">
-      <div className={cn("flex h-32 items-center justify-center", subjectColors[course.subject])}>
-        <Icon className="size-11 text-white" />
+    <Card interactive elevation={2} className="group flex flex-col overflow-hidden">
+      <div className={cn("relative flex h-32 items-center justify-center overflow-hidden", subjectColors[course.subject])}>
+        {ribbon && (
+          <span className="absolute left-3 top-3 z-10 rounded-full bg-white px-2.5 py-1 text-caption font-bold uppercase tracking-wide text-forest-green shadow-elevation-1">
+            {ribbon}
+          </span>
+        )}
+        <WishlistButton label={course.title} />
+        <Icon className="size-11 text-white transition-transform duration-300 group-hover:scale-110" />
       </div>
       <CardHeader className="pb-2">
         <div className="mb-1 flex items-center gap-2">
@@ -40,7 +48,9 @@ function CourseCard({ course }: CourseCardProps) {
         </div>
         <div className="flex items-center justify-between border-t border-border pt-4">
           <span className="font-heading text-h4 font-bold text-text-primary">${course.price}</span>
-          <Button size="sm">Enroll now</Button>
+          <Button size="sm" className="rounded-full">
+            Enroll now
+          </Button>
         </div>
       </CardContent>
     </Card>

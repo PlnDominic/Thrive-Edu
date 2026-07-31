@@ -1,11 +1,13 @@
 import Link from "next/link";
 import {
   ArrowRight,
+  ArrowUpRight,
   BarChart3,
   BookOpen,
   GraduationCap,
   HeartHandshake,
   LineChart,
+  Play,
   Sparkles,
   UserCog,
   Users,
@@ -13,10 +15,10 @@ import {
 
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { SectionHeading } from "@/components/marketing/section-heading";
 import { CourseCard } from "@/components/marketing/course-card";
-import { StudentCard } from "@/components/cards/student-card";
-import { AnalyticsCard } from "@/components/cards/analytics-card";
+import { HeroVisual } from "@/components/marketing/hero-visual";
 import { courses } from "@/lib/courses-data";
 
 const audiences = [
@@ -98,69 +100,73 @@ export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden">
-        <div
-          className="pointer-events-none absolute -left-32 -top-32 size-96 rounded-full bg-growth-green/10 blur-3xl"
-          aria-hidden
-        />
-        <div
-          className="pointer-events-none absolute -right-24 top-40 size-80 rounded-full bg-leaf-gold/10 blur-3xl"
-          aria-hidden
-        />
-        <div className="relative mx-auto grid max-w-7xl gap-12 px-6 py-20 lg:grid-cols-2 lg:items-center lg:py-28">
-          <div>
-            <Badge variant="primary" className="mb-6">
-              Personalized education, reimagined
-            </Badge>
-            <h1 className="font-heading text-h2 font-bold tracking-tight text-text-primary sm:text-h1 lg:text-display">
-              Every learner has a unique path to thrive.
-            </h1>
-            <p className="mt-6 max-w-lg text-body-lg text-text-secondary">
-              THRIVE EDU is an education technology organization building personalized learning journeys for
-              students, parents, teachers, and school owners, grounded in growth, guidance, and trust.
-            </p>
-            <div className="mt-8 flex flex-wrap items-center gap-3">
-              <Button size="lg" asChild>
-                <Link href="/courses">
-                  Browse courses
-                  <ArrowRight className="size-4" />
+      <section className="px-3 pt-3 sm:px-5 sm:pt-5">
+        <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[1.75rem] bg-surface shadow-elevation-2 sm:rounded-[2.25rem]">
+          <div className="relative grid gap-10 px-6 py-14 sm:px-10 sm:py-16 lg:grid-cols-2 lg:items-center lg:gap-8 lg:px-16 lg:py-20">
+            <div>
+              <Badge variant="primary" className="mb-6">
+                <span className="size-1.5 rounded-full bg-forest-green" />
+                Personalized education, reimagined
+              </Badge>
+              <h1 className="font-heading text-h2 font-bold leading-[1.05] tracking-tight text-text-primary sm:text-h1 lg:text-display">
+                Every learner
+                <br />
+                has a path to
+                <br />
+                <span className="text-growth-green">thrive.</span>
+              </h1>
+              <p className="mt-6 max-w-lg text-body-lg text-text-secondary">
+                THRIVE EDU is an education technology organization building personalized learning journeys for
+                students, parents, teachers, and school owners, grounded in growth, guidance, and trust.
+              </p>
+              <div className="mt-8 flex flex-wrap items-center gap-4">
+                <Button size="lg" className="rounded-full" asChild>
+                  <Link href="/courses">
+                    Start learning
+                    <ArrowUpRight className="size-4" />
+                  </Link>
+                </Button>
+                <Link href="#how-it-works" className="group flex items-center gap-3">
+                  <span className="flex size-12 items-center justify-center rounded-full bg-leaf-gold text-white transition-transform duration-200 group-hover:scale-105">
+                    <Play className="size-4 fill-white" />
+                  </span>
+                  <span className="text-small font-semibold text-text-primary">How it works</span>
                 </Link>
-              </Button>
-              <Button size="lg" variant="secondary" asChild>
-                <Link href="/contact">Talk to our team</Link>
-              </Button>
-            </div>
-            <dl className="mt-12 grid grid-cols-2 gap-6 sm:grid-cols-4">
-              {stats.map((s) => (
-                <div key={s.label}>
-                  <dt className="sr-only">{s.label}</dt>
-                  <dd className="font-heading text-h4 font-bold text-text-primary sm:text-h3">{s.value}</dd>
-                  <p className="mt-1 text-caption text-text-secondary">{s.label}</p>
+              </div>
+              <div className="mt-10 flex items-center gap-3">
+                <div className="flex -space-x-3">
+                  {["AB", "KA", "EM", "NY"].map((initials) => (
+                    <Avatar key={initials} className="size-9 border-2 border-surface">
+                      <AvatarFallback className="text-caption">{initials}</AvatarFallback>
+                    </Avatar>
+                  ))}
                 </div>
-              ))}
-            </dl>
-          </div>
+                <p className="text-small text-text-secondary">
+                  <span className="font-semibold text-text-primary">12,400+</span> learners growing with us
+                </p>
+              </div>
+            </div>
 
-          <div className="relative hidden lg:block">
-            <div className="absolute -left-6 top-10 w-64 rotate-[-6deg] opacity-90">
-              <AnalyticsCard title="Weekly engagement" value="86%" changePercent={4.2} data={[62, 68, 64, 74, 78, 82, 86]} />
-            </div>
-            <div className="relative ml-20 w-80 rotate-[3deg]">
-              <StudentCard
-                name="Amara Boateng"
-                grade="Grade 9 · Section A"
-                progress={72}
-                attendance={96}
-                averageScore={88}
-                status="excelling"
-              />
-            </div>
+            <HeroVisual />
           </div>
+        </div>
+
+        {/* Stats band, overlapping the hero card */}
+        <div className="relative z-10 mx-auto -mt-6 max-w-5xl px-2 sm:-mt-8">
+          <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl bg-ink-border shadow-elevation-3 sm:grid-cols-4">
+            {stats.map((s) => (
+              <div key={s.label} className="bg-ink px-4 py-6 text-center sm:px-6">
+                <dt className="sr-only">{s.label}</dt>
+                <dd className="font-heading text-h4 font-bold text-white sm:text-h3">{s.value}</dd>
+                <p className="mt-1 text-caption text-white/60">{s.label}</p>
+              </div>
+            ))}
+          </dl>
         </div>
       </section>
 
       {/* Who we serve */}
-      <section className="border-t border-border bg-subtle-surface py-20">
+      <section className="py-24">
         <div className="mx-auto max-w-7xl px-6">
           <SectionHeading
             eyebrow="Built for every role"
@@ -172,9 +178,9 @@ export default function HomePage() {
               <Link
                 key={a.title}
                 href={a.href}
-                className="group flex flex-col gap-4 rounded-lg border border-border bg-surface p-6 shadow-elevation-1 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-elevation-2"
+                className="group flex flex-col gap-4 rounded-2xl border border-border bg-surface p-6 shadow-elevation-1 transition-all duration-200 hover:-translate-y-1 hover:shadow-elevation-3"
               >
-                <span className="flex size-11 items-center justify-center rounded-md bg-primary/10 text-forest-green">
+                <span className="flex size-12 items-center justify-center rounded-xl bg-primary/10 text-forest-green transition-colors group-hover:bg-forest-green group-hover:text-white">
                   <a.icon className="size-5" />
                 </span>
                 <div>
@@ -191,7 +197,7 @@ export default function HomePage() {
       </section>
 
       {/* Why THRIVE EDU */}
-      <section className="py-20">
+      <section className="border-t border-border bg-subtle-surface py-24">
         <div className="mx-auto max-w-7xl px-6">
           <SectionHeading
             eyebrow="Why THRIVE EDU"
@@ -214,8 +220,19 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Statement band */}
+      <div className="border-y-2 border-text-primary bg-background py-12 sm:py-16">
+        <p className="flex flex-wrap items-center justify-center gap-3 px-6 text-center font-heading text-h3 font-bold uppercase tracking-tight text-text-primary sm:gap-4 sm:text-h2 lg:text-h1">
+          <span>Grow</span>
+          <Sparkles className="size-5 shrink-0 text-leaf-gold sm:size-7" aria-hidden />
+          <span>Guide</span>
+          <Sparkles className="size-5 shrink-0 text-leaf-gold sm:size-7" aria-hidden />
+          <span className="text-growth-green">Thrive</span>
+        </p>
+      </div>
+
       {/* Featured courses */}
-      <section className="border-t border-border bg-subtle-surface py-20">
+      <section className="py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <SectionHeading
@@ -223,7 +240,7 @@ export default function HomePage() {
               title="Featured courses"
               description="A sample of the live and self-paced courses available across every subject."
             />
-            <Button variant="secondary" asChild>
+            <Button variant="secondary" className="rounded-full" asChild>
               <Link href="/courses">
                 View all courses
                 <ArrowRight className="size-4" />
@@ -231,20 +248,20 @@ export default function HomePage() {
             </Button>
           </div>
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {courses.slice(0, 3).map((course) => (
-              <CourseCard key={course.id} course={course} />
+            {courses.slice(0, 3).map((course, i) => (
+              <CourseCard key={course.id} course={course} ribbon={i === 0 ? "Bestseller" : undefined} />
             ))}
           </div>
         </div>
       </section>
 
       {/* Testimonials */}
-      <section className="py-20">
+      <section className="border-t border-border bg-subtle-surface py-24">
         <div className="mx-auto max-w-7xl px-6">
           <SectionHeading eyebrow="From our community" title="Trusted by families, teachers, and schools" align="center" className="mx-auto" />
           <div className="mt-10 grid gap-6 md:grid-cols-3">
             {testimonials.map((t) => (
-              <figure key={t.name} className="flex flex-col gap-4 rounded-lg border border-border bg-surface p-6 shadow-elevation-1">
+              <figure key={t.name} className="flex flex-col gap-4 rounded-2xl border border-border bg-surface p-6 shadow-elevation-1">
                 <blockquote className="flex-1 text-small text-text-primary">&ldquo;{t.quote}&rdquo;</blockquote>
                 <figcaption>
                   <p className="text-small font-semibold text-text-primary">{t.name}</p>
@@ -266,13 +283,13 @@ export default function HomePage() {
             achievement with THRIVE EDU.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3">
-            <Button size="lg" variant="accent" asChild>
+            <Button size="lg" variant="accent" className="rounded-full" asChild>
               <Link href="/courses">Browse courses</Link>
             </Button>
             <Button
               size="lg"
               variant="secondary"
-              className="border-white/40 bg-white/10 text-white hover:bg-white/20"
+              className="rounded-full border-white/40 bg-white/10 text-white hover:bg-white/20"
               asChild
             >
               <Link href="/contact">Talk to our team</Link>

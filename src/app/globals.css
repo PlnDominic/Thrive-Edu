@@ -24,6 +24,11 @@
   --color-text-primary: #162114;
   --color-text-secondary: #5e695b;
 
+  /* Ink: bold dark editorial sections (footer, statement bands) */
+  --color-ink: #101c0d;
+  --color-ink-surface: #1a2916;
+  --color-ink-border: #2a3a25;
+
   /* Semantic */
   --color-success: #2e7d32;
   --color-warning: #e8a23a;
@@ -65,6 +70,10 @@
   --color-border: var(--color-border);
   --color-text-primary: var(--color-text-primary);
   --color-text-secondary: var(--color-text-secondary);
+
+  --color-ink: var(--color-ink);
+  --color-ink-surface: var(--color-ink-surface);
+  --color-ink-border: var(--color-ink-border);
 
   --color-success: var(--color-success);
   --color-warning: var(--color-warning);

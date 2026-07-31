@@ -2,11 +2,19 @@
 
 import * as React from "react";
 import * as TabsPrimitive from "@radix-ui/react-tabs";
+import { Clock } from "lucide-react";
+import Link from "next/link";
 
 import { SectionHeading } from "@/components/marketing/section-heading";
 import { CourseCard } from "@/components/marketing/course-card";
 import { cn } from "@/lib/utils";
-import { courses, subjects } from "@/lib/courses-data";
+import { courses, subjects, type Course } from "@/lib/courses-data";
+
+const ribbons: Partial<Record<Course["id"], "Bestseller" | "New">> = {
+  "standardized-test-prep-intensive": "Bestseller",
+  "creative-writing-workshop": "Bestseller",
+  "financial-literacy-for-teens": "New",
+};
 
 export default function CoursesPage() {
   const [subject, setSubject] = React.useState<string>("All");
@@ -15,6 +23,16 @@ export default function CoursesPage() {
 
   return (
     <>
+      <div className="bg-leaf-gold">
+        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-2 px-6 py-3 text-center text-small font-semibold text-white">
+          <Clock className="size-4 shrink-0" />
+          <span>Fall cohort enrollment closes in 5 days. Save your seat today.</span>
+          <Link href="/contact" className="underline underline-offset-2 hover:no-underline">
+            Talk to admissions
+          </Link>
+        </div>
+      </div>
+
       <section className="border-b border-border bg-subtle-surface py-16">
         <div className="mx-auto max-w-7xl px-6">
           <SectionHeading
@@ -51,7 +69,7 @@ export default function CoursesPage() {
               {filtered.length > 0 ? (
                 <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                   {filtered.map((course) => (
-                    <CourseCard key={course.id} course={course} />
+                    <CourseCard key={course.id} course={course} ribbon={ribbons[course.id]} />
                   ))}
                 </div>
               ) : (
