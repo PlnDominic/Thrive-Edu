@@ -3,6 +3,7 @@
 import * as React from "react";
 import * as TabsPrimitive from "@radix-ui/react-tabs";
 import { Clock } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 import { SectionHeading } from "@/components/marketing/section-heading";
@@ -48,11 +49,24 @@ export default function CoursesPage() {
 
       <section className="border-b border-border bg-subtle-surface py-16">
         <div className="mx-auto max-w-7xl px-6">
-          <SectionHeading
-            eyebrow="Storefront"
-            title="Explore our courses"
-            description="Live cohorts and self-paced tracks across Mathematics, Science, Language Arts, Arts & Music, Test Prep, and Life Skills, led by certified educators."
-          />
+          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+            <SectionHeading
+              eyebrow="Storefront"
+              title="Explore our courses"
+              description="Live cohorts and self-paced tracks across Mathematics, Science, Language Arts, Arts & Music, Test Prep, and Life Skills, led by certified educators."
+            />
+            <div className="relative mx-auto w-full max-w-xs lg:max-w-sm">
+              <span className="absolute -right-6 -top-6 -z-10 size-40 rounded-full bg-leaf-gold/15" aria-hidden />
+              <Image
+                src="/images/courses-hero.jpg"
+                alt="A THRIVE EDU learner celebrating while studying on her laptop"
+                width={900}
+                height={1200}
+                priority
+                className="h-auto w-full drop-shadow-xl"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
