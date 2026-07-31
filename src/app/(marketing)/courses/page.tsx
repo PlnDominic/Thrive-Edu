@@ -2,33 +2,16 @@
 
 import * as React from "react";
 import * as TabsPrimitive from "@radix-ui/react-tabs";
-import { Clock } from "lucide-react";
+import { Clock, GraduationCap } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 import { SectionHeading } from "@/components/marketing/section-heading";
 import { CourseCard } from "@/components/marketing/course-card";
 import { CourseCarousel } from "@/components/marketing/course-carousel";
+import { EmptyState } from "@/components/feedback/empty-state";
 import { cn } from "@/lib/utils";
-import { courses, subjects, type Course } from "@/lib/courses-data";
-
-const ribbons: Partial<Record<Course["id"], "Bestseller" | "New">> = {
-  "standardized-test-prep-intensive": "Bestseller",
-  "creative-writing-workshop": "Bestseller",
-  "financial-literacy-for-teens": "New",
-};
-
-const newArrivalIds = [
-  "financial-literacy-for-teens",
-  "geometry-in-motion",
-  "biology-lab-explorers",
-  "music-theory-and-performance",
-  "world-literature-journeys",
-  "studio-arts-foundations",
-];
-const newArrivals = newArrivalIds
-  .map((id) => courses.find((c) => c.id === id))
-  .filter((c): c is Course => Boolean(c));
+import { courses, subjects } from "@/lib/courses-data";
 
 export default function CoursesPage() {
   const [subject, setSubject] = React.useState<string>("All");
@@ -70,17 +53,19 @@ export default function CoursesPage() {
         </div>
       </section>
 
-      <section className="border-b border-border py-16">
-        <div className="mx-auto max-w-7xl px-6">
-          <CourseCarousel
-            eyebrow="Just added"
-            title="New this month"
-            viewAllHref="#all-courses"
-            courses={newArrivals}
-            badge="New"
-          />
-        </div>
-      </section>
+      {courses.length > 0 && (
+        <section className="border-b border-border py-16">
+          <div className="mx-auto max-w-7xl px-6">
+            <CourseCarousel
+              eyebrow="Just added"
+              title="New this month"
+              viewAllHref="#all-courses"
+              courses={courses.slice(0, 6)}
+              badge="New"
+            />
+          </div>
+        </section>
+      )}
 
       <section id="all-courses" className="py-16">
         <div className="mx-auto max-w-7xl px-6">
@@ -108,13 +93,15 @@ export default function CoursesPage() {
               {filtered.length > 0 ? (
                 <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                   {filtered.map((course) => (
-                    <CourseCard key={course.id} course={course} ribbon={ribbons[course.id]} />
+                    <CourseCard key={course.id} course={course} />
                   ))}
                 </div>
               ) : (
-                <p className="py-16 text-center text-body text-text-secondary">
-                  No courses in this subject yet. Check back soon.
-                </p>
+                <EmptyState
+                  icon={GraduationCap}
+                  title="No courses here yet"
+                  description="Our team is building out the course catalog. New live cohorts and self-paced tracks will appear here soon."
+                />
               )}
             </TabsPrimitive.Content>
           </TabsPrimitive.Root>

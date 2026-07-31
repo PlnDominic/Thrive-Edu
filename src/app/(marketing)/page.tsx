@@ -25,6 +25,7 @@ import { cn } from "@/lib/utils";
 import { SectionHeading } from "@/components/marketing/section-heading";
 import { CourseCard } from "@/components/marketing/course-card";
 import { HeroVisual } from "@/components/marketing/hero-visual";
+import { EmptyState } from "@/components/feedback/empty-state";
 import { courses } from "@/lib/courses-data";
 
 const audiences = [
@@ -381,11 +382,21 @@ export default function HomePage() {
               </Link>
             </Button>
           </div>
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {courses.slice(0, 3).map((course, i) => (
-              <CourseCard key={course.id} course={course} ribbon={i === 0 ? "Bestseller" : undefined} />
-            ))}
-          </div>
+          {courses.length > 0 ? (
+            <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {courses.slice(0, 3).map((course, i) => (
+                <CourseCard key={course.id} course={course} ribbon={i === 0 ? "Bestseller" : undefined} />
+              ))}
+            </div>
+          ) : (
+            <div className="mt-10">
+              <EmptyState
+                icon={GraduationCap}
+                title="Courses coming soon"
+                description="Our course catalog is being finalized. Check back shortly to browse live cohorts and self-paced tracks."
+              />
+            </div>
+          )}
         </div>
       </section>
 
