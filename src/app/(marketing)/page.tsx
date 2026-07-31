@@ -9,18 +9,14 @@ import {
   ChevronsRight,
   GraduationCap,
   HeartHandshake,
-  LayoutDashboard,
   Leaf,
   LineChart,
   Play,
   Sparkles,
-  Star,
-  User,
   Users,
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import { SectionHeading } from "@/components/marketing/section-heading";
 import { CourseCard } from "@/components/marketing/course-card";
@@ -53,13 +49,6 @@ const audiences = [
     icon: Building2,
     href: "/contact",
   },
-];
-
-const highlights = [
-  { label: "Personalized Learning", icon: User },
-  { label: "Smart Insights", icon: BarChart3 },
-  { label: "Unified Experience", icon: LayoutDashboard },
-  { label: "Better Outcomes", icon: Star },
 ];
 
 const valueProps = [
@@ -118,10 +107,6 @@ export default function HomePage() {
         <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[1.75rem] bg-surface shadow-elevation-2 sm:rounded-[2.25rem]">
           <div className="relative grid gap-10 px-6 py-14 sm:px-10 sm:py-16 lg:grid-cols-2 lg:items-center lg:gap-8 lg:px-16 lg:py-20">
             <div>
-              <Badge variant="primary" className="mb-6">
-                <span className="size-1.5 rounded-full bg-forest-green" />
-                Personalized education, reimagined
-              </Badge>
               <h1 className="font-heading text-h2 font-bold leading-[1.05] tracking-tight text-text-primary sm:text-h1 lg:text-display">
                 Every learner
                 <br />
@@ -134,7 +119,7 @@ export default function HomePage() {
                 students, parents, teachers, and school owners, grounded in growth, guidance, and trust.
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-4">
-                <Button size="lg" className="rounded-full" asChild>
+                <Button size="lg" className="rounded-full text-white" asChild>
                   <Link href="/courses">
                     Start learning
                     <ArrowUpRight className="size-4" />
@@ -248,21 +233,6 @@ export default function HomePage() {
                 ))}
               </div>
 
-              <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-4 rounded-3xl border border-border bg-surface px-6 py-4 sm:rounded-full">
-                {highlights.map((h, i) => (
-                  <div key={h.label} className="flex items-center gap-2">
-                    <span
-                      className={cn(
-                        "flex size-8 items-center justify-center rounded-full",
-                        i % 2 === 0 ? "bg-leaf-gold/15 text-leaf-gold" : "bg-warm-amber/20 text-warm-amber"
-                      )}
-                    >
-                      <h.icon className="size-4" />
-                    </span>
-                    <span className="text-small font-semibold text-text-primary">{h.label}</span>
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
         </div>

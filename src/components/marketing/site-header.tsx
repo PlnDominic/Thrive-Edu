@@ -55,7 +55,7 @@ function SiteHeader() {
           <Button variant="ghost" size="sm" asChild>
             <Link href="/dashboard/student">Student portal</Link>
           </Button>
-          <Button size="sm" className="rounded-full" asChild>
+          <Button size="sm" className="rounded-full text-white" asChild>
             <Link href="/courses">Enroll now</Link>
           </Button>
         </div>
@@ -96,7 +96,7 @@ function SiteHeader() {
             <Button variant="secondary" className="rounded-full" onClick={() => setOpen(false)} asChild>
               <Link href="/dashboard/student">Student portal</Link>
             </Button>
-            <Button className="rounded-full" onClick={() => setOpen(false)} asChild>
+            <Button className="rounded-full text-white" onClick={() => setOpen(false)} asChild>
               <Link href="/courses">Enroll now</Link>
             </Button>
           </div>

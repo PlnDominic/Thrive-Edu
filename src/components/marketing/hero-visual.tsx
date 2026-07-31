@@ -55,10 +55,10 @@ function HeroVisual() {
       {/* Floating card: student review */}
       <div className="absolute -bottom-5 left-1/2 z-20 flex w-60 -translate-x-1/2 items-center gap-3 rounded-2xl border border-border bg-surface px-4 py-3 shadow-elevation-3 sm:-bottom-6 sm:left-0 sm:w-64 sm:translate-x-0">
         <Avatar className="size-10 shrink-0">
-          <AvatarFallback>AB</AvatarFallback>
+          <AvatarFallback>DB</AvatarFallback>
         </Avatar>
         <div className="min-w-0">
-          <p className="truncate text-small font-semibold text-text-primary">Amara Boateng</p>
+          <p className="truncate text-small font-semibold text-text-primary">Dominic Boateng</p>
           <p className="text-caption text-text-secondary">Student</p>
           <div className="mt-0.5 flex gap-0.5" aria-hidden>
             {Array.from({ length: 5 }).map((_, i) => (
