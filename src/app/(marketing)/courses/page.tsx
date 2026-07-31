@@ -7,6 +7,7 @@ import Link from "next/link";
 
 import { SectionHeading } from "@/components/marketing/section-heading";
 import { CourseCard } from "@/components/marketing/course-card";
+import { CourseCarousel } from "@/components/marketing/course-carousel";
 import { cn } from "@/lib/utils";
 import { courses, subjects, type Course } from "@/lib/courses-data";
 
@@ -15,6 +16,18 @@ const ribbons: Partial<Record<Course["id"], "Bestseller" | "New">> = {
   "creative-writing-workshop": "Bestseller",
   "financial-literacy-for-teens": "New",
 };
+
+const newArrivalIds = [
+  "financial-literacy-for-teens",
+  "geometry-in-motion",
+  "biology-lab-explorers",
+  "music-theory-and-performance",
+  "world-literature-journeys",
+  "studio-arts-foundations",
+];
+const newArrivals = newArrivalIds
+  .map((id) => courses.find((c) => c.id === id))
+  .filter((c): c is Course => Boolean(c));
 
 export default function CoursesPage() {
   const [subject, setSubject] = React.useState<string>("All");
@@ -43,7 +56,19 @@ export default function CoursesPage() {
         </div>
       </section>
 
-      <section className="py-16">
+      <section className="border-b border-border py-16">
+        <div className="mx-auto max-w-7xl px-6">
+          <CourseCarousel
+            eyebrow="Just added"
+            title="New this month"
+            viewAllHref="#all-courses"
+            courses={newArrivals}
+            badge="New"
+          />
+        </div>
+      </section>
+
+      <section id="all-courses" className="py-16">
         <div className="mx-auto max-w-7xl px-6">
           <TabsPrimitive.Root value={subject} onValueChange={setSubject}>
             <TabsPrimitive.List

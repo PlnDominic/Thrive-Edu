@@ -26,6 +26,7 @@ export interface Course {
   format: "Live cohort" | "Self-paced";
   description: string;
   price: number;
+  compareAtPrice?: number;
   rating: number;
   studentsEnrolled: number;
   icon: LucideIcon;
@@ -61,6 +62,7 @@ export const courses: Course[] = [
     format: "Self-paced",
     description: "Explore shapes, proofs, and spatial reasoning through interactive, real-world problem sets.",
     price: 79,
+    compareAtPrice: 99,
     rating: 4.7,
     studentsEnrolled: 860,
     icon: Target,
@@ -157,6 +159,7 @@ export const courses: Course[] = [
     format: "Self-paced",
     description: "Practical lessons on budgeting, saving, and smart money habits for young learners.",
     price: 59,
+    compareAtPrice: 79,
     rating: 4.8,
     studentsEnrolled: 601,
     icon: Sparkles,
