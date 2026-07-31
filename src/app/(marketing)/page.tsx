@@ -4,6 +4,7 @@ import {
   ArrowUpRight,
   BarChart3,
   BookOpen,
+  ChevronsRight,
   GraduationCap,
   HeartHandshake,
   LineChart,
@@ -15,7 +16,6 @@ import {
 
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { SectionHeading } from "@/components/marketing/section-heading";
 import { CourseCard } from "@/components/marketing/course-card";
 import { HeroVisual } from "@/components/marketing/hero-visual";
@@ -133,18 +133,6 @@ export default function HomePage() {
                   <span className="text-small font-semibold text-text-primary">How it works</span>
                 </Link>
               </div>
-              <div className="mt-10 flex items-center gap-3">
-                <div className="flex -space-x-3">
-                  {["AB", "KA", "EM", "NY"].map((initials) => (
-                    <Avatar key={initials} className="size-9 border-2 border-surface">
-                      <AvatarFallback className="text-caption">{initials}</AvatarFallback>
-                    </Avatar>
-                  ))}
-                </div>
-                <p className="text-small text-text-secondary">
-                  <span className="font-semibold text-text-primary">12,400+</span> learners growing with us
-                </p>
-              </div>
             </div>
 
             <HeroVisual />
@@ -197,25 +185,88 @@ export default function HomePage() {
       </section>
 
       {/* Why THRIVE EDU */}
-      <section className="border-t border-border bg-subtle-surface py-24">
+      <section className="relative overflow-hidden bg-ink py-24">
+        <div
+          className="absolute inset-x-0 top-0 h-3"
+          style={{
+            backgroundImage:
+              "repeating-linear-gradient(45deg, var(--color-growth-green) 0 10px, transparent 10px 20px)",
+          }}
+          aria-hidden
+        />
+        <div
+          className="absolute inset-x-0 bottom-0 h-3"
+          style={{
+            backgroundImage:
+              "repeating-linear-gradient(45deg, var(--color-growth-green) 0 10px, transparent 10px 20px)",
+          }}
+          aria-hidden
+        />
+
         <div className="mx-auto max-w-7xl px-6">
-          <SectionHeading
-            eyebrow="Why THRIVE EDU"
-            title="Calm, intelligent tools for real growth"
-            description="No dense dashboards or gamified noise. Just clear signals that help people make good decisions."
-          />
-          <div className="mt-10 grid gap-8 sm:grid-cols-2">
-            {valueProps.map((v) => (
-              <div key={v.title} className="flex gap-4">
-                <span className="flex size-11 shrink-0 items-center justify-center rounded-md bg-primary/10 text-forest-green">
-                  <v.icon className="size-5" />
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <div>
+              <div className="mb-4 flex items-center gap-2">
+                <span className="flex size-6 items-center justify-center rounded-full bg-leaf-gold">
+                  <ChevronsRight className="size-3.5 text-ink" />
                 </span>
-                <div>
-                  <p className="font-heading text-h5 font-semibold text-text-primary">{v.title}</p>
-                  <p className="mt-1.5 text-small text-text-secondary">{v.description}</p>
-                </div>
+                <span className="text-caption font-semibold uppercase tracking-wide text-white/70">
+                  Why THRIVE EDU
+                </span>
               </div>
-            ))}
+              <h2 className="font-heading text-h2 font-bold leading-[1.1] text-white sm:text-h1">
+                Calm, Intelligent Tools
+                <br />
+                for Real Growth
+              </h2>
+            </div>
+            <Button className="rounded-full bg-white text-ink hover:bg-white/90" asChild>
+              <Link href="/about">
+                View all benefits
+                <ArrowRight className="size-4" />
+              </Link>
+            </Button>
+          </div>
+
+          <div className="mt-14 grid gap-6 lg:grid-cols-3">
+            <div className="group overflow-hidden rounded-2xl">
+              <div className="flex h-56 items-center justify-center bg-ink-surface transition-colors duration-200 group-hover:bg-ink-border">
+                <Sparkles className="size-12 text-white/20" />
+              </div>
+              <div className="bg-ink-surface p-6">
+                <p className="font-heading text-h5 font-semibold text-white">{valueProps[0].title}</p>
+                <p className="mt-2 text-small text-white/60">{valueProps[0].description}</p>
+                <span className="mt-4 inline-flex items-center gap-1 text-small font-semibold text-leaf-gold">
+                  Learn more <ArrowRight className="size-3.5" />
+                </span>
+              </div>
+            </div>
+
+            <div className="lg:mt-10">
+              <div className="rounded-2xl bg-leaf-gold p-6">
+                <p className="font-heading text-h5 font-semibold text-ink">{valueProps[1].title}</p>
+                <p className="mt-2 text-small text-ink/70">{valueProps[1].description}</p>
+                <span className="mt-4 inline-flex items-center gap-1 text-small font-semibold text-ink">
+                  Learn more <ArrowRight className="size-3.5" />
+                </span>
+              </div>
+              <div className="mt-4 flex h-56 items-center justify-center rounded-2xl bg-ink-surface">
+                <LineChart className="size-12 text-white/20" />
+              </div>
+            </div>
+
+            <div className="group overflow-hidden rounded-2xl">
+              <div className="flex h-56 items-center justify-center bg-ink-surface transition-colors duration-200 group-hover:bg-ink-border">
+                <BookOpen className="size-12 text-white/20" />
+              </div>
+              <div className="bg-ink-surface p-6">
+                <p className="font-heading text-h5 font-semibold text-white">{valueProps[2].title}</p>
+                <p className="mt-2 text-small text-white/60">{valueProps[2].description}</p>
+                <span className="mt-4 inline-flex items-center gap-1 text-small font-semibold text-leaf-gold">
+                  Learn more <ArrowRight className="size-3.5" />
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
