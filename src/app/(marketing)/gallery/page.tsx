@@ -1,3 +1,4 @@
+import Image from "next/image";
 import {
   Award,
   BookOpen,
@@ -19,13 +20,28 @@ interface GalleryItem {
   icon: LucideIcon;
   color: string;
   height: string;
+  photo?: string;
 }
 
 const galleryItems: GalleryItem[] = [
-  { title: "Science fair finals", category: "STEM", icon: FlaskConical, color: "bg-forest-green", height: "h-80" },
+  {
+    title: "Science fair finals",
+    category: "STEM",
+    icon: FlaskConical,
+    color: "bg-forest-green",
+    height: "h-80",
+    photo: "/images/gallery-science-fair.jpg",
+  },
   { title: "Graduation day", category: "Milestones", icon: GraduationCap, color: "bg-deep-green", height: "h-56" },
   { title: "Reading circle", category: "Language Arts", icon: BookOpen, color: "bg-growth-green", height: "h-64" },
-  { title: "Studio arts showcase", category: "Arts & Music", icon: Palette, color: "bg-leaf-gold", height: "h-72" },
+  {
+    title: "Studio arts showcase",
+    category: "Arts & Music",
+    icon: Palette,
+    color: "bg-leaf-gold",
+    height: "h-72",
+    photo: "/images/gallery-studio-arts.jpg",
+  },
   { title: "Small-group tutoring", category: "Classroom", icon: Users, color: "bg-leaf-green", height: "h-56" },
   { title: "Spring recital", category: "Arts & Music", icon: Music, color: "bg-warm-amber", height: "h-64" },
   { title: "Achievement day", category: "Milestones", icon: Award, color: "bg-deep-green", height: "h-72" },
@@ -60,11 +76,21 @@ export default function GalleryPage() {
                   item.color
                 )}
               >
-                <item.icon
-                  className="absolute right-4 top-4 size-8 text-white/25 transition-transform duration-200 group-hover:scale-110"
-                  aria-hidden
-                />
-                <div className="relative w-full bg-gradient-to-t from-black/60 to-transparent p-5">
+                {item.photo ? (
+                  <Image
+                    src={item.photo}
+                    alt={item.title}
+                    fill
+                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                ) : (
+                  <item.icon
+                    className="absolute right-4 top-4 size-8 text-white/25 transition-transform duration-200 group-hover:scale-110"
+                    aria-hidden
+                  />
+                )}
+                <div className="relative w-full bg-gradient-to-t from-black/70 to-transparent p-5">
                   <p className="text-caption font-semibold uppercase tracking-wide text-white/70">{item.category}</p>
                   <p className="mt-1 font-heading text-body-lg font-semibold text-white">{item.title}</p>
                 </div>
