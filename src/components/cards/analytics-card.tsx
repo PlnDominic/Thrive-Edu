@@ -45,7 +45,7 @@ function AnalyticsCard({ title, value, changePercent, data, className }: Analyti
       </CardHeader>
       <CardContent className="pt-0">
         <div className="mb-1 flex items-end justify-between">
-          <p className="font-heading text-h2 font-bold text-text-primary">{value}</p>
+          <p className="font-heading text-h3 font-bold text-text-primary sm:text-h2">{value}</p>
           <span
             className={cn(
               "mb-1.5 flex items-center gap-1 text-small font-semibold",

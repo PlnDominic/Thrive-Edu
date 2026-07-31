@@ -20,7 +20,7 @@ export default function CoursesPage() {
           <SectionHeading
             eyebrow="Storefront"
             title="Explore our courses"
-            description="Live cohorts and self-paced tracks across Mathematics, Science, Language Arts, Arts & Music, Test Prep, and Life Skills — led by certified educators."
+            description="Live cohorts and self-paced tracks across Mathematics, Science, Language Arts, Arts & Music, Test Prep, and Life Skills, led by certified educators."
           />
         </div>
       </section>
@@ -56,7 +56,7 @@ export default function CoursesPage() {
                 </div>
               ) : (
                 <p className="py-16 text-center text-body text-text-secondary">
-                  No courses in this subject yet — check back soon.
+                  No courses in this subject yet. Check back soon.
                 </p>
               )}
             </TabsPrimitive.Content>

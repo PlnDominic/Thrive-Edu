@@ -112,10 +112,10 @@ const typeScale = [
 
 const spacingScale = [4, 8, 12, 16, 24, 32, 40, 48, 64, 80, 96, 128];
 const radiusScale = [
-  { label: "sm — 10px", className: "rounded-sm" },
-  { label: "md — 16px", className: "rounded-md" },
-  { label: "lg — 24px", className: "rounded-lg" },
-  { label: "xl — 32px", className: "rounded-xl" },
+  { label: "sm (10px)", className: "rounded-sm" },
+  { label: "md (16px)", className: "rounded-md" },
+  { label: "lg (24px)", className: "rounded-lg" },
+  { label: "xl (32px)", className: "rounded-xl" },
   { label: "pill", className: "rounded-full" },
 ];
 
@@ -129,10 +129,10 @@ export default function ShowcasePage() {
       <header className="relative overflow-hidden bg-gradient-brand">
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 px-6 py-24 text-center text-white">
           <Image src="/thrive-edu-logo.png" alt="THRIVE EDU" width={72} height={72} className="drop-shadow-lg" priority />
-          <h1 className="font-heading text-display font-bold tracking-tight">THRIVE EDU</h1>
+          <h1 className="font-heading text-h2 font-bold tracking-tight sm:text-h1 lg:text-display">THRIVE EDU</h1>
           <p className="max-w-xl text-body-lg text-white/90">
             Every learner has a unique path to thrive. A spatial, premium design system for personalized
-            education — calm, intelligent, and human-centered.
+            education: calm, intelligent, and human-centered.
           </p>
           <div className="flex gap-3">
             <Button variant="accent" size="lg">
@@ -153,7 +153,7 @@ export default function ShowcasePage() {
         <Toc />
         <div className="min-w-0 flex-1">
           {/* Foundations */}
-          <Section id="foundations" title="Foundations" description="Color, typography, spacing, radius, and elevation — the atoms of the Spatial Education Design Language.">
+          <Section id="foundations" title="Foundations" description="Color, typography, spacing, radius, and elevation: the atoms of the Spatial Education Design Language.">
             <SubLabel>Color palette</SubLabel>
             <div className="mb-10 space-y-6">
               {colorGroups.map((group) => (
@@ -176,7 +176,7 @@ export default function ShowcasePage() {
                 <div className="h-16 bg-gradient-brand" />
                 <div className="bg-surface px-3 py-2">
                   <p className="text-caption font-semibold text-text-primary">Brand gradient</p>
-                  <p className="text-caption text-text-secondary">Used sparingly — hero sections, key highlights</p>
+                  <p className="text-caption text-text-secondary">Used sparingly: hero sections, key highlights</p>
                 </div>
               </div>
             </div>
@@ -230,7 +230,7 @@ export default function ShowcasePage() {
           </Section>
 
           {/* Buttons */}
-          <Section id="buttons" title="Buttons" description="Confident, minimal, and fast — every action feels intentional.">
+          <Section id="buttons" title="Buttons" description="Confident, minimal, and fast. Every action feels intentional.">
             <div className="rounded-lg border border-border bg-surface p-6">
               <SubLabel>Variants</SubLabel>
               <div className="mb-6 flex flex-wrap gap-3">
@@ -499,7 +499,7 @@ export default function ShowcasePage() {
           </Section>
 
           {/* Feedback */}
-          <Section id="feedback" title="Feedback" description="Calm, clear signals — never alarming, always helpful.">
+          <Section id="feedback" title="Feedback" description="Calm, clear signals. Never alarming, always helpful.">
             <SubLabel>Alerts</SubLabel>
             <div className="mb-8 space-y-3">
               <Alert variant="info" title="New feature">
@@ -564,7 +564,7 @@ export default function ShowcasePage() {
                   <StatusScreen
                     variant="success"
                     title="Assignment submitted"
-                    description="Great work — your teacher will review it shortly."
+                    description="Great work. Your teacher will review it shortly."
                     actionLabel="Back to dashboard"
                   />
                 </div>
@@ -573,7 +573,7 @@ export default function ShowcasePage() {
           </Section>
 
           {/* Collaboration */}
-          <Section id="collaboration" title="Collaboration" description="Comments, notifications, messaging, and activity — kept human and clear.">
+          <Section id="collaboration" title="Collaboration" description="Comments, notifications, messaging, and activity, kept human and clear.">
             <div className="grid gap-6 md:grid-cols-2">
               <div>
                 <SubLabel>Comments</SubLabel>

@@ -16,7 +16,7 @@ const assignments = [
   { title: "Quadratic Equations Worksheet", subject: "Mathematics", due: "Tomorrow", status: "due" as const },
   { title: "Photosynthesis Lab Report", subject: "Science", due: "Fri, Oct 24", status: "in-progress" as const },
   { title: "Essay: Independence Movements", subject: "History", due: "Oct 20", status: "submitted" as const },
-  { title: "Reading Reflection — Ch. 4", subject: "English", due: "Oct 18", status: "graded" as const },
+  { title: "Reading Reflection: Ch. 4", subject: "English", due: "Oct 18", status: "graded" as const },
 ];
 
 const statusVariant = {
@@ -37,7 +37,7 @@ export default function StudentDashboardPage() {
     <div className="mx-auto flex max-w-6xl flex-col gap-8">
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div>
-          <h1 className="font-heading text-h2 font-bold text-text-primary">Good afternoon, Amara</h1>
+          <h1 className="font-heading text-h3 font-bold text-text-primary sm:text-h2">Good afternoon, Amara</h1>
           <p className="mt-1 text-body text-text-secondary">Here&apos;s how your learning journey is going today.</p>
         </div>
         <Badge variant="gold" className="text-small">

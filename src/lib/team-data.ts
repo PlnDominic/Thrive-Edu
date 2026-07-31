@@ -18,8 +18,8 @@ export interface ValueItem {
 }
 
 export const orgValues: ValueItem[] = [
-  { title: "Growth", description: "We measure success in progress, not perfection — every learner moves forward at their own pace." },
+  { title: "Growth", description: "We measure success in progress, not perfection. Every learner moves forward at their own pace." },
   { title: "Guidance", description: "Educators and mentors walk alongside every student, translating data into real support." },
-  { title: "Trust", description: "Families and schools trust us with their most important work — we take that seriously." },
+  { title: "Trust", description: "Families and schools trust us with their most important work, and we take that seriously." },
   { title: "Human-centered", description: "Technology should serve people. Every feature starts with a real classroom need." },
 ];

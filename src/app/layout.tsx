@@ -16,7 +16,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "THRIVE EDU — Design System",
+  title: "THRIVE EDU | Design System",
   description:
     "A spatial, premium design system for THRIVE EDU: personalized learning journeys for students, parents, teachers, and school owners.",
 };

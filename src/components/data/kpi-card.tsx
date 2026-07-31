@@ -32,7 +32,7 @@ function KPICard({ label, value, icon: Icon, changePercent, className }: KPICard
           </span>
         )}
       </div>
-      <p className="font-heading text-h3 font-bold text-text-primary">{value}</p>
+      <p className="font-heading text-h4 font-bold text-text-primary sm:text-h3">{value}</p>
       <p className="mt-1 text-small text-text-secondary">{label}</p>
     </div>
   );

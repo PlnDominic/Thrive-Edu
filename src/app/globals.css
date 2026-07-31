@@ -2,17 +2,17 @@
 
 /* -------------------------------------------------------------------- */
 /* THRIVE EDU design tokens                                             */
-/* Spatial Education Design Language — calm, premium, organic, precise. */
+/* Spatial Education Design Language: calm, premium, organic, precise.  */
 /* -------------------------------------------------------------------- */
 
 :root {
-  /* Brand — primary greens */
+  /* Brand: primary greens */
   --color-forest-green: #295c22;
   --color-deep-green: #3a6e2c;
   --color-growth-green: #4e8a3b;
   --color-leaf-green: #6fa74f;
 
-  /* Brand — accents */
+  /* Brand: accents */
   --color-leaf-gold: #d8a24a;
   --color-warm-amber: #e7b96b;
 
@@ -78,7 +78,7 @@
   --color-accent-foreground: var(--color-accent-foreground);
   --color-ring: var(--color-ring);
 
-  /* Type scale — matches Display 64 / H1 48 / H2 40 / H3 32 / H4 24 / H5 20 / Body-lg 18 / Body 16 / Small 14 / Caption 12 */
+  /* Type scale: Display 64 / H1 48 / H2 40 / H3 32 / H4 24 / H5 20 / Body-lg 18 / Body 16 / Small 14 / Caption 12 */
   --text-display: 4rem;
   --text-display--line-height: 1.05;
   --text-display--font-weight: 700;
@@ -106,13 +106,13 @@
   --text-caption: 0.75rem;
   --text-caption--line-height: 1.4;
 
-  /* Radius — sm 10 / md 16 / lg 24 / xl 32 / pill handled by rounded-full */
+  /* Radius: sm 10 / md 16 / lg 24 / xl 32 / pill handled by rounded-full */
   --radius-sm: 0.625rem;
   --radius-md: 1rem;
   --radius-lg: 1.5rem;
   --radius-xl: 2rem;
 
-  /* Elevation — atmospheric, never harsh */
+  /* Elevation: atmospheric, never harsh */
   --shadow-elevation-1: 0 1px 2px 0 rgb(22 33 20 / 0.04),
     0 1px 3px 0 rgb(22 33 20 / 0.04);
   --shadow-elevation-2: 0 6px 20px -6px rgb(22 33 20 / 0.1),
@@ -126,7 +126,7 @@ body {
   color: var(--color-text-primary);
 }
 
-/* Ambient gradient utility for hero sections and key highlights — used sparingly. */
+/* Ambient gradient utility for hero sections and key highlights, used sparingly. */
 .bg-gradient-brand {
   background-image: var(--gradient-brand);
 }

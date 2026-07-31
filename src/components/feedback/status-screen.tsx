@@ -26,7 +26,7 @@ function StatusScreen({ variant, title, description, actionLabel, onAction }: St
         <Icon className="size-10" />
       </span>
       <div>
-        <p className="font-heading text-h3 font-bold text-text-primary">{title}</p>
+        <p className="font-heading text-h4 font-bold text-text-primary sm:text-h3">{title}</p>
         {description && <p className="mt-2 max-w-md text-body text-text-secondary">{description}</p>}
       </div>
       {actionLabel && (

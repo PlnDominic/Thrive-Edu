@@ -39,9 +39,9 @@ export default function GalleryPage() {
       <section className="border-b border-border bg-subtle-surface py-16">
         <div className="mx-auto max-w-3xl px-6 text-center">
           <p className="mb-3 text-caption font-semibold uppercase tracking-wide text-forest-green">Gallery</p>
-          <h1 className="font-heading text-h1 font-bold text-text-primary">See THRIVE EDU in action</h1>
+          <h1 className="font-heading text-h3 font-bold text-text-primary sm:text-h1">See THRIVE EDU in action</h1>
           <p className="mt-4 text-body-lg text-text-secondary">
-            Moments from our classrooms, showcases, and community — where growth and achievement come to
+            Moments from our classrooms, showcases, and community, where growth and achievement come to
             life.
           </p>
         </div>

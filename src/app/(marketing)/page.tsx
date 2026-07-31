@@ -28,7 +28,7 @@ const audiences = [
   },
   {
     title: "Parents",
-    description: "Clear insight into your child's growth, attendance, and achievements — without the guesswork.",
+    description: "Clear insight into your child's growth, attendance, and achievements, without the guesswork.",
     icon: HeartHandshake,
     href: "/about",
   },
@@ -49,7 +49,7 @@ const audiences = [
 const valueProps = [
   {
     title: "Personalized learning paths",
-    description: "Every learner gets a path shaped by their pace, strengths, and goals — not a fixed curriculum.",
+    description: "Every learner gets a path shaped by their pace, strengths, and goals, not a fixed curriculum.",
     icon: Sparkles,
   },
   {
@@ -71,7 +71,7 @@ const valueProps = [
 
 const testimonials = [
   {
-    quote: "My daughter finally has a learning plan that fits her — not the other way around. The progress reports keep us all on the same page.",
+    quote: "My daughter finally has a learning plan that fits her, not the other way around. The progress reports keep us all on the same page.",
     name: "Efua Mensah",
     role: "Parent",
   },
@@ -112,12 +112,12 @@ export default function HomePage() {
             <Badge variant="primary" className="mb-6">
               Personalized education, reimagined
             </Badge>
-            <h1 className="font-heading text-display font-bold tracking-tight text-text-primary">
+            <h1 className="font-heading text-h2 font-bold tracking-tight text-text-primary sm:text-h1 lg:text-display">
               Every learner has a unique path to thrive.
             </h1>
             <p className="mt-6 max-w-lg text-body-lg text-text-secondary">
               THRIVE EDU is an education technology organization building personalized learning journeys for
-              students, parents, teachers, and school owners — grounded in growth, guidance, and trust.
+              students, parents, teachers, and school owners, grounded in growth, guidance, and trust.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <Button size="lg" asChild>
@@ -134,7 +134,7 @@ export default function HomePage() {
               {stats.map((s) => (
                 <div key={s.label}>
                   <dt className="sr-only">{s.label}</dt>
-                  <dd className="font-heading text-h3 font-bold text-text-primary">{s.value}</dd>
+                  <dd className="font-heading text-h4 font-bold text-text-primary sm:text-h3">{s.value}</dd>
                   <p className="mt-1 text-caption text-text-secondary">{s.label}</p>
                 </div>
               ))}
@@ -165,7 +165,7 @@ export default function HomePage() {
           <SectionHeading
             eyebrow="Built for every role"
             title="One platform, four points of view"
-            description="THRIVE EDU gives every part of the learning ecosystem the view they need — all grounded in the same data."
+            description="THRIVE EDU gives every part of the learning ecosystem the view they need, all grounded in the same data."
           />
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {audiences.map((a) => (
@@ -196,7 +196,7 @@ export default function HomePage() {
           <SectionHeading
             eyebrow="Why THRIVE EDU"
             title="Calm, intelligent tools for real growth"
-            description="No dense dashboards or gamified noise — just clear signals that help people make good decisions."
+            description="No dense dashboards or gamified noise. Just clear signals that help people make good decisions."
           />
           <div className="mt-10 grid gap-8 sm:grid-cols-2">
             {valueProps.map((v) => (
@@ -260,7 +260,7 @@ export default function HomePage() {
       <section className="bg-forest-green py-20">
         <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 px-6 text-center text-white">
           <BarChart3 className="size-10 text-leaf-gold" />
-          <h2 className="font-heading text-h2 font-bold">Ready to help your learner thrive?</h2>
+          <h2 className="font-heading text-h3 font-bold sm:text-h2">Ready to help your learner thrive?</h2>
           <p className="max-w-xl text-body-lg text-white/85">
             Join thousands of students, parents, and educators building personalized paths to growth and
             achievement with THRIVE EDU.
