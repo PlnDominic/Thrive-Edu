@@ -463,8 +463,10 @@ export default function HomePage() {
       {/* Testimonials */}
       <section className="border-t border-border bg-background py-24 sm:py-28">
         <div className="mx-auto max-w-6xl px-6">
-          <SectionHeading eyebrow="From our community" title="Trusted by families, teachers, and schools" align="center" className="mx-auto" />
-          <div className="mt-16">
+          <p className="text-center text-caption font-semibold uppercase tracking-wide text-forest-green">
+            From our community
+          </p>
+          <div className="mt-10">
             <TestimonialCarousel testimonials={testimonials} />
           </div>
         </div>
