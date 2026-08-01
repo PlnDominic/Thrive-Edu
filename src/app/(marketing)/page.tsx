@@ -78,16 +78,19 @@ const testimonials = [
     quote: "My daughter finally has a learning plan that fits her, not the other way around. The progress reports keep us all on the same page.",
     name: "Efua Mensah",
     role: "Parent",
+    image: "/images/testimonial-efua-mensah.jpg",
   },
   {
     quote: "The classroom analytics tell me exactly which students need a nudge this week. I've never had this much clarity before.",
     name: "Kwame Asante",
     role: "Mathematics Teacher",
+    image: "/images/testimonial-kwame-asante.jpg",
   },
   {
     quote: "THRIVE EDU gave our school a single, calm view of enrollment and outcomes across every grade level.",
     name: "Dr. Abena Owusu",
     role: "School Director",
+    image: "/images/testimonial-abena-owusu.jpg",
   },
 ];
 
