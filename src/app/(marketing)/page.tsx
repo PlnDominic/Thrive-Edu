@@ -374,16 +374,28 @@ export default function HomePage() {
       </section>
 
       {/* Testimonials */}
-      <section className="border-t border-border bg-subtle-surface py-24">
-        <div className="mx-auto max-w-7xl px-6">
+      <section className="border-t border-border bg-subtle-surface py-24 sm:py-28">
+        <div className="mx-auto max-w-6xl px-6">
           <SectionHeading eyebrow="From our community" title="Trusted by families, teachers, and schools" align="center" className="mx-auto" />
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {testimonials.map((t) => (
-              <figure key={t.name} className="flex flex-col gap-4 rounded-2xl border border-border bg-surface p-6 shadow-elevation-1">
-                <blockquote className="flex-1 text-small text-text-primary">&ldquo;{t.quote}&rdquo;</blockquote>
-                <figcaption>
-                  <p className="text-small font-semibold text-text-primary">{t.name}</p>
-                  <p className="text-caption text-text-secondary">{t.role}</p>
+          <div className="mt-16 divide-y divide-border md:grid md:grid-cols-3 md:divide-x md:divide-y-0">
+            {testimonials.map((t, i) => (
+              <figure
+                key={t.name}
+                className="motion-safe:animate-[fade-up_0.7s_cubic-bezier(0.16,1,0.3,1)_backwards] flex flex-col gap-6 py-10 first:pt-0 last:pb-0 md:px-10 md:py-0 md:first:pl-0 md:last:pr-0"
+                style={{ animationDelay: `${i * 120}ms` }}
+              >
+                <span aria-hidden className="font-heading text-h2 leading-none text-leaf-gold/50">
+                  &ldquo;
+                </span>
+                <blockquote className="flex-1 text-body-lg leading-relaxed text-text-primary text-pretty">
+                  {t.quote}
+                </blockquote>
+                <figcaption className="flex items-center gap-3">
+                  <span aria-hidden className="h-px w-6 shrink-0 bg-growth-green" />
+                  <div>
+                    <p className="text-small font-semibold text-text-primary">{t.name}</p>
+                    <p className="text-caption text-text-secondary">{t.role}</p>
+                  </div>
                 </figcaption>
               </figure>
             ))}
