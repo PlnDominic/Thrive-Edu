@@ -142,7 +142,7 @@ export default function HomePage() {
         </div>
 
         {/* Stats band, overlapping the hero card */}
-        <div className="relative z-10 mx-auto -mt-6 max-w-5xl px-2 sm:-mt-8">
+        <div className="relative z-10 mx-auto -mt-6 max-w-7xl sm:-mt-8">
           <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl bg-ink-border shadow-elevation-3 sm:grid-cols-4">
             {stats.map((s) => (
               <div key={s.label} className="bg-ink px-4 py-6 text-center sm:px-6">
