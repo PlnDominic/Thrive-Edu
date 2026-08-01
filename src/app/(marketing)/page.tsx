@@ -3,7 +3,6 @@ import Link from "next/link";
 import {
   ArrowRight,
   ArrowUpRight,
-  BarChart3,
   BookOpen,
   Building2,
   ChevronsRight,
@@ -20,6 +19,7 @@ import { cn } from "@/lib/utils";
 import { SectionHeading } from "@/components/marketing/section-heading";
 import { CourseCard } from "@/components/marketing/course-card";
 import { HeroVisual } from "@/components/marketing/hero-visual";
+import { TestimonialCarousel } from "@/components/marketing/testimonial-carousel";
 import { EmptyState } from "@/components/feedback/empty-state";
 import { courses } from "@/lib/courses-data";
 
@@ -373,57 +373,99 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="border-t border-border bg-subtle-surface py-24 sm:py-28">
-        <div className="mx-auto max-w-6xl px-6">
-          <SectionHeading eyebrow="From our community" title="Trusted by families, teachers, and schools" align="center" className="mx-auto" />
-          <div className="mt-16 divide-y divide-border md:grid md:grid-cols-3 md:divide-x md:divide-y-0">
-            {testimonials.map((t, i) => (
-              <figure
-                key={t.name}
-                className="motion-safe:animate-[fade-up_0.7s_cubic-bezier(0.16,1,0.3,1)_backwards] flex flex-col gap-6 py-10 first:pt-0 last:pb-0 md:px-10 md:py-0 md:first:pl-0 md:last:pr-0"
-                style={{ animationDelay: `${i * 120}ms` }}
+      {/* CTA band */}
+      <section className="overflow-hidden bg-black py-20">
+        <div className="mx-auto grid max-w-7xl gap-14 px-6 lg:grid-cols-2 lg:items-center lg:gap-8">
+          <div>
+            <div className="flex items-center gap-2.5">
+              <Image src="/thrive-edu-logo.png" alt="" width={28} height={28} aria-hidden />
+              <span className="font-heading text-h5 font-bold text-white">
+                THRIVE EDU<span className="text-leaf-gold">.</span>
+              </span>
+            </div>
+            <p className="mt-2 text-caption font-semibold uppercase tracking-wide text-white/50">
+              Everyone Thrives With Us.
+            </p>
+
+            <h2 className="mt-8 font-heading text-h2 font-bold leading-[1.05] sm:text-h1">
+              <span className="text-white">Ready to build </span>
+              <span className="text-growth-green">lasting quality</span>
+              <span className="text-white"> together</span>
+              <span className="text-leaf-gold">?</span>
+            </h2>
+            <p className="mt-6 max-w-md text-body-lg text-white/70">
+              Tell us about your school, organisation, or community, and our team will connect you with
+              the right Thrive venture.
+            </p>
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <Button size="lg" variant="accent" className="rounded-full" asChild>
+                <Link href="/contact">Submit an enquiry</Link>
+              </Button>
+              <Button
+                size="lg"
+                variant="secondary"
+                className="rounded-full border-white/40 bg-white/10 text-white hover:bg-white/20"
+                asChild
               >
-                <span aria-hidden className="font-heading text-h2 leading-none text-leaf-gold/50">
-                  &ldquo;
-                </span>
-                <blockquote className="flex-1 text-body-lg leading-relaxed text-text-primary text-pretty">
-                  {t.quote}
-                </blockquote>
-                <figcaption className="flex items-center gap-3">
-                  <span aria-hidden className="h-px w-6 shrink-0 bg-growth-green" />
-                  <div>
-                    <p className="text-small font-semibold text-text-primary">{t.name}</p>
-                    <p className="text-caption text-text-secondary">{t.role}</p>
-                  </div>
-                </figcaption>
-              </figure>
-            ))}
+                <Link href="/support-our-work">Support our work</Link>
+              </Button>
+            </div>
+          </div>
+
+          {/* Photo collage */}
+          <div className="hidden grid-cols-3 gap-4 lg:grid">
+            <div className="flex flex-col gap-4 pt-10">
+              <div className="relative aspect-[3/5] overflow-hidden rounded-[2.5rem] bg-warm-amber">
+                <Image
+                  src="/images/hero-student.png"
+                  alt="A Thrive EDU student"
+                  fill
+                  sizes="16vw"
+                  className="object-cover"
+                />
+              </div>
+            </div>
+            <div className="flex flex-col gap-4">
+              <div className="relative aspect-[3/4] overflow-hidden rounded-[2.5rem] bg-leaf-gold">
+                <Image
+                  src="/images/gallery-studio-arts.jpg"
+                  alt="A Thrive EDU student painting"
+                  fill
+                  sizes="16vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="relative aspect-[3/4] overflow-hidden rounded-[2.5rem] bg-growth-green">
+                <Image
+                  src="/images/every-learner.jpg"
+                  alt="A Thrive EDU learner celebrating"
+                  fill
+                  sizes="16vw"
+                  className="object-cover"
+                />
+              </div>
+            </div>
+            <div className="flex flex-col gap-4 pt-20">
+              <div className="relative aspect-[3/5] overflow-hidden rounded-[2.5rem] bg-forest-green">
+                <Image
+                  src="/images/about-founder.png"
+                  alt="A Thrive EDU team member"
+                  fill
+                  sizes="16vw"
+                  className="object-cover"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* CTA band */}
-      <section className="bg-forest-green py-20">
-        <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 px-6 text-center text-white">
-          <BarChart3 className="size-10 text-leaf-gold" />
-          <h2 className="font-heading text-h3 font-bold sm:text-h2">Ready to build lasting quality together?</h2>
-          <p className="max-w-xl text-body-lg text-white/85">
-            Tell us about your school, organisation, or community, and our team will connect you with the
-            right Thrive venture.
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-3">
-            <Button size="lg" variant="accent" className="rounded-full" asChild>
-              <Link href="/contact">Submit an enquiry</Link>
-            </Button>
-            <Button
-              size="lg"
-              variant="secondary"
-              className="rounded-full border-white/40 bg-white/10 text-white hover:bg-white/20"
-              asChild
-            >
-              <Link href="/support-our-work">Support our work</Link>
-            </Button>
+      {/* Testimonials */}
+      <section className="border-t border-border bg-background py-24 sm:py-28">
+        <div className="mx-auto max-w-6xl px-6">
+          <SectionHeading eyebrow="From our community" title="Trusted by families, teachers, and schools" align="center" className="mx-auto" />
+          <div className="mt-16">
+            <TestimonialCarousel testimonials={testimonials} />
           </div>
         </div>
       </section>
