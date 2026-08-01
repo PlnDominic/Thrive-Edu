@@ -108,15 +108,16 @@ export default function HomePage() {
           <div className="relative grid gap-10 px-6 py-14 sm:px-10 sm:py-16 lg:grid-cols-2 lg:items-center lg:gap-8 lg:px-16 lg:py-20">
             <div>
               <h1 className="font-heading text-h2 font-bold leading-[1.05] tracking-tight text-text-primary sm:text-h1 lg:text-display">
-                Every learner
+                Rooted in Ghana.
                 <br />
-                has a path to
+                Reaching for
                 <br />
-                <span className="text-growth-green">thrive.</span>
+                <span className="text-growth-green">Africa.</span>
               </h1>
               <p className="mt-6 max-w-lg text-body-lg text-text-secondary">
-                THRIVE EDU is an education technology organization building personalized learning journeys for
-                students, parents, teachers, and school owners, grounded in growth, guidance, and trust.
+                Thrive EDU is an international education NGO. We help schools, organisations and communities
+                build the systems that lock in quality, so every learner gains the knowledge, skills and
+                attitudes to thrive.
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-4">
                 <Button size="lg" className="rounded-full text-white" asChild>
