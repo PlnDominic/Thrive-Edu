@@ -47,17 +47,17 @@ function TestimonialCarousel({ testimonials, intervalMs = 6000 }: TestimonialCar
           type="button"
           onClick={() => setIndex(prevIndex)}
           aria-label={`View testimonial from ${testimonials[prevIndex].name}`}
-          className="hidden h-64 w-28 shrink-0 rounded-lg bg-border/50 transition-opacity hover:opacity-70 sm:block lg:w-36"
+          className="hidden h-64 w-28 shrink-0 bg-border/50 transition-opacity hover:opacity-70 sm:block lg:w-36"
         />
 
         <div
           key={index}
-          className="motion-safe:animate-[carousel-in_0.6s_cubic-bezier(0.16,1,0.3,1)_both] w-full max-w-sm shrink-0 rounded-lg bg-subtle-surface p-8 sm:p-10"
+          className="motion-safe:animate-[carousel-in_0.6s_cubic-bezier(0.16,1,0.3,1)_both] w-full max-w-sm shrink-0 bg-subtle-surface p-8 sm:p-10"
         >
           <p className="text-caption font-semibold uppercase tracking-widest text-text-secondary">
             {current.name}
           </p>
-          <div aria-hidden className="mt-6 aspect-square w-full rounded-md bg-border/60" />
+          <div aria-hidden className="mt-6 aspect-square w-full bg-border/60" />
           <blockquote className="mt-8 text-h5 font-bold leading-snug text-text-primary text-pretty sm:text-h4">
             {current.quote}
           </blockquote>
@@ -68,7 +68,7 @@ function TestimonialCarousel({ testimonials, intervalMs = 6000 }: TestimonialCar
           type="button"
           onClick={() => setIndex(nextIndex)}
           aria-label={`View testimonial from ${testimonials[nextIndex].name}`}
-          className="hidden h-64 w-28 shrink-0 rounded-lg bg-border/50 transition-opacity hover:opacity-70 sm:block lg:w-36"
+          className="hidden h-64 w-28 shrink-0 bg-border/50 transition-opacity hover:opacity-70 sm:block lg:w-36"
         />
       </div>
     </div>

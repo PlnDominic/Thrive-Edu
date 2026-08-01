@@ -102,8 +102,8 @@ export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="px-3 pt-3 sm:px-5 sm:pt-5">
-        <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[1.75rem] bg-surface shadow-elevation-2 sm:rounded-[2.25rem]">
+      <section className="pt-3 sm:pt-5">
+        <div className="relative overflow-hidden rounded-[1.75rem] bg-surface shadow-elevation-2 sm:rounded-[2.25rem]">
           <div className="relative grid gap-10 px-6 py-14 sm:px-10 sm:py-16 lg:grid-cols-2 lg:items-center lg:gap-8 lg:px-16 lg:py-20">
             <div>
               <h1 className="font-heading text-h2 font-bold leading-[1.05] tracking-tight text-text-primary sm:text-h1 lg:text-display">
@@ -142,7 +142,7 @@ export default function HomePage() {
         </div>
 
         {/* Stats band, overlapping the hero card */}
-        <div className="relative z-10 mx-auto -mt-6 max-w-7xl sm:-mt-8">
+        <div className="relative z-10 -mt-6 sm:-mt-8">
           <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl bg-ink-border shadow-elevation-3 sm:grid-cols-4">
             {stats.map((s) => (
               <div key={s.label} className="bg-ink px-4 py-6 text-center sm:px-6">
@@ -287,8 +287,14 @@ export default function HomePage() {
 
           <div className="mt-14 grid gap-6 lg:grid-cols-3">
             <div className="group overflow-hidden rounded-2xl">
-              <div className="flex h-56 items-center justify-center bg-ink-surface transition-colors duration-200 group-hover:bg-ink-border">
-                <Sparkles className="size-12 text-white/20" />
+              <div className="relative h-56 overflow-hidden bg-ink-surface">
+                <Image
+                  src="/images/why-thrive-personalized-paths.jpg"
+                  alt="A student mapping out her own learning plan"
+                  fill
+                  sizes="(min-width: 1024px) 33vw, 100vw"
+                  className="object-cover grayscale transition-transform duration-300 group-hover:scale-105"
+                />
               </div>
               <div className="bg-ink-surface p-6">
                 <p className="font-heading text-h5 font-semibold text-white">{valueProps[0].title}</p>
@@ -307,14 +313,26 @@ export default function HomePage() {
                   Learn more <ArrowRight className="size-3.5" />
                 </span>
               </div>
-              <div className="mt-4 flex h-56 items-center justify-center rounded-2xl bg-ink-surface">
-                <LineChart className="size-12 text-white/20" />
+              <div className="group relative mt-4 h-56 overflow-hidden rounded-2xl bg-ink-surface">
+                <Image
+                  src="/images/why-thrive-real-time-insights.jpg"
+                  alt="A team member reviewing progress late in the evening"
+                  fill
+                  sizes="(min-width: 1024px) 33vw, 100vw"
+                  className="object-cover grayscale transition-transform duration-300 group-hover:scale-105"
+                />
               </div>
             </div>
 
             <div className="group overflow-hidden rounded-2xl">
-              <div className="flex h-56 items-center justify-center bg-ink-surface transition-colors duration-200 group-hover:bg-ink-border">
-                <BookOpen className="size-12 text-white/20" />
+              <div className="relative h-56 overflow-hidden bg-ink-surface">
+                <Image
+                  src="/images/why-thrive-certified-educators.jpg"
+                  alt="A young man reading a personal development book"
+                  fill
+                  sizes="(min-width: 1024px) 33vw, 100vw"
+                  className="object-cover grayscale transition-transform duration-300 group-hover:scale-105"
+                />
               </div>
               <div className="bg-ink-surface p-6">
                 <p className="font-heading text-h5 font-semibold text-white">{valueProps[2].title}</p>
@@ -463,8 +481,10 @@ export default function HomePage() {
       {/* Testimonials */}
       <section className="border-t border-border bg-background py-24 sm:py-28">
         <div className="mx-auto max-w-6xl px-6">
-          <SectionHeading eyebrow="From our community" title="Trusted by families, teachers, and schools" align="center" className="mx-auto" />
-          <div className="mt-16">
+          <p className="text-center text-caption font-semibold uppercase tracking-wide text-forest-green">
+            From our community
+          </p>
+          <div className="mt-10">
             <TestimonialCarousel testimonials={testimonials} />
           </div>
         </div>
