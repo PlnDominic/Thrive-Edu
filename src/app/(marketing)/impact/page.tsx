@@ -25,7 +25,7 @@ export default function ImpactPage() {
               what convinces both funders and institutions.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-              <Button size="lg" className="rounded-full text-white" asChild>
+              <Button size="lg" className="rounded-full" asChild>
                 <Link href="/support-our-work">Donate</Link>
               </Button>
             </div>

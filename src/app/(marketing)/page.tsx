@@ -122,7 +122,7 @@ export default function HomePage() {
                 attitudes to thrive.
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-4">
-                <Button size="lg" className="rounded-full text-white" asChild>
+                <Button size="lg" className="rounded-full" asChild>
                   <Link href="/contact">
                     Submit an enquiry
                     <ArrowUpRight className="size-4" />

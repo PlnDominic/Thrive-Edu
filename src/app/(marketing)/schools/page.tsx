@@ -80,7 +80,7 @@ export default function SchoolsPage() {
               your school build what keeps good teaching and learning going.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-              <Button size="lg" className="rounded-full text-white" asChild>
+              <Button size="lg" className="rounded-full" asChild>
                 <Link href="/contact">Partner with us</Link>
               </Button>
             </div>
