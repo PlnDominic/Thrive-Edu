@@ -42,28 +42,39 @@ function LinkedinIcon(props: SVGProps<SVGSVGElement>) {
 
 const columns = [
   {
-    heading: "Organization",
+    heading: "About",
     links: [
       { label: "About us", href: "/about" },
+      { label: "The Ecosystem", href: "/ecosystem" },
       { label: "Gallery", href: "/gallery" },
+      { label: "Impact", href: "/impact" },
       { label: "Contact", href: "/contact" },
     ],
   },
   {
-    heading: "Learning",
+    heading: "Get involved",
     links: [
+      { label: "Support our work", href: "/support-our-work" },
+      { label: "Join our team", href: "/join-our-team" },
+      { label: "Resources and blog", href: "/resources" },
+    ],
+  },
+  {
+    heading: "For you",
+    links: [
+      { label: "For schools and organisations", href: "/schools" },
+      { label: "Books and curricula", href: "/books" },
+      { label: "For families and readers", href: "/families" },
+      { label: "For young adults", href: "/young-adults" },
       { label: "Courses", href: "/courses" },
       { label: "Student portal", href: "/dashboard/student" },
     ],
   },
-  {
-    heading: "Resources",
-    links: [
-      { label: "Design system", href: "/showcase" },
-      { label: "Privacy policy", href: "#" },
-      { label: "Terms of service", href: "#" },
-    ],
-  },
+];
+
+const legalLinks = [
+  { label: "Privacy policy", href: "#" },
+  { label: "Terms of service", href: "#" },
 ];
 
 const socials = [
@@ -79,8 +90,8 @@ function SiteFooter() {
       <div className="mx-auto max-w-7xl px-6 py-14">
         <div className="flex flex-col items-start justify-between gap-6 border-b border-ink-border pb-10 sm:flex-row sm:items-center">
           <div>
-            <p className="font-heading text-h4 font-bold text-white">Get growth updates in your inbox</p>
-            <p className="mt-1 text-small text-white/60">New courses, learning tips, and platform updates. No spam.</p>
+            <p className="font-heading text-h4 font-bold text-white">Get impact updates in your inbox</p>
+            <p className="mt-1 text-small text-white/60">New resources, programme updates, and stories from the field. No spam.</p>
           </div>
           <form
             className="flex w-full max-w-sm items-center gap-2 rounded-full border border-ink-border bg-ink-surface p-1.5 sm:w-auto"
@@ -110,9 +121,9 @@ function SiteFooter() {
               <span className="font-heading text-h5 font-bold tracking-tight text-white">THRIVE EDU</span>
             </Link>
             <p className="mt-4 max-w-xs text-small text-white/60">
-              Every learner has a unique path to thrive. Personalized education for students, parents,
-              teachers, and school owners.
+              An international education NGO rooted in Ghana, reaching for Africa.
             </p>
+            <p className="mt-2 text-small font-semibold text-leaf-gold">Everyone Thrives With Us.</p>
             <div className="mt-5 flex gap-2">
               {socials.map((s) => (
                 <a
@@ -146,7 +157,14 @@ function SiteFooter() {
         </div>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-ink-border pt-6 text-caption text-white/50 sm:flex-row">
-          <p>© {new Date().getFullYear()} THRIVE EDU. All rights reserved.</p>
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
+            <p>© {new Date().getFullYear()} THRIVE EDU. All rights reserved.</p>
+            {legalLinks.map((link) => (
+              <Link key={link.label} href={link.href} className="transition-colors hover:text-leaf-gold">
+                {link.label}
+              </Link>
+            ))}
+          </div>
           <p>Accra, Ghana · hello@thriveedu.org</p>
         </div>
       </div>
