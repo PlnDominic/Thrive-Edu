@@ -135,7 +135,7 @@ export default function HomePage() {
                   <span className="flex size-12 items-center justify-center rounded-full bg-leaf-gold text-white transition-transform duration-200 group-hover:scale-105">
                     <HeartHandshake className="size-5" />
                   </span>
-                  Support our work
+                  Donate
                 </Link>
               </div>
             </div>
@@ -428,7 +428,7 @@ export default function HomePage() {
                 className="rounded-full border-white/40 bg-white/10 text-white hover:bg-white/20"
                 asChild
               >
-                <Link href="/support-our-work">Support our work</Link>
+                <Link href="/support-our-work">Donate</Link>
               </Button>
             </div>
           </div>

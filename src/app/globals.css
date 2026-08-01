@@ -6,9 +6,9 @@
 /* -------------------------------------------------------------------- */
 
 :root {
-  /* Brand: primary greens */
-  --color-forest-green: #295c22;
-  --color-deep-green: #3a6e2c;
+  /* Brand: primary greens (lemon green family) */
+  --color-forest-green: #8a9a2e;
+  --color-deep-green: #6e7a24;
   --color-growth-green: #4e8a3b;
   --color-leaf-green: #6fa74f;
 
@@ -45,7 +45,7 @@
 
   --gradient-brand: linear-gradient(
     135deg,
-    #295c22 0%,
+    #8a9a2e 0%,
     #4e8a3b 60%,
     #d8a24a 100%
   );

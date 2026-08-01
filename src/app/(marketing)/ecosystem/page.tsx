@@ -115,7 +115,7 @@ export default function EcosystemPage() {
               <Link href="/contact">Submit an enquiry</Link>
             </Button>
             <Button size="lg" variant="secondary" className="rounded-full" asChild>
-              <Link href="/support-our-work">Support our work</Link>
+              <Link href="/support-our-work">Donate</Link>
             </Button>
           </div>
         </div>

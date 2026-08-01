@@ -54,7 +54,7 @@ const columns = [
   {
     heading: "Get involved",
     links: [
-      { label: "Support our work", href: "/support-our-work" },
+      { label: "Donate", href: "/support-our-work" },
       { label: "Join our team", href: "/join-our-team" },
       { label: "Resources and blog", href: "/resources" },
     ],
