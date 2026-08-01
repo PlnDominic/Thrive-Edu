@@ -165,7 +165,7 @@ function SiteFooter() {
               </Link>
             ))}
           </div>
-          <p>Accra, Ghana · hello@thriveedu.org</p>
+          <p>Kumasi, Ghana · hello@thriveedu.org · 0242806144</p>
         </div>
       </div>
     </footer>
