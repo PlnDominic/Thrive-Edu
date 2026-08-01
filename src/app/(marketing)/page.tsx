@@ -287,8 +287,14 @@ export default function HomePage() {
 
           <div className="mt-14 grid gap-6 lg:grid-cols-3">
             <div className="group overflow-hidden rounded-2xl">
-              <div className="flex h-56 items-center justify-center bg-ink-surface transition-colors duration-200 group-hover:bg-ink-border">
-                <Sparkles className="size-12 text-white/20" />
+              <div className="relative h-56 overflow-hidden bg-ink-surface">
+                <Image
+                  src="/images/why-thrive-personalized-paths.jpg"
+                  alt="A student mapping out her own learning plan"
+                  fill
+                  sizes="(min-width: 1024px) 33vw, 100vw"
+                  className="object-cover grayscale transition-transform duration-300 group-hover:scale-105"
+                />
               </div>
               <div className="bg-ink-surface p-6">
                 <p className="font-heading text-h5 font-semibold text-white">{valueProps[0].title}</p>
@@ -307,14 +313,26 @@ export default function HomePage() {
                   Learn more <ArrowRight className="size-3.5" />
                 </span>
               </div>
-              <div className="mt-4 flex h-56 items-center justify-center rounded-2xl bg-ink-surface">
-                <LineChart className="size-12 text-white/20" />
+              <div className="group relative mt-4 h-56 overflow-hidden rounded-2xl bg-ink-surface">
+                <Image
+                  src="/images/why-thrive-real-time-insights.jpg"
+                  alt="A team member reviewing progress late in the evening"
+                  fill
+                  sizes="(min-width: 1024px) 33vw, 100vw"
+                  className="object-cover grayscale transition-transform duration-300 group-hover:scale-105"
+                />
               </div>
             </div>
 
             <div className="group overflow-hidden rounded-2xl">
-              <div className="flex h-56 items-center justify-center bg-ink-surface transition-colors duration-200 group-hover:bg-ink-border">
-                <BookOpen className="size-12 text-white/20" />
+              <div className="relative h-56 overflow-hidden bg-ink-surface">
+                <Image
+                  src="/images/why-thrive-certified-educators.jpg"
+                  alt="A young man reading a personal development book"
+                  fill
+                  sizes="(min-width: 1024px) 33vw, 100vw"
+                  className="object-cover grayscale transition-transform duration-300 group-hover:scale-105"
+                />
               </div>
               <div className="bg-ink-surface p-6">
                 <p className="font-heading text-h5 font-semibold text-white">{valueProps[2].title}</p>
