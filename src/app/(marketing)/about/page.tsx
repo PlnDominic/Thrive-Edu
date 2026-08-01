@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Award, Compass, Heart, ShieldCheck, Star } from "lucide-react";
+import { Award, Handshake, Heart, Lightbulb, ShieldCheck, Star, Zap } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -10,10 +10,12 @@ import { SectionHeading } from "@/components/marketing/section-heading";
 import { orgValues, teamMembers } from "@/lib/team-data";
 
 const valueIcons: Record<string, LucideIcon> = {
-  Growth: Compass,
-  Guidance: Heart,
-  Trust: ShieldCheck,
-  "Human-centered": Award,
+  "God-first": Heart,
+  Excellence: Award,
+  Innovation: Lightbulb,
+  Empowerment: Zap,
+  Partnership: Handshake,
+  Integrity: ShieldCheck,
 };
 
 export default function AboutPage() {
@@ -28,12 +30,11 @@ export default function AboutPage() {
                 About us
               </Badge>
               <h1 className="font-heading text-h2 font-bold leading-[1.05] tracking-tight text-text-primary sm:text-h1 lg:text-display">
-                Empowering learners through <span className="text-growth-green">personalized education.</span>
+                Why every learner deserves to <span className="text-growth-green">thrive.</span>
               </h1>
               <p className="mt-6 max-w-lg text-body-lg text-text-secondary">
-                THRIVE EDU is an education technology organization building personalized learning journeys for
-                students, parents, teachers, and school owners, grounded in growth, guidance, intelligence, and
-                trust.
+                We exist because too many learners still lack access to products and programmes that build the
+                knowledge, skills and attitudes they need to thrive.
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-3">
                 <Button size="lg" className="rounded-full" asChild>
@@ -82,18 +83,16 @@ export default function AboutPage() {
       <section className="py-24">
         <div className="mx-auto grid max-w-6xl gap-12 px-6 lg:grid-cols-2 lg:items-center">
           <div>
-            <SectionHeading eyebrow="Our story" title="Built by educators, for real classrooms" />
+            <SectionHeading eyebrow="Why we exist" title="Systems that make good teaching and learning last" />
             <div className="mt-5 space-y-4 text-body text-text-secondary">
               <p>
-                THRIVE EDU started with a simple observation: most education platforms were built for
-                administrators, not for the students, parents, and teachers who actually rely on them every
-                day. We set out to build something different: calm, human-centered software that gives
-                every part of the learning ecosystem a clear view of progress.
+                We do more than supply materials. We help partners build the systems and structures that lock
+                in quality, so good teaching and learning last. Everything we create is designed to embed
+                lasting structure, not just deliver content.
               </p>
               <p>
-                Today, THRIVE EDU partners with schools and families across Ghana and beyond to deliver
-                personalized learning paths, real-time performance insights, and the kind of guidance that
-                turns data into real support, not just another dashboard to check.
+                We work through partnership, and we deliver through five connected ventures. Together they
+                equip learners, teachers, schools and communities to thrive.
               </p>
             </div>
           </div>
@@ -118,11 +117,35 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Vision & mission */}
+      <section className="border-t border-border py-24">
+        <div className="mx-auto max-w-6xl px-6">
+          <SectionHeading eyebrow="Vision & mission" title="What we're working toward" align="center" className="mx-auto" />
+          <div className="mt-10 grid gap-6 lg:grid-cols-2">
+            <div className="rounded-3xl bg-forest-green p-8 text-white sm:p-10">
+              <p className="text-caption font-semibold uppercase tracking-wide text-white/70">Our vision</p>
+              <p className="mt-4 text-body-lg leading-relaxed">
+                To be the guiding light of education across Africa, inspiring excellence, innovation and
+                lifelong learning that empowers every child, educator and school to thrive.
+              </p>
+            </div>
+            <div className="rounded-3xl border border-border bg-surface p-8 shadow-elevation-1 sm:p-10">
+              <p className="text-caption font-semibold uppercase tracking-wide text-forest-green">Our mission</p>
+              <p className="mt-4 text-body-lg leading-relaxed text-text-secondary">
+                Thrive EDU partners with schools, parents, NGOs and communities to provide quality, innovative
+                products, programmes and teaching and learning materials that equip and empower all our
+                stakeholders to thrive.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Values */}
       <section className="border-t border-border bg-subtle-surface py-24">
         <div className="mx-auto max-w-7xl px-6">
-          <SectionHeading eyebrow="What we stand for" title="Our values" align="center" className="mx-auto" />
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <SectionHeading eyebrow="What we stand for" title="Our core values" align="center" className="mx-auto" />
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {orgValues.map((v) => {
               const Icon = valueIcons[v.title] ?? Heart;
               return (

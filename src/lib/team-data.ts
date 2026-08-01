@@ -18,8 +18,10 @@ export interface ValueItem {
 }
 
 export const orgValues: ValueItem[] = [
-  { title: "Growth", description: "We measure success in progress, not perfection. Every learner moves forward at their own pace." },
-  { title: "Guidance", description: "Educators and mentors walk alongside every student, translating data into real support." },
-  { title: "Trust", description: "Families and schools trust us with their most important work, and we take that seriously." },
-  { title: "Human-centered", description: "Technology should serve people. Every feature starts with a real classroom need." },
+  { title: "God-first", description: "We lead with faith, and we serve with purpose and humility." },
+  { title: "Excellence", description: "We hold to high standards in everything we make and deliver." },
+  { title: "Innovation", description: "We create fresh, practical solutions that move African education forward." },
+  { title: "Empowerment", description: "We equip every child, educator and school to grow, stand strong and thrive." },
+  { title: "Partnership", description: "We thrive together with schools, parents, NGOs and communities." },
+  { title: "Integrity", description: "We are honest, accountable and worthy of the trust placed in us." },
 ];
