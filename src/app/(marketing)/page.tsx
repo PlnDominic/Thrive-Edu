@@ -5,49 +5,32 @@ import {
   ArrowUpRight,
   BarChart3,
   BookOpen,
-  Building2,
   ChevronsRight,
   GraduationCap,
   HeartHandshake,
-  Leaf,
   LineChart,
-  Play,
   Sparkles,
-  Users,
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 import { SectionHeading } from "@/components/marketing/section-heading";
 import { CourseCard } from "@/components/marketing/course-card";
 import { HeroVisual } from "@/components/marketing/hero-visual";
 import { EmptyState } from "@/components/feedback/empty-state";
 import { courses } from "@/lib/courses-data";
 
-const audiences = [
+const secondaryDoors = [
   {
-    title: "Students",
-    description: "Personalized learning paths, progress tracking, and smart recommendations.",
-    icon: GraduationCap,
-    href: "/dashboard/student",
-  },
-  {
-    title: "Parents",
-    description: "Real-time updates, insights, and tools to support your child's growth.",
-    icon: Users,
-    href: "/about",
-  },
-  {
-    title: "Teachers",
-    description: "Plan lessons, manage classrooms, assess performance, and inspire learners.",
+    title: "For Families and Readers",
+    description: "Books, library membership and home practice.",
     icon: BookOpen,
-    href: "/contact",
+    href: "/families",
   },
   {
-    title: "School owners",
-    description: "Powerful analytics, administration, and decision-making, all in one place.",
-    icon: Building2,
-    href: "/contact",
+    title: "For Young Adults",
+    description: "Thrive 360 leadership and coaching, and TVET skills training.",
+    icon: GraduationCap,
+    href: "/young-adults",
   },
 ];
 
@@ -121,16 +104,19 @@ export default function HomePage() {
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-4">
                 <Button size="lg" className="rounded-full text-white" asChild>
-                  <Link href="/courses">
-                    Start learning
+                  <Link href="/contact">
+                    Submit an enquiry
                     <ArrowUpRight className="size-4" />
                   </Link>
                 </Button>
-                <Link href="#how-it-works" className="group flex items-center gap-3">
+                <Link
+                  href="/support-our-work"
+                  className="group flex items-center gap-3 text-small font-semibold text-text-primary"
+                >
                   <span className="flex size-12 items-center justify-center rounded-full bg-leaf-gold text-white transition-transform duration-200 group-hover:scale-105">
-                    <Play className="size-4 fill-white" />
+                    <HeartHandshake className="size-5" />
                   </span>
-                  <span className="text-small font-semibold text-text-primary">How it works</span>
+                  Support our work
                 </Link>
               </div>
             </div>
@@ -153,11 +139,17 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Built for every role */}
+      {/* Three doors */}
       <section className="py-24">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
-            {/* Photo blob */}
+          <SectionHeading
+            eyebrow="How we serve"
+            title="One ecosystem. Three doors in."
+            description="We partner with schools and organisations first, and we keep clear paths open for families and young adults too."
+          />
+
+          {/* Lead door: For Schools and Organisations */}
+          <div className="mt-12 grid gap-10 rounded-[1.75rem] border border-border bg-surface p-6 lg:grid-cols-2 lg:items-center lg:gap-16 lg:p-10">
             <div className="relative mx-auto aspect-[4/5] w-full max-w-md lg:max-w-none">
               <div
                 className="absolute -right-4 -top-4 h-2/3 w-2/3 bg-background"
@@ -174,67 +166,69 @@ export default function HomePage() {
                 style={{ borderRadius: "68% 32% 27% 73% / 45% 62% 38% 55%" }}
               >
                 <Image
-                  src="/images/every-learner.jpg"
-                  alt="A THRIVE EDU learner celebrating, holding up a phone showing the platform"
+                  src="/images/gallery-science-fair.jpg"
+                  alt="Two Thrive EDU students presenting a science project in their school classroom"
                   fill
                   sizes="(min-width: 1024px) 50vw, 100vw"
                   className="object-cover"
                   priority
                 />
-                <div className="absolute left-8 top-10 grid grid-cols-4 gap-2 opacity-40" aria-hidden>
-                  {Array.from({ length: 16 }).map((_, i) => (
-                    <span key={i} className="size-1 rounded-full bg-white" />
-                  ))}
-                </div>
               </div>
             </div>
 
-            {/* Content */}
             <div>
-              <div className="mb-6 flex items-center gap-3">
-                <span className="inline-flex items-center rounded-full bg-subtle-surface px-4 py-2 text-caption font-bold uppercase tracking-wide text-forest-green">
-                  Built for every role
-                </span>
-                <Leaf className="size-5 text-leaf-gold" aria-hidden />
-              </div>
-              <h2 className="font-heading text-h2 font-bold leading-[1.05] text-text-primary sm:text-h1">
-                One Platform.
-                <br />
-                <span className="text-leaf-gold">Every</span> Learner.
-              </h2>
-              <p className="mt-6 max-w-lg text-body-lg text-text-secondary">
-                THRIVE EDU adapts to the needs of every user: empowering students, supporting families,
-                enabling teachers, and driving schools forward.
+              <span className="inline-flex items-center rounded-full bg-subtle-surface px-4 py-2 text-caption font-bold uppercase tracking-wide text-forest-green">
+                Lead partner
+              </span>
+              <h3 className="mt-5 font-heading text-h3 font-bold leading-[1.1] text-text-primary sm:text-h2">
+                For Schools and <span className="text-leaf-gold">Organisations</span>
+              </h3>
+              <p className="mt-4 max-w-lg text-body-lg text-text-secondary">
+                Teacher training, TVET curriculum and STEM programme, published products, consultation
+                services, and Thrive 360 for students.
               </p>
-
-              <div className="mt-10 grid grid-cols-2 gap-4">
-                {audiences.map((a, i) => (
-                  <div key={a.title} className="rounded-2xl border border-border bg-surface p-5">
-                    <span
-                      className={cn(
-                        "flex size-11 items-center justify-center rounded-full",
-                        i % 2 === 0 ? "bg-leaf-gold/15 text-leaf-gold" : "bg-warm-amber/20 text-warm-amber"
-                      )}
-                    >
-                      <a.icon className="size-5" />
-                    </span>
-                    <p className="mt-4 font-heading text-body-lg font-bold text-text-primary">{a.title}</p>
-                    <p className="mt-1.5 text-small text-text-secondary">{a.description}</p>
-                    <Link
-                      href={a.href}
-                      aria-label={`Learn more about ${a.title}`}
-                      className={cn(
-                        "mt-3 inline-flex",
-                        i % 2 === 0 ? "text-leaf-gold" : "text-warm-amber"
-                      )}
-                    >
-                      <ArrowRight className="size-4" />
-                    </Link>
-                  </div>
-                ))}
-              </div>
-
+              <Button size="lg" className="mt-6 rounded-full text-white" asChild>
+                <Link href="/schools">
+                  Partner with us
+                  <ArrowRight className="size-4" />
+                </Link>
+              </Button>
             </div>
+          </div>
+
+          {/* Secondary doors */}
+          <div className="mt-6 grid gap-6 sm:grid-cols-2">
+            {secondaryDoors.map((door) => (
+              <div key={door.title} className="rounded-2xl border border-border bg-surface p-8">
+                <span className="flex size-12 items-center justify-center rounded-full bg-primary/10 text-forest-green">
+                  <door.icon className="size-5" />
+                </span>
+                <h3 className="mt-5 font-heading text-h4 font-bold text-text-primary">{door.title}</h3>
+                <p className="mt-2 text-body text-text-secondary">{door.description}</p>
+                <Link
+                  href={door.href}
+                  className="mt-4 inline-flex items-center gap-1.5 text-small font-semibold text-forest-green transition-colors hover:text-primary-hover"
+                >
+                  Learn more
+                  <ArrowRight className="size-4" />
+                </Link>
+              </div>
+            ))}
+          </div>
+
+          {/* Quieter donor path */}
+          <div className="mt-6 flex flex-col items-center justify-center gap-3 rounded-2xl border border-dashed border-border bg-subtle-surface p-6 text-center sm:flex-row sm:justify-between sm:text-left">
+            <p className="text-body font-medium text-text-secondary">
+              Prefer to support our projects directly rather than partner on a programme?
+            </p>
+            <Link
+              href="/support-our-work"
+              className="inline-flex shrink-0 items-center gap-1.5 text-small font-semibold text-forest-green"
+            >
+              <HeartHandshake className="size-4" />
+              Support our work
+              <ArrowRight className="size-4" />
+            </Link>
           </div>
         </div>
       </section>
@@ -393,14 +387,14 @@ export default function HomePage() {
       <section className="bg-forest-green py-20">
         <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 px-6 text-center text-white">
           <BarChart3 className="size-10 text-leaf-gold" />
-          <h2 className="font-heading text-h3 font-bold sm:text-h2">Ready to help your learner thrive?</h2>
+          <h2 className="font-heading text-h3 font-bold sm:text-h2">Ready to build lasting quality together?</h2>
           <p className="max-w-xl text-body-lg text-white/85">
-            Join thousands of students, parents, and educators building personalized paths to growth and
-            achievement with THRIVE EDU.
+            Tell us about your school, organisation, or community, and our team will connect you with the
+            right Thrive venture.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3">
             <Button size="lg" variant="accent" className="rounded-full" asChild>
-              <Link href="/courses">Browse courses</Link>
+              <Link href="/contact">Submit an enquiry</Link>
             </Button>
             <Button
               size="lg"
@@ -408,7 +402,7 @@ export default function HomePage() {
               className="rounded-full border-white/40 bg-white/10 text-white hover:bg-white/20"
               asChild
             >
-              <Link href="/contact">Talk to our team</Link>
+              <Link href="/support-our-work">Support our work</Link>
             </Button>
           </div>
         </div>
