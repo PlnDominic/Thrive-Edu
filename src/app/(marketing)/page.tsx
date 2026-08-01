@@ -143,7 +143,7 @@ export default function HomePage() {
 
         {/* Stats band, overlapping the hero card */}
         <div className="relative z-10 -mt-6 sm:-mt-8">
-          <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl bg-ink-border shadow-elevation-3 sm:grid-cols-4">
+          <dl className="grid grid-cols-2 gap-px overflow-hidden bg-ink-border shadow-elevation-3 sm:grid-cols-4">
             {stats.map((s) => (
               <div key={s.label} className="bg-ink px-4 py-6 text-center sm:px-6">
                 <dt className="sr-only">{s.label}</dt>
@@ -433,10 +433,10 @@ export default function HomePage() {
           {/* Photo collage */}
           <div className="hidden grid-cols-3 gap-4 lg:grid">
             <div className="flex flex-col gap-4 pt-10">
-              <div className="relative aspect-[3/5] overflow-hidden rounded-[2.5rem] bg-warm-amber">
+              <div className="relative aspect-[3/5] overflow-hidden rounded-[2.5rem] bg-ink-border">
                 <Image
-                  src="/images/hero-student.png"
-                  alt="A Thrive EDU student"
+                  src="/images/cta-collage-blue-armchair.jpg"
+                  alt="A Thrive EDU learner working on her laptop"
                   fill
                   sizes="16vw"
                   className="object-cover"
@@ -444,19 +444,19 @@ export default function HomePage() {
               </div>
             </div>
             <div className="flex flex-col gap-4">
-              <div className="relative aspect-[3/4] overflow-hidden rounded-[2.5rem] bg-leaf-gold">
+              <div className="relative aspect-[3/4] overflow-hidden rounded-[2.5rem] bg-warm-amber">
                 <Image
-                  src="/images/gallery-studio-arts.jpg"
-                  alt="A Thrive EDU student painting"
+                  src="/images/cta-collage-orange-laptop.jpg"
+                  alt="A Thrive EDU learner holding a laptop"
                   fill
                   sizes="16vw"
                   className="object-cover"
                 />
               </div>
-              <div className="relative aspect-[3/4] overflow-hidden rounded-[2.5rem] bg-growth-green">
+              <div className="relative aspect-[3/4] overflow-hidden rounded-[2.5rem] bg-leaf-gold">
                 <Image
-                  src="/images/every-learner.jpg"
-                  alt="A Thrive EDU learner celebrating"
+                  src="/images/cta-collage-pink-backpack.jpg"
+                  alt="A Thrive EDU learner with a backpack and notebooks"
                   fill
                   sizes="16vw"
                   className="object-cover"
@@ -464,10 +464,10 @@ export default function HomePage() {
               </div>
             </div>
             <div className="flex flex-col gap-4 pt-20">
-              <div className="relative aspect-[3/5] overflow-hidden rounded-[2.5rem] bg-forest-green">
+              <div className="relative aspect-[3/5] overflow-hidden rounded-[2.5rem] bg-ink-border">
                 <Image
-                  src="/images/about-founder.png"
-                  alt="A Thrive EDU team member"
+                  src="/images/cta-collage-purple-phone.jpg"
+                  alt="A Thrive EDU learner checking his phone"
                   fill
                   sizes="16vw"
                   className="object-cover"
