@@ -107,9 +107,12 @@ export default function HomePage() {
       {/* Hero */}
       <section className="pt-3 sm:pt-5">
         <div className="relative overflow-hidden rounded-[1.75rem] bg-surface shadow-elevation-2 sm:rounded-[2.25rem]">
-          <div className="relative grid gap-10 px-6 py-14 sm:px-10 sm:py-16 lg:grid-cols-2 lg:items-center lg:gap-8 lg:px-16 lg:py-20">
-            <div>
-              <h1 className="font-heading text-h2 font-bold leading-[1.05] tracking-tight text-text-primary sm:text-h1 lg:text-display">
+          <div className="grid lg:grid-cols-2">
+            <div className="flex flex-col justify-center px-6 py-14 sm:px-10 sm:py-16 lg:px-16 lg:py-20">
+              <span className="inline-flex w-fit items-center rounded-full bg-subtle-surface px-4 py-1.5 text-caption font-bold uppercase tracking-wide text-forest-green">
+                International education NGO
+              </span>
+              <h1 className="mt-5 font-heading text-h2 font-bold leading-[1.05] tracking-tight text-text-primary sm:text-h1 lg:text-display">
                 Rooted in Ghana.
                 <br />
                 Reaching for
