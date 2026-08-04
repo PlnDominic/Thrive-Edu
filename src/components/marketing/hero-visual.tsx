@@ -2,9 +2,8 @@
 
 import * as React from "react";
 import Image from "next/image";
-import { BadgeCheck, Star } from "lucide-react";
+import { BadgeCheck } from "lucide-react";
 
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { cn } from "@/lib/utils";
 
 const slides = [
@@ -69,22 +68,6 @@ function HeroVisual() {
       {/* Floating badge: verified check */}
       <div className="absolute left-4 top-12 z-20 flex size-11 items-center justify-center rounded-full bg-leaf-gold text-white shadow-elevation-2 sm:left-6 sm:top-14 sm:size-12">
         <BadgeCheck className="size-5 sm:size-6" />
-      </div>
-
-      {/* Floating card: student review */}
-      <div className="absolute bottom-4 left-4 right-4 z-20 flex items-center gap-3 rounded-2xl border border-border bg-surface/95 px-4 py-3 shadow-elevation-3 backdrop-blur sm:bottom-6 sm:left-6 sm:right-auto sm:w-64">
-        <Avatar className="size-10 shrink-0">
-          <AvatarFallback>DB</AvatarFallback>
-        </Avatar>
-        <div className="min-w-0">
-          <p className="truncate text-small font-semibold text-text-primary">Dominic Boateng</p>
-          <p className="text-caption text-text-secondary">Student</p>
-          <div className="mt-0.5 flex gap-0.5" aria-hidden>
-            {Array.from({ length: 5 }).map((_, i) => (
-              <Star key={i} className="size-3 fill-leaf-gold text-leaf-gold" />
-            ))}
-          </div>
-        </div>
       </div>
     </div>
   );
