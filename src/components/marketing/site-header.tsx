@@ -10,42 +10,21 @@ import { ChevronDown, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-const primaryLinks = [
-  { label: "About", href: "/about" },
-  { label: "The Ecosystem", href: "/ecosystem" },
+const whatWeDoLinks = [
+  { label: "For Schools and Organisations", href: "/schools" },
+  { label: "Books and Curricula", href: "/books" },
+  { label: "For Families and Readers", href: "/families" },
+  { label: "For Young Adults", href: "/young-adults" },
 ];
 
-const serveGroups = [
-  {
-    heading: "Institutions",
-    links: [
-      { label: "For Schools and Organisations", href: "/schools" },
-      { label: "Books and Curricula", href: "/books" },
-    ],
-  },
-  {
-    heading: "Individuals",
-    links: [
-      { label: "For Families and Readers", href: "/families" },
-      { label: "For Young Adults", href: "/young-adults" },
-      { label: "Courses", href: "/courses" },
-      { label: "Student portal", href: "/dashboard/student" },
-    ],
-  },
-];
-
-const trailingLinks = [
-  { label: "Impact", href: "/impact" },
-  { label: "Contact", href: "/contact" },
-];
-
-const serveHrefs = serveGroups.flatMap((g) => g.links.map((l) => l.href));
+const whatWeDoHrefs = whatWeDoLinks.map((l) => l.href);
 
 function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = React.useState(false);
+  const [whatWeDoOpen, setWhatWeDoOpen] = React.useState(false);
 
-  const serveActive = serveHrefs.some((href) => pathname === href || pathname.startsWith("/dashboard"));
+  const whatWeDoActive = whatWeDoHrefs.some((href) => pathname === href);
 
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-surface/90 backdrop-blur">
@@ -63,60 +42,50 @@ function SiteHeader() {
           className="relative hidden lg:block"
         >
           <NavigationMenuPrimitive.List className="flex items-center gap-7">
-            <NavItem href="/" label="Home" active={pathname === "/"} />
-            {primaryLinks.map((link) => (
-              <NavItem key={link.href} href={link.href} label={link.label} active={pathname === link.href} />
-            ))}
+            <NavItem href="/about" label="About" active={pathname === "/about"} />
 
             <NavigationMenuPrimitive.Item>
               <NavigationMenuPrimitive.Trigger
                 className={cn(
                   "group flex items-center gap-1.5 text-small font-medium text-text-secondary outline-none transition-colors hover:text-text-primary",
-                  serveActive && "font-semibold text-forest-green"
+                  whatWeDoActive && "font-semibold text-forest-green"
                 )}
               >
-                {serveActive && <span className="size-1.5 rounded-full bg-forest-green" aria-hidden />}
-                Who We Serve
+                {whatWeDoActive && <span className="size-1.5 rounded-full bg-forest-green" aria-hidden />}
+                What We Do
                 <ChevronDown className="size-3.5 transition-transform duration-200 group-data-[state=open]:rotate-180" aria-hidden />
               </NavigationMenuPrimitive.Trigger>
               <NavigationMenuPrimitive.Content className="absolute left-0 top-full pt-3 data-[motion=from-start]:animate-in data-[motion=from-start]:fade-in-0 data-[motion=from-start]:slide-in-from-top-1">
-                <div className="grid w-[30rem] grid-cols-2 gap-6 rounded-2xl border border-border bg-surface p-6 shadow-elevation-3">
-                  {serveGroups.map((group) => (
-                    <div key={group.heading}>
-                      <p className="text-caption font-semibold uppercase tracking-wide text-text-secondary">
-                        {group.heading}
-                      </p>
-                      <ul className="mt-3 space-y-2.5">
-                        {group.links.map((link) => (
-                          <li key={link.href}>
-                            <NavigationMenuPrimitive.Link asChild>
-                              <Link
-                                href={link.href}
-                                className="text-small font-medium text-text-primary transition-colors hover:text-forest-green"
-                              >
-                                {link.label}
-                              </Link>
-                            </NavigationMenuPrimitive.Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
+                <div className="w-64 rounded-2xl border border-border bg-surface p-3 shadow-elevation-3">
+                  <ul className="space-y-1">
+                    {whatWeDoLinks.map((link) => (
+                      <li key={link.href}>
+                        <NavigationMenuPrimitive.Link asChild>
+                          <Link
+                            href={link.href}
+                            className="block rounded-lg px-3 py-2.5 text-small font-medium text-text-primary transition-colors hover:bg-subtle-surface hover:text-forest-green"
+                          >
+                            {link.label}
+                          </Link>
+                        </NavigationMenuPrimitive.Link>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </NavigationMenuPrimitive.Content>
             </NavigationMenuPrimitive.Item>
 
-            {trailingLinks.map((link) => (
-              <NavItem key={link.href} href={link.href} label={link.label} active={pathname === link.href} />
-            ))}
+            <NavItem href="/impact" label="Our Impact" active={pathname === "/impact"} />
+            <NavItem href="/support-our-work" label="Get Involved" active={pathname === "/support-our-work"} />
+            <NavItem href="/contact" label="Contact" active={pathname === "/contact"} />
           </NavigationMenuPrimitive.List>
         </NavigationMenuPrimitive.Root>
 
         <div className="hidden items-center gap-3 lg:flex">
           <Button variant="ghost" size="sm" asChild>
-            <Link href="/support-our-work">Support our work</Link>
+            <Link href="/support-our-work">Donate</Link>
           </Button>
-          <Button size="sm" className="rounded-full text-white" asChild>
+          <Button size="sm" className="rounded-full" asChild>
             <Link href="/contact">Submit an enquiry</Link>
           </Button>
         </div>
@@ -135,24 +104,30 @@ function SiteHeader() {
       {open && (
         <div className="max-h-[calc(100vh-5rem)] overflow-y-auto border-t border-border bg-surface px-6 py-4 lg:hidden">
           <nav aria-label="Primary" className="flex flex-col gap-1">
-            <MobileLink href="/" label="Home" active={pathname === "/"} onClick={() => setOpen(false)} />
-            {primaryLinks.map((link) => (
-              <MobileLink
-                key={link.href}
-                href={link.href}
-                label={link.label}
-                active={pathname === link.href}
-                onClick={() => setOpen(false)}
-              />
-            ))}
+            <MobileLink href="/about" label="About" active={pathname === "/about"} onClick={() => setOpen(false)} />
 
-            <div className="mt-2 border-t border-border pt-2">
-              {serveGroups.map((group) => (
-                <div key={group.heading} className="mb-3 flex flex-col gap-1">
-                  <p className="px-3 pb-1 text-caption font-semibold uppercase tracking-wide text-text-secondary">
-                    {group.heading}
-                  </p>
-                  {group.links.map((link) => (
+            <div className="border-t border-border pt-1">
+              <button
+                type="button"
+                onClick={() => setWhatWeDoOpen((o) => !o)}
+                aria-expanded={whatWeDoOpen}
+                className={cn(
+                  "flex w-full items-center justify-between rounded-md px-3 py-3 text-body font-medium text-text-secondary transition-colors hover:bg-subtle-surface hover:text-text-primary",
+                  whatWeDoActive && "font-semibold text-forest-green"
+                )}
+              >
+                <span className="flex items-center gap-2">
+                  {whatWeDoActive && <span className="size-1.5 rounded-full bg-forest-green" aria-hidden />}
+                  What We Do
+                </span>
+                <ChevronDown
+                  className={cn("size-4 transition-transform duration-200", whatWeDoOpen && "rotate-180")}
+                  aria-hidden
+                />
+              </button>
+              {whatWeDoOpen && (
+                <div className="flex flex-col gap-1 pb-1 pl-3">
+                  {whatWeDoLinks.map((link) => (
                     <MobileLink
                       key={link.href}
                       href={link.href}
@@ -162,26 +137,25 @@ function SiteHeader() {
                     />
                   ))}
                 </div>
-              ))}
+              )}
             </div>
 
-            <div className="flex flex-col gap-1 border-t border-border pt-2">
-              {trailingLinks.map((link) => (
-                <MobileLink
-                  key={link.href}
-                  href={link.href}
-                  label={link.label}
-                  active={pathname === link.href}
-                  onClick={() => setOpen(false)}
-                />
-              ))}
+            <div className="flex flex-col gap-1 border-t border-border pt-1">
+              <MobileLink href="/impact" label="Our Impact" active={pathname === "/impact"} onClick={() => setOpen(false)} />
+              <MobileLink
+                href="/support-our-work"
+                label="Get Involved"
+                active={pathname === "/support-our-work"}
+                onClick={() => setOpen(false)}
+              />
+              <MobileLink href="/contact" label="Contact" active={pathname === "/contact"} onClick={() => setOpen(false)} />
             </div>
           </nav>
           <div className="mt-3 flex flex-col gap-2 border-t border-border pt-3">
             <Button variant="secondary" className="rounded-full" onClick={() => setOpen(false)} asChild>
-              <Link href="/support-our-work">Support our work</Link>
+              <Link href="/support-our-work">Donate</Link>
             </Button>
-            <Button className="rounded-full text-white" onClick={() => setOpen(false)} asChild>
+            <Button className="rounded-full" onClick={() => setOpen(false)} asChild>
               <Link href="/contact">Submit an enquiry</Link>
             </Button>
           </div>

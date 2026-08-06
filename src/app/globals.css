@@ -6,9 +6,9 @@
 /* -------------------------------------------------------------------- */
 
 :root {
-  /* Brand: primary greens */
-  --color-forest-green: #295c22;
-  --color-deep-green: #3a6e2c;
+  /* Brand: primary greens (lemon green family) */
+  --color-forest-green: #adf802;
+  --color-deep-green: #8ccc02;
   --color-growth-green: #4e8a3b;
   --color-leaf-green: #6fa74f;
 
@@ -38,14 +38,14 @@
   /* Component-facing aliases */
   --color-primary: var(--color-forest-green);
   --color-primary-hover: var(--color-deep-green);
-  --color-primary-foreground: #ffffff;
+  --color-primary-foreground: var(--color-text-primary);
   --color-accent: var(--color-leaf-gold);
   --color-accent-foreground: var(--color-text-primary);
   --color-ring: var(--color-growth-green);
 
   --gradient-brand: linear-gradient(
     135deg,
-    #295c22 0%,
+    #adf802 0%,
     #4e8a3b 60%,
     #d8a24a 100%
   );

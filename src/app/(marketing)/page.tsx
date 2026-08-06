@@ -73,21 +73,31 @@ const valueProps = [
   },
 ];
 
+const partners = [
+  { name: "JoyJeff Academy", logo: "/images/partner-logo-joyjeff-academy.jpg" as string | undefined },
+  { name: "Good Stewards Golden Pen School", logo: "/images/partner-logo-good-stewards.jpg" as string | undefined },
+  { name: "Froebel Educational Centre", logo: "/images/partner-logo-froebel.jpg" as string | undefined },
+];
+
 const testimonials = [
   {
     quote: "My daughter finally has a learning plan that fits her, not the other way around. The progress reports keep us all on the same page.",
     name: "Efua Mensah",
     role: "Parent",
+    image: "/images/testimonial-efua-mensah.jpg",
   },
   {
     quote: "The classroom analytics tell me exactly which students need a nudge this week. I've never had this much clarity before.",
     name: "Kwame Asante",
     role: "Mathematics Teacher",
+    image: "/images/testimonial-kwame-asante.jpg",
   },
   {
-    quote: "THRIVE EDU gave our school a single, calm view of enrollment and outcomes across every grade level.",
-    name: "Dr. Abena Owusu",
-    role: "School Director",
+    quote:
+      "As a school, we are determined to empower and equip our students with the 21st-century skills they need to stay relevant. Through our partnership with Thrive-Edu, who supplied us with all our STEM materials, we can boldly say we are one of the leading schools in STEM education.",
+    name: "Abigail Owusu Afriyie",
+    role: "Assistant Director, Golden Pen School",
+    image: "/images/testimonial-abena-owusu.jpg",
   },
 ];
 
@@ -104,8 +114,8 @@ export default function HomePage() {
       {/* Hero */}
       <section className="pt-3 sm:pt-5">
         <div className="relative overflow-hidden rounded-[1.75rem] bg-surface shadow-elevation-2 sm:rounded-[2.25rem]">
-          <div className="relative grid gap-10 px-6 py-14 sm:px-10 sm:py-16 lg:grid-cols-2 lg:items-center lg:gap-8 lg:px-16 lg:py-20">
-            <div>
+          <div className="grid lg:grid-cols-2">
+            <div className="flex flex-col justify-center px-6 py-14 sm:px-10 sm:py-16 lg:px-16 lg:py-20">
               <h1 className="font-heading text-h2 font-bold leading-[1.05] tracking-tight text-text-primary sm:text-h1 lg:text-display">
                 Rooted in Ghana.
                 <br />
@@ -119,7 +129,7 @@ export default function HomePage() {
                 attitudes to thrive.
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-4">
-                <Button size="lg" className="rounded-full text-white" asChild>
+                <Button size="lg" className="rounded-full" asChild>
                   <Link href="/contact">
                     Submit an enquiry
                     <ArrowUpRight className="size-4" />
@@ -132,7 +142,7 @@ export default function HomePage() {
                   <span className="flex size-12 items-center justify-center rounded-full bg-leaf-gold text-white transition-transform duration-200 group-hover:scale-105">
                     <HeartHandshake className="size-5" />
                   </span>
-                  Support our work
+                  Donate
                 </Link>
               </div>
             </div>
@@ -143,7 +153,7 @@ export default function HomePage() {
 
         {/* Stats band, overlapping the hero card */}
         <div className="relative z-10 -mt-6 sm:-mt-8">
-          <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl bg-ink-border shadow-elevation-3 sm:grid-cols-4">
+          <dl className="grid grid-cols-2 gap-px overflow-hidden bg-ink-border shadow-elevation-3 sm:grid-cols-4">
             {stats.map((s) => (
               <div key={s.label} className="bg-ink px-4 py-6 text-center sm:px-6">
                 <dt className="sr-only">{s.label}</dt>
@@ -425,7 +435,7 @@ export default function HomePage() {
                 className="rounded-full border-white/40 bg-white/10 text-white hover:bg-white/20"
                 asChild
               >
-                <Link href="/support-our-work">Support our work</Link>
+                <Link href="/support-our-work">Donate</Link>
               </Button>
             </div>
           </div>
@@ -433,10 +443,10 @@ export default function HomePage() {
           {/* Photo collage */}
           <div className="hidden grid-cols-3 gap-4 lg:grid">
             <div className="flex flex-col gap-4 pt-10">
-              <div className="relative aspect-[3/5] overflow-hidden rounded-[2.5rem] bg-warm-amber">
+              <div className="relative aspect-[3/5] overflow-hidden rounded-[2.5rem] bg-ink-border">
                 <Image
-                  src="/images/hero-student.png"
-                  alt="A Thrive EDU student"
+                  src="/images/cta-collage-blue-armchair.jpg"
+                  alt="A Thrive EDU learner working on her laptop"
                   fill
                   sizes="16vw"
                   className="object-cover"
@@ -444,19 +454,19 @@ export default function HomePage() {
               </div>
             </div>
             <div className="flex flex-col gap-4">
-              <div className="relative aspect-[3/4] overflow-hidden rounded-[2.5rem] bg-leaf-gold">
+              <div className="relative aspect-[3/4] overflow-hidden rounded-[2.5rem] bg-warm-amber">
                 <Image
-                  src="/images/gallery-studio-arts.jpg"
-                  alt="A Thrive EDU student painting"
+                  src="/images/cta-collage-orange-laptop.jpg"
+                  alt="A Thrive EDU learner holding a laptop"
                   fill
                   sizes="16vw"
                   className="object-cover"
                 />
               </div>
-              <div className="relative aspect-[3/4] overflow-hidden rounded-[2.5rem] bg-growth-green">
+              <div className="relative aspect-[3/4] overflow-hidden rounded-[2.5rem] bg-leaf-gold">
                 <Image
-                  src="/images/every-learner.jpg"
-                  alt="A Thrive EDU learner celebrating"
+                  src="/images/cta-collage-pink-backpack.jpg"
+                  alt="A Thrive EDU learner with a backpack and notebooks"
                   fill
                   sizes="16vw"
                   className="object-cover"
@@ -464,10 +474,10 @@ export default function HomePage() {
               </div>
             </div>
             <div className="flex flex-col gap-4 pt-20">
-              <div className="relative aspect-[3/5] overflow-hidden rounded-[2.5rem] bg-forest-green">
+              <div className="relative aspect-[3/5] overflow-hidden rounded-[2.5rem] bg-ink-border">
                 <Image
-                  src="/images/about-founder.png"
-                  alt="A Thrive EDU team member"
+                  src="/images/cta-collage-purple-phone.jpg"
+                  alt="A Thrive EDU learner checking his phone"
                   fill
                   sizes="16vw"
                   className="object-cover"
@@ -478,10 +488,41 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Featured partners */}
+      <section className="border-t border-border bg-subtle-surface py-16">
+        <div className="mx-auto max-w-5xl px-6 text-center">
+          <p className="text-caption font-semibold uppercase tracking-wide text-forest-green">
+            Our Featured Partners
+          </p>
+          <div className="mt-8 grid grid-cols-3 gap-4 sm:gap-6">
+            {partners.map((partner) => (
+              <div
+                key={partner.name}
+                className="mx-auto flex aspect-square w-20 items-center justify-center border border-border bg-surface p-2 shadow-elevation-1 sm:w-28 sm:p-3"
+              >
+                {partner.logo ? (
+                  <div className="relative size-full">
+                    <Image
+                      src={partner.logo}
+                      alt={partner.name}
+                      fill
+                      sizes="7rem"
+                      className="object-contain"
+                    />
+                  </div>
+                ) : (
+                  <p className="text-caption font-semibold text-text-secondary">{partner.name}</p>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Testimonials */}
       <section className="border-t border-border bg-background py-24 sm:py-28">
         <div className="mx-auto max-w-6xl px-6">
-          <p className="text-center text-caption font-semibold uppercase tracking-wide text-forest-green">
+          <p className="text-center text-caption font-semibold uppercase tracking-wide text-black">
             From our community
           </p>
           <div className="mt-10">

@@ -44,7 +44,7 @@ export default function YoungAdultsPage() {
               strong and thrive.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-              <Button size="lg" className="rounded-full text-white" asChild>
+              <Button size="lg" className="rounded-full" asChild>
                 <Link href="/contact">Submit an enquiry</Link>
               </Button>
             </div>
@@ -86,7 +86,7 @@ export default function YoungAdultsPage() {
               </p>
             </div>
             <div className="flex shrink-0 flex-wrap items-center justify-center gap-3">
-              <Button className="rounded-full text-white" asChild>
+              <Button className="rounded-full" asChild>
                 <Link href="/courses">Browse courses</Link>
               </Button>
               <Button variant="secondary" className="rounded-full" asChild>

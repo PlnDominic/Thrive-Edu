@@ -34,7 +34,7 @@ export default function BooksPage() {
               books from Thrive Literacy and Publications.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-              <Button size="lg" className="rounded-full text-white" asChild>
+              <Button size="lg" className="rounded-full" asChild>
                 <Link href="/contact">Order for your school</Link>
               </Button>
             </div>
