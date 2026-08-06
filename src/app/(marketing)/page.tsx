@@ -493,11 +493,11 @@ export default function HomePage() {
           <p className="text-caption font-semibold uppercase tracking-wide text-forest-green">
             Our Featured Partners
           </p>
-          <div className="mt-8 grid grid-cols-3 gap-6 sm:gap-10">
+          <div className="mt-8 grid grid-cols-3 gap-4 sm:gap-6">
             {partners.map((partner) => (
               <div
                 key={partner.name}
-                className="flex aspect-square items-center justify-center rounded-2xl border border-border bg-surface p-4 shadow-elevation-1 sm:p-6"
+                className="mx-auto flex aspect-square w-20 items-center justify-center border border-border bg-surface p-2 shadow-elevation-1 sm:w-28 sm:p-3"
               >
                 {partner.logo ? (
                   <div className="relative size-full">
@@ -505,7 +505,7 @@ export default function HomePage() {
                       src={partner.logo}
                       alt={partner.name}
                       fill
-                      sizes="12rem"
+                      sizes="7rem"
                       className="object-contain"
                     />
                   </div>
