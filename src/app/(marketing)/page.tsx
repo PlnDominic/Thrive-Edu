@@ -74,9 +74,9 @@ const valueProps = [
 ];
 
 const partners = [
-  { name: "JoyJeff Academy", logo: undefined as string | undefined },
-  { name: "Good Stewards Golden Pen School", logo: undefined as string | undefined },
-  { name: "Froebel Educational Centre", logo: undefined as string | undefined },
+  { name: "JoyJeff Academy", logo: "/images/partner-logo-joyjeff-academy.jpg" as string | undefined },
+  { name: "Good Stewards Golden Pen School", logo: "/images/partner-logo-good-stewards.jpg" as string | undefined },
+  { name: "Froebel Educational Centre", logo: "/images/partner-logo-froebel.jpg" as string | undefined },
 ];
 
 const testimonials = [
