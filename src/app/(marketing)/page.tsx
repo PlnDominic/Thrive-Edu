@@ -93,9 +93,10 @@ const testimonials = [
     image: "/images/testimonial-kwame-asante.jpg",
   },
   {
-    quote: "THRIVE EDU gave our school a single, calm view of enrollment and outcomes across every grade level.",
-    name: "Dr. Abena Owusu",
-    role: "School Director",
+    quote:
+      "As a school, we are determined to empower and equip our students with the 21st-century skills they need to stay relevant. Through our partnership with Thrive-Edu, who supplied us with all our STEM materials, we can boldly say we are one of the leading schools in STEM education.",
+    name: "Abigail Owusu Afriyie",
+    role: "Assistant Director, Golden Pen School",
     image: "/images/testimonial-abena-owusu.jpg",
   },
 ];
@@ -521,7 +522,7 @@ export default function HomePage() {
       {/* Testimonials */}
       <section className="border-t border-border bg-background py-24 sm:py-28">
         <div className="mx-auto max-w-6xl px-6">
-          <p className="text-center text-caption font-semibold uppercase tracking-wide text-forest-green">
+          <p className="text-center text-caption font-semibold uppercase tracking-wide text-black">
             From our community
           </p>
           <div className="mt-10">
