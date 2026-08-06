@@ -73,6 +73,12 @@ const valueProps = [
   },
 ];
 
+const partners = [
+  { name: "JoyJeff Academy", logo: undefined as string | undefined },
+  { name: "Good Stewards Golden Pen School", logo: undefined as string | undefined },
+  { name: "Froebel Educational Centre", logo: undefined as string | undefined },
+];
+
 const testimonials = [
   {
     quote: "My daughter finally has a learning plan that fits her, not the other way around. The progress reports keep us all on the same page.",
@@ -109,10 +115,7 @@ export default function HomePage() {
         <div className="relative overflow-hidden rounded-[1.75rem] bg-surface shadow-elevation-2 sm:rounded-[2.25rem]">
           <div className="grid lg:grid-cols-2">
             <div className="flex flex-col justify-center px-6 py-14 sm:px-10 sm:py-16 lg:px-16 lg:py-20">
-              <span className="inline-flex w-fit items-center rounded-full bg-subtle-surface px-4 py-1.5 text-caption font-bold uppercase tracking-wide text-forest-green">
-                International education NGO
-              </span>
-              <h1 className="mt-5 font-heading text-h2 font-bold leading-[1.05] tracking-tight text-text-primary sm:text-h1 lg:text-display">
+              <h1 className="font-heading text-h2 font-bold leading-[1.05] tracking-tight text-text-primary sm:text-h1 lg:text-display">
                 Rooted in Ghana.
                 <br />
                 Reaching for
@@ -480,6 +483,37 @@ export default function HomePage() {
                 />
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured partners */}
+      <section className="border-t border-border bg-subtle-surface py-16">
+        <div className="mx-auto max-w-5xl px-6 text-center">
+          <p className="text-caption font-semibold uppercase tracking-wide text-forest-green">
+            Our Featured Partners
+          </p>
+          <div className="mt-8 grid grid-cols-3 gap-6 sm:gap-10">
+            {partners.map((partner) => (
+              <div
+                key={partner.name}
+                className="flex aspect-square items-center justify-center rounded-2xl border border-border bg-surface p-4 shadow-elevation-1 sm:p-6"
+              >
+                {partner.logo ? (
+                  <div className="relative size-full">
+                    <Image
+                      src={partner.logo}
+                      alt={partner.name}
+                      fill
+                      sizes="12rem"
+                      className="object-contain"
+                    />
+                  </div>
+                ) : (
+                  <p className="text-caption font-semibold text-text-secondary">{partner.name}</p>
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </section>
