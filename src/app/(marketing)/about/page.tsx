@@ -53,7 +53,7 @@ export default function AboutPage() {
               />
               <Image
                 src="/images/about-founder.png"
-                alt="Dr. Abena Owusu, Founder and CEO of THRIVE EDU"
+                alt="Abigail Owusu Afriyie, Founder and CEO of THRIVE EDU"
                 width={566}
                 height={968}
                 priority
@@ -71,7 +71,7 @@ export default function AboutPage() {
               </div>
 
               <div className="absolute -bottom-5 left-1/2 z-20 -translate-x-1/2 rounded-2xl border border-border bg-surface px-4 py-3 shadow-elevation-3 sm:-bottom-6 sm:left-0 sm:translate-x-0">
-                <p className="text-small font-semibold text-text-primary">Dr. Abena Owusu</p>
+                <p className="text-small font-semibold text-text-primary">Abigail Owusu Afriyie</p>
                 <p className="text-caption text-text-secondary">Founder & CEO</p>
               </div>
             </div>
