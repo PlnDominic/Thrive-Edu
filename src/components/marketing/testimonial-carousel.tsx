@@ -58,7 +58,7 @@ function TestimonialCarousel({ testimonials, intervalMs = 6000 }: TestimonialCar
             {current.name}
           </p>
           <div aria-hidden className="mt-6 aspect-square w-full bg-border/60" />
-          <blockquote className="mt-8 text-h5 font-bold leading-snug text-text-primary text-pretty sm:text-h4">
+          <blockquote className="mt-8 text-h5 font-bold leading-snug text-text-primary text-pretty whitespace-pre-line sm:text-h4">
             {current.quote}
           </blockquote>
           <p className="mt-4 text-small text-text-secondary">{current.role}</p>

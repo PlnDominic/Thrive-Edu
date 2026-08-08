@@ -75,19 +75,19 @@ const valueProps = [
 
 const testimonials = [
   {
-    quote: "My daughter finally has a learning plan that fits her, not the other way around. The progress reports keep us all on the same page.",
-    name: "Efua Mensah",
-    role: "Parent",
+    quote: "Thrive Edu has been our go-to partner for extracurricular programming, consistently exceeding our expectations. More than just a service provider, they have invested in our school community like true family. We couldn't ask for a more reliable or dedicated team!",
+    name: "David Owusu",
+    role: "Director, Frobel",
   },
   {
-    quote: "The classroom analytics tell me exactly which students need a nudge this week. I've never had this much clarity before.",
-    name: "Kwame Asante",
-    role: "Mathematics Teacher",
+    quote: "Thrive Edu provides exceptional teaching resources and has been an invaluable literacy partner for our school. Their dedication to helping us foster independent learners is unmatched. We are proud to work alongside a team that cares so deeply about student success.",
+    name: "William Adu-Donkor",
+    role: "Director, Joyjeff",
   },
   {
-    quote: "THRIVE EDU gave our school a single, calm view of enrollment and outcomes across every grade level.",
-    name: "Dr. Abena Owusu",
-    role: "School Director",
+    quote: "At Goshen Hybrid academy, we believe that quality education requires innovation, commitment and the right educational tools.\n\nOur experience with Thrive Edu has been remarkable. Thrive Edu has introduced innovative approaches that support our teachers and making learning more engaging and efficient for our pupils.\n\nWe are proud to be associated with Thrive Edu, and I confidently recommend them to schools and educational institutions that are passionate about improving teaching and learning.\n\nTogether, Thrive Edu and Goshen Hybrid are working towards one goal: empowering learners and building a sustainable future through quality education.",
+    name: "Mr. Enock Osei Tutu",
+    role: "Headmaster, Goshen Hybrid",
   },
 ];
 
