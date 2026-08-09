@@ -2,7 +2,6 @@
 
 import * as React from "react";
 import Image from "next/image";
-import { BadgeCheck } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
@@ -27,7 +26,7 @@ function HeroVisual() {
 
   return (
     <div
-      className="relative h-72 overflow-hidden sm:h-96 lg:h-auto"
+      className="absolute inset-0"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
@@ -37,13 +36,12 @@ function HeroVisual() {
         alt={slides[index].alt}
         fill
         priority={index === 0}
-        sizes="(min-width: 1024px) 50vw, 100vw"
+        sizes="100vw"
         className="motion-safe:animate-[carousel-in_0.6s_ease_both] object-cover"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-ink/40 via-transparent to-transparent" aria-hidden />
 
       {/* Slide indicators */}
-      <div className="absolute inset-x-0 top-4 z-20 flex items-center justify-center gap-1.5 sm:top-6">
+      <div className="absolute bottom-6 right-6 z-20 flex items-center gap-1.5 sm:bottom-8 sm:right-10">
         {slides.map((slide, i) => (
           <button
             key={slide.src}
@@ -57,17 +55,6 @@ function HeroVisual() {
             )}
           />
         ))}
-      </div>
-
-      {/* Floating badge: brand chip */}
-      <div className="absolute right-4 top-12 z-20 flex -rotate-2 items-center gap-2 rounded-2xl bg-surface px-3 py-2 shadow-elevation-3 sm:right-6 sm:top-14">
-        <Image src="/thrive-edu-logo.png" width={20} height={20} alt="" />
-        <span className="text-caption font-semibold text-text-primary">THRIVE EDU</span>
-      </div>
-
-      {/* Floating badge: verified check */}
-      <div className="absolute left-4 top-12 z-20 flex size-11 items-center justify-center rounded-full bg-leaf-gold text-white shadow-elevation-2 sm:left-6 sm:top-14 sm:size-12">
-        <BadgeCheck className="size-5 sm:size-6" />
       </div>
     </div>
   );

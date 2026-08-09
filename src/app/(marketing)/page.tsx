@@ -195,57 +195,53 @@ export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="pt-3 sm:pt-5">
-        <div className="relative overflow-hidden rounded-[1.75rem] bg-surface shadow-elevation-2 sm:rounded-[2.25rem]">
-          <div className="grid lg:grid-cols-2">
-            <div className="flex flex-col justify-center px-6 py-14 sm:px-10 sm:py-16 lg:px-16 lg:py-20">
-              <h1 className="font-heading text-h2 font-bold leading-[1.05] tracking-tight text-text-primary sm:text-h1 lg:text-display">
-                Rooted in Ghana.
-                <br />
-                Reaching for
-                <br />
-                <span className="text-growth-green">Africa.</span>
-              </h1>
-              <p className="mt-6 max-w-lg text-body-lg text-text-secondary">
-                Thrive EDU is an international education NGO. We help schools, organisations and communities
-                build the systems that lock in quality, so every learner gains the knowledge, skills and
-                attitudes to thrive.
-              </p>
-              <div className="mt-8 flex flex-wrap items-center gap-4">
-                <Button size="lg" className="rounded-full" asChild>
-                  <Link href="/contact">
-                    Submit an enquiry
-                    <ArrowUpRight className="size-4" />
-                  </Link>
-                </Button>
-                <Link
-                  href="/support-our-work"
-                  className="group flex items-center gap-3 text-small font-semibold text-text-primary"
-                >
-                  <span className="flex size-12 items-center justify-center rounded-full bg-leaf-gold text-white transition-transform duration-200 group-hover:scale-105">
-                    <HeartHandshake className="size-5" />
-                  </span>
-                  Donate
+      <section className="relative">
+        <div className="relative min-h-[560px] overflow-hidden sm:min-h-[640px] lg:min-h-[720px]">
+          <HeroVisual />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/55 to-ink/10" aria-hidden />
+          <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col justify-end px-6 py-14 sm:px-10 sm:py-16 lg:px-16 lg:py-20">
+            <h1 className="max-w-2xl font-heading text-h2 font-bold leading-[1.05] tracking-tight text-white sm:text-h1 lg:text-display">
+              Rooted in Ghana.
+              <br />
+              Reaching for
+              <br />
+              <span className="text-growth-green">Africa.</span>
+            </h1>
+            <p className="mt-6 max-w-lg text-body-lg text-white/80">
+              Thrive EDU is an international education NGO. We help schools, organisations and communities
+              build the systems that lock in quality, so every learner gains the knowledge, skills and
+              attitudes to thrive.
+            </p>
+            <div className="mt-8 flex flex-wrap items-center gap-4">
+              <Button size="lg" className="rounded-full" asChild>
+                <Link href="/contact">
+                  Submit an enquiry
+                  <ArrowUpRight className="size-4" />
                 </Link>
-              </div>
+              </Button>
+              <Link
+                href="/support-our-work"
+                className="group flex items-center gap-3 text-small font-semibold text-white"
+              >
+                <span className="flex size-12 items-center justify-center rounded-full bg-leaf-gold text-white transition-transform duration-200 group-hover:scale-105">
+                  <HeartHandshake className="size-5" />
+                </span>
+                Donate
+              </Link>
             </div>
-
-            <HeroVisual />
           </div>
         </div>
 
-        {/* Stats band, overlapping the hero card */}
-        <div className="relative z-10 -mt-6 sm:-mt-8">
-          <dl className="grid grid-cols-2 gap-px overflow-hidden bg-ink-border shadow-elevation-3 sm:grid-cols-4">
-            {stats.map((s) => (
-              <div key={s.label} className="bg-ink px-4 py-6 text-center sm:px-6">
-                <dt className="sr-only">{s.label}</dt>
-                <dd className="font-heading text-h4 font-bold text-white sm:text-h3">{s.value}</dd>
-                <p className="mt-1 text-caption text-white/60">{s.label}</p>
-              </div>
-            ))}
-          </dl>
-        </div>
+        {/* Stats band */}
+        <dl className="grid grid-cols-2 gap-px overflow-hidden bg-ink-border sm:grid-cols-4">
+          {stats.map((s) => (
+            <div key={s.label} className="bg-ink px-4 py-6 text-center sm:px-6">
+              <dt className="sr-only">{s.label}</dt>
+              <dd className="font-heading text-h4 font-bold text-white sm:text-h3">{s.value}</dd>
+              <p className="mt-1 text-caption text-white/60">{s.label}</p>
+            </div>
+          ))}
+        </dl>
       </section>
 
       {/* Built for every role */}
@@ -465,7 +461,7 @@ export default function HomePage() {
       </section>
 
       {/* Statement band */}
-      <div className="border-y-2 border-text-primary bg-background py-12 sm:py-16">
+      <div className="border-y-2 border-text-primary bg-surface py-12 sm:py-16">
         <p className="flex flex-wrap items-center justify-center gap-3 px-6 text-center font-heading text-h3 font-bold uppercase tracking-tight text-text-primary sm:gap-4 sm:text-h2 lg:text-h1">
           <span>Grow</span>
           <Sparkles className="size-5 shrink-0 text-leaf-gold sm:size-7" aria-hidden />
@@ -476,7 +472,7 @@ export default function HomePage() {
       </div>
 
       {/* Featured courses */}
-      <section className="py-24">
+      <section className="bg-surface py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <SectionHeading
@@ -624,7 +620,7 @@ export default function HomePage() {
       </section>
 
       {/* Testimonials */}
-      <section className="border-t border-border bg-background py-24 sm:py-28">
+      <section className="border-t border-border bg-surface py-24 sm:py-28">
         <div className="mx-auto max-w-6xl px-6">
           <p className="text-center text-caption font-semibold uppercase tracking-wide text-black">
             From our community
