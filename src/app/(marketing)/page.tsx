@@ -251,59 +251,65 @@ export default function HomePage() {
       {/* Built for every role */}
       <section className="py-24">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="mb-6 flex items-center gap-3">
-            <span className="inline-flex items-center rounded-full bg-subtle-surface px-4 py-2 text-caption font-bold uppercase tracking-wide text-heading-accent">
-              What we do
-            </span>
-            <Leaf className="size-5 text-leaf-gold" aria-hidden />
-          </div>
-          <h2 className="font-heading text-h2 font-bold leading-[1.05] text-text-primary sm:text-h1">
-            Our ecosystem,
-            <br />
-            in <span className="text-leaf-gold">four</span> themes.
-          </h2>
-          <p className="mt-6 max-w-lg text-body-lg text-text-secondary">
-            THRIVE EDU is one parent organisation made of connected, autonomous units, grouped into
-            four clear themes so you can go straight to the one you need.
-          </p>
+          <div className="grid gap-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:items-start">
+            {/* Content */}
+            <div className="lg:sticky lg:top-28">
+              <div className="mb-6 flex items-center gap-3">
+                <span className="inline-flex items-center rounded-full bg-subtle-surface px-4 py-2 text-caption font-bold uppercase tracking-wide text-heading-accent">
+                  What we do
+                </span>
+                <Leaf className="size-5 text-leaf-gold" aria-hidden />
+              </div>
+              <h2 className="font-heading text-h2 font-bold leading-[1.05] text-text-primary sm:text-h1">
+                Our ecosystem,
+                <br />
+                in <span className="text-leaf-gold">four</span> themes.
+              </h2>
+              <p className="mt-6 max-w-lg text-body-lg text-text-secondary">
+                THRIVE EDU is one parent organisation made of connected, autonomous units, grouped into
+                four clear themes so you can go straight to the one you need.
+              </p>
+            </div>
 
-          <div className="mt-10 grid grid-cols-1 gap-4">
-            {ecosystemThemes.map((a, i) => (
-              <Link
-                key={a.title}
-                href={a.href}
-                className="group relative flex h-64 flex-col justify-end overflow-hidden p-6 shadow-elevation-2 sm:h-56"
-              >
-                <Image
-                  src={a.image}
-                  alt=""
-                  fill
-                  sizes="100vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div
-                  className="absolute inset-0 bg-ink/80 transition-colors duration-300 group-hover:bg-ink/45 group-focus-visible:bg-ink/45 group-active:bg-ink/40"
-                  aria-hidden
-                />
-                <div className="relative z-10">
-                  <span className="font-heading text-h2 font-bold leading-none text-white/30">0{i + 1}</span>
-                  <p className="mt-2 font-heading text-h5 font-bold text-white">{a.title}</p>
-                  <p className="mt-1.5 text-small italic text-white/75">{a.description}</p>
-                  <ul className="mt-3 flex flex-wrap gap-x-2 gap-y-1">
-                    {a.items.map((item, itemIndex) => (
-                      <li key={item} className="text-caption italic text-white/65">
-                        {item}
-                        {itemIndex < a.items.length - 1 && <span className="not-italic text-white/35"> ・</span>}
-                      </li>
-                    ))}
-                  </ul>
-                  <span className="mt-4 inline-flex items-center gap-1.5 text-small font-semibold text-leaf-gold">
-                    Learn more
-                    <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-1" />
-                  </span>
-                </div>
-              </Link>
-            ))}
+            {/* Themes */}
+            <div className="grid grid-cols-1 gap-4">
+              {ecosystemThemes.map((a, i) => (
+                <Link
+                  key={a.title}
+                  href={a.href}
+                  className="group relative flex h-64 flex-col justify-end overflow-hidden p-6 shadow-elevation-2 sm:h-56"
+                >
+                  <Image
+                    src={a.image}
+                    alt=""
+                    fill
+                    sizes="(min-width: 1024px) 58vw, 100vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div
+                    className="absolute inset-0 bg-ink/80 transition-colors duration-300 group-hover:bg-ink/45 group-focus-visible:bg-ink/45 group-active:bg-ink/40"
+                    aria-hidden
+                  />
+                  <div className="relative z-10">
+                    <span className="font-heading text-h2 font-bold leading-none text-white/30">0{i + 1}</span>
+                    <p className="mt-2 font-heading text-h5 font-bold text-white">{a.title}</p>
+                    <p className="mt-1.5 text-small italic text-white/75">{a.description}</p>
+                    <ul className="mt-3 flex flex-wrap gap-x-2 gap-y-1">
+                      {a.items.map((item, itemIndex) => (
+                        <li key={item} className="text-caption italic text-white/65">
+                          {item}
+                          {itemIndex < a.items.length - 1 && <span className="not-italic text-white/35"> ・</span>}
+                        </li>
+                      ))}
+                    </ul>
+                    <span className="mt-4 inline-flex items-center gap-1.5 text-small font-semibold text-leaf-gold">
+                      Learn more
+                      <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-1" />
+                    </span>
+                  </div>
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </section>
