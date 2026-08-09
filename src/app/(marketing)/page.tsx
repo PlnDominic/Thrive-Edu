@@ -96,12 +96,21 @@ const shopProducts: ShopProduct[] = [
     category: "Early Learners",
     description: "Bright, wipeable flash cards that introduce young learners to everyday fruits and vegetables.",
     cardCount: "30 Cards",
+    image: "/images/shop-dansly-fruits-vegetables.png",
   },
   {
     title: "Parts of the Human Body",
     category: "Early Learners",
     description: "A wipeable-clean flash card set that helps children learn and label parts of the human body.",
     cardCount: "30 Cards",
+    image: "/images/shop-dansly-human-body.png",
+  },
+  {
+    title: "Shapes and Colours",
+    category: "Early Learners",
+    description: "A wipeable-clean flash card set that helps children recognize shapes and colours with ease.",
+    cardCount: "30 Cards",
+    image: "/images/shop-dansly-shapes-colours.png",
   },
 ];
 
@@ -445,7 +454,7 @@ export default function HomePage() {
           />
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {shopProducts.map((product) => (
-              <Card key={product.title} interactive elevation={2} className="flex flex-col overflow-hidden">
+              <Card key={product.title} interactive elevation={2} className="flex flex-col overflow-hidden rounded-none">
                 <div className="relative flex h-56 items-center justify-center overflow-hidden bg-border/40">
                   {product.image ? (
                     <Image
