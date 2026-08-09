@@ -597,21 +597,21 @@ export default function HomePage() {
       </section>
 
       {/* Featured partners */}
-      <section className="border-t border-border bg-subtle-surface py-16">
+      <section className="border-t border-border bg-surface py-16">
         <div className="mx-auto max-w-5xl px-6 text-center">
           <p className="text-caption font-semibold uppercase tracking-wide text-heading-accent">
             Our Featured Partners
           </p>
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-x-12 gap-y-8 sm:gap-x-16">
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-x-12 gap-y-8 sm:gap-x-20">
             {partners.map((partner) =>
               partner.logo ? (
                 <Image
                   key={partner.name}
                   src={partner.logo}
                   alt={partner.name}
-                  width={160}
-                  height={80}
-                  className="h-12 w-auto object-contain sm:h-16"
+                  width={220}
+                  height={110}
+                  className="h-20 w-auto object-contain sm:h-28"
                 />
               ) : (
                 <p key={partner.name} className="text-caption font-semibold text-text-secondary">
