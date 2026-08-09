@@ -91,19 +91,21 @@ const testimonials = [
       "As a school, we are determined to empower and equip our students with the 21st-century skills they need to stay relevant. Through our partnership with Thrive-Edu, who supplied us with all our STEM materials, we can boldly say we are one of the leading schools in STEM education.",
     name: "Abigail Owusu Afriyie",
     role: "Assistant Director, Golden Pen School",
-    image: "/images/testimonial-abena-owusu.jpg",
+    image: "/images/testimonial-abigail-owusu-afriyie.jpg",
   },
   {
     quote:
       "Thrive Edu has been our go-to partner for extracurricular programming, consistently exceeding our expectations. More than just a service provider, they have invested in our school community like true family. We couldn't ask for a more reliable or dedicated team!",
     name: "David Owusu",
     role: "Director, Froebel Educational Centre",
+    image: "/images/testimonial-david-owusu.jpg",
   },
   {
     quote:
       "At Goshen Hybrid Academy, we believe that quality education requires innovation, commitment, and the right educational tools. Our experience with Thrive Edu has been remarkable, introducing innovative approaches that support our teachers and make learning more engaging and efficient for our pupils. We are proud to be associated with Thrive Edu, and I confidently recommend them to schools passionate about improving teaching and learning.",
     name: "Enock Osei Tutu",
     role: "Headmaster, Goshen Hybrid Academy",
+    image: "/images/testimonial-enock-osei-tutu.jpg",
   },
 ];
 

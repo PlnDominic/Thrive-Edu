@@ -57,7 +57,7 @@ function TestimonialCarousel({ testimonials, intervalMs = 6000 }: TestimonialCar
               alt=""
               fill
               sizes="9rem"
-              className="object-cover"
+              className="object-cover object-top"
             />
           )}
         </button>
@@ -71,7 +71,7 @@ function TestimonialCarousel({ testimonials, intervalMs = 6000 }: TestimonialCar
           </p>
           <div className="relative mt-4 h-40 w-full bg-border/60 sm:h-48">
             {current.image && (
-              <Image src={current.image} alt={current.name} fill sizes="24rem" className="object-cover" />
+              <Image src={current.image} alt={current.name} fill sizes="24rem" className="object-cover object-top" />
             )}
           </div>
           <blockquote className="mt-5 text-h5 font-bold leading-snug text-text-primary text-pretty sm:text-h4">
@@ -92,7 +92,7 @@ function TestimonialCarousel({ testimonials, intervalMs = 6000 }: TestimonialCar
               alt=""
               fill
               sizes="9rem"
-              className="object-cover"
+              className="object-cover object-top"
             />
           )}
         </button>
