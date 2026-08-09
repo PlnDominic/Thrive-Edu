@@ -279,9 +279,9 @@ export default function HomePage() {
                     </span>
                     <p className="mt-4 font-heading text-body-lg font-bold text-text-primary">{a.title}</p>
                     <p className="mt-1.5 text-small italic text-text-secondary">{a.description}</p>
-                    <ul className="mt-3 space-y-1.5 border-t border-border pt-3">
+                    <ul className="mt-3 space-y-0.5 border-t border-border pt-3">
                       {a.items.map((item) => (
-                        <li key={item} className="flex items-start gap-2 text-small text-text-secondary">
+                        <li key={item} className="flex items-start gap-2 text-small italic text-text-secondary">
                           <span
                             className={cn(
                               "mt-1.5 size-1 shrink-0 rounded-full",
