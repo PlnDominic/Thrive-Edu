@@ -81,16 +81,10 @@ const partners = [
 
 const testimonials = [
   {
-    quote: "My daughter finally has a learning plan that fits her, not the other way around. The progress reports keep us all on the same page.",
-    name: "Efua Mensah",
-    role: "Parent",
-    image: "/images/testimonial-efua-mensah.jpg",
-  },
-  {
-    quote: "The classroom analytics tell me exactly which students need a nudge this week. I've never had this much clarity before.",
-    name: "Kwame Asante",
-    role: "Mathematics Teacher",
-    image: "/images/testimonial-kwame-asante.jpg",
+    quote:
+      "Thrive Edu provides exceptional teaching resources and has been an invaluable literacy partner for our school. Their dedication to helping us foster independent learners is unmatched. We are proud to work alongside a team that cares so deeply about student success.",
+    name: "William Adu-Donkor",
+    role: "Director, JoyJeff Academy",
   },
   {
     quote:
@@ -98,6 +92,18 @@ const testimonials = [
     name: "Abigail Owusu Afriyie",
     role: "Assistant Director, Golden Pen School",
     image: "/images/testimonial-abena-owusu.jpg",
+  },
+  {
+    quote:
+      "Thrive Edu has been our go-to partner for extracurricular programming, consistently exceeding our expectations. More than just a service provider, they have invested in our school community like true family. We couldn't ask for a more reliable or dedicated team!",
+    name: "David Owusu",
+    role: "Director, Froebel Educational Centre",
+  },
+  {
+    quote:
+      "At Goshen Hybrid Academy, we believe that quality education requires innovation, commitment, and the right educational tools. Our experience with Thrive Edu has been remarkable, introducing innovative approaches that support our teachers and make learning more engaging and efficient for our pupils. We are proud to be associated with Thrive Edu, and I confidently recommend them to schools passionate about improving teaching and learning.",
+    name: "Enock Osei Tutu",
+    role: "Headmaster, Goshen Hybrid Academy",
   },
 ];
 
