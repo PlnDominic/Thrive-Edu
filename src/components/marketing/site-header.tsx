@@ -88,13 +88,13 @@ function SiteHeader() {
                         <p className="px-3 text-caption font-semibold uppercase tracking-wide text-heading-accent">
                           {group.theme}
                         </p>
-                        <ul className="mt-2.5 space-y-1">
+                        <ul className="mt-1.5 space-y-0">
                           {group.items.map((link) => (
                             <li key={link.href + link.label}>
                               <NavigationMenuPrimitive.Link asChild>
                                 <Link
                                   href={link.href}
-                                  className="block rounded-lg px-3 py-2.5 text-small font-medium leading-snug text-text-primary transition-colors hover:bg-subtle-surface hover:text-forest-green"
+                                  className="block rounded-lg px-3 py-1.5 text-small font-medium italic leading-snug text-text-primary transition-colors hover:bg-subtle-surface hover:text-forest-green"
                                 >
                                   {link.label}
                                 </Link>
@@ -169,7 +169,7 @@ function SiteHeader() {
                       <p className="px-3 text-caption font-semibold uppercase tracking-wide text-heading-accent">
                         {group.theme}
                       </p>
-                      <div className="mt-2 flex flex-col gap-1.5">
+                      <div className="mt-1 flex flex-col">
                         {group.items.map((link) => (
                           <MobileLink
                             key={link.href + link.label}
@@ -177,6 +177,8 @@ function SiteHeader() {
                             label={link.label}
                             active={pathname === link.href}
                             onClick={() => setOpen(false)}
+                            italic
+                            compact
                           />
                         ))}
                       </div>
@@ -236,11 +238,15 @@ function MobileLink({
   label,
   active,
   onClick,
+  italic = false,
+  compact = false,
 }: {
   href: string;
   label: string;
   active: boolean;
   onClick: () => void;
+  italic?: boolean;
+  compact?: boolean;
 }) {
   return (
     <Link
@@ -249,6 +255,8 @@ function MobileLink({
       aria-current={active ? "page" : undefined}
       className={cn(
         "block rounded-md px-3 py-3 text-body font-medium text-text-secondary transition-colors hover:bg-subtle-surface hover:text-text-primary",
+        compact && "py-1.5",
+        italic && "italic",
         active && "bg-primary/10 font-semibold text-forest-green"
       )}
     >
