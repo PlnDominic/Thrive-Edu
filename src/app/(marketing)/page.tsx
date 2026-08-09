@@ -22,6 +22,7 @@ import { HeroVisual } from "@/components/marketing/hero-visual";
 import { TestimonialCarousel } from "@/components/marketing/testimonial-carousel";
 import { EmptyState } from "@/components/feedback/empty-state";
 import { courses } from "@/lib/courses-data";
+import { partners } from "@/lib/partners-data";
 
 const ecosystemThemes = [
   {
@@ -79,13 +80,6 @@ const valueProps = [
     description: "Behind every dashboard is a real support team ready to help students and families thrive.",
     icon: HeartHandshake,
   },
-];
-
-const partners = [
-  { name: "JoyJeff Academy", logo: "/images/partner-logo-joyjeff-academy.jpg" as string | undefined },
-  { name: "Good Stewards Golden Pen School", logo: "/images/partner-logo-good-stewards.jpg" as string | undefined },
-  { name: "Froebel Educational Centre", logo: "/images/partner-logo-froebel.jpg" as string | undefined },
-  { name: "Goshen Hybrid Academy", logo: "/images/partner-logo-goshen-hybrid.jpg" as string | undefined },
 ];
 
 interface ShopProduct {
