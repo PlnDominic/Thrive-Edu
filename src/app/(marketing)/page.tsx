@@ -30,6 +30,7 @@ const ecosystemThemes = [
     icon: BookOpen,
     href: "/ecosystem",
     items: ["Thrive Literacy and Publications", "Thrive Mobile Library and Books Hub"],
+    image: "/images/gallery-outdoor-lesson.jpg",
   },
   {
     title: "Explore and Create",
@@ -37,6 +38,7 @@ const ecosystemThemes = [
     icon: FlaskConical,
     href: "/ecosystem",
     items: ["Thrive STEM (Programme and Products)", "Thrive Talents Creative Hub"],
+    image: "/images/gallery-painting-focus.jpg",
   },
   {
     title: "Skills and Futures",
@@ -44,6 +46,7 @@ const ecosystemThemes = [
     icon: Compass,
     href: "/ecosystem",
     items: ["Thrive TVET", "Thrive 360 Leadership and Coaching Services"],
+    image: "/images/gallery-studio-arts.jpg",
   },
   {
     title: "Strengthen Schools",
@@ -51,6 +54,7 @@ const ecosystemThemes = [
     icon: Building2,
     href: "/ecosystem",
     items: ["Thrive Professional Development Institute", "Thrive Schools Improvement Services"],
+    image: "/images/gallery-painting-group-seated.jpg",
   },
 ];
 
@@ -247,85 +251,59 @@ export default function HomePage() {
       {/* Built for every role */}
       <section className="py-24">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="grid gap-16 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:items-start">
-            {/* Photo */}
-            <div className="lg:sticky lg:top-28">
-              <div className="relative mx-auto max-w-md lg:max-w-none">
+          <div className="mb-6 flex items-center gap-3">
+            <span className="inline-flex items-center rounded-full bg-subtle-surface px-4 py-2 text-caption font-bold uppercase tracking-wide text-heading-accent">
+              What we do
+            </span>
+            <Leaf className="size-5 text-leaf-gold" aria-hidden />
+          </div>
+          <h2 className="font-heading text-h2 font-bold leading-[1.05] text-text-primary sm:text-h1">
+            Our ecosystem,
+            <br />
+            in <span className="text-leaf-gold">four</span> themes.
+          </h2>
+          <p className="mt-6 max-w-lg text-body-lg text-text-secondary">
+            THRIVE EDU is one parent organisation made of connected, autonomous units, grouped into
+            four clear themes so you can go straight to the one you need.
+          </p>
+
+          <div className="mt-10 grid gap-4 sm:grid-cols-2">
+            {ecosystemThemes.map((a, i) => (
+              <Link
+                key={a.title}
+                href={a.href}
+                className="group relative flex aspect-[4/5] flex-col justify-end overflow-hidden rounded-2xl p-6 shadow-elevation-2 sm:aspect-[6/5]"
+              >
+                <Image
+                  src={a.image}
+                  alt=""
+                  fill
+                  sizes="(min-width: 640px) 50vw, 100vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
                 <div
-                  className="absolute -right-4 -top-4 hidden h-full w-full rounded-[2rem] bg-leaf-gold sm:block"
+                  className="absolute inset-0 bg-ink/80 transition-colors duration-300 group-hover:bg-ink/45 group-focus-visible:bg-ink/45 group-active:bg-ink/40"
                   aria-hidden
                 />
-                <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] shadow-elevation-2">
-                  <Image
-                    src="/images/every-learner.jpg"
-                    alt="A THRIVE EDU learner celebrating, holding up a phone showing the platform"
-                    fill
-                    sizes="(min-width: 1024px) 42vw, 100vw"
-                    className="object-cover"
-                    priority
-                  />
-                </div>
-                <div className="absolute -bottom-6 left-4 right-4 flex items-center gap-3 rounded-2xl border border-border bg-surface px-5 py-4 shadow-elevation-3 sm:left-6 sm:right-auto sm:w-64">
-                  <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-leaf-gold/15 text-leaf-gold">
-                    <Leaf className="size-5" />
+                <div className="relative z-10">
+                  <span className="font-heading text-h2 font-bold leading-none text-white/30">0{i + 1}</span>
+                  <p className="mt-2 font-heading text-h5 font-bold text-white">{a.title}</p>
+                  <p className="mt-1.5 text-small italic text-white/75">{a.description}</p>
+                  <ul className="mt-3 flex flex-wrap gap-x-2 gap-y-1">
+                    {a.items.map((item, itemIndex) => (
+                      <li key={item} className="text-caption italic text-white/65">
+                        {item}
+                        {itemIndex < a.items.length - 1 && <span className="not-italic text-white/35"> ・</span>}
+                      </li>
+                    ))}
+                  </ul>
+                  <span className="mt-4 inline-flex items-center gap-1.5 text-small font-semibold text-leaf-gold">
+                    Learn more
+                    <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-1" />
                   </span>
-                  <div>
-                    <p className="font-heading text-h5 font-bold text-text-primary">8 ventures</p>
-                    <p className="text-caption text-text-secondary">Across 4 connected themes</p>
-                  </div>
                 </div>
-              </div>
-            </div>
-
-            {/* Content */}
-            <div className="mt-6 lg:mt-0">
-              <div className="mb-6 flex items-center gap-3">
-                <span className="inline-flex items-center rounded-full bg-subtle-surface px-4 py-2 text-caption font-bold uppercase tracking-wide text-heading-accent">
-                  What we do
-                </span>
-                <Leaf className="size-5 text-leaf-gold" aria-hidden />
-              </div>
-              <h2 className="font-heading text-h2 font-bold leading-[1.05] text-text-primary sm:text-h1">
-                Our ecosystem,
-                <br />
-                in <span className="text-leaf-gold">four</span> themes.
-              </h2>
-              <p className="mt-6 max-w-lg text-body-lg text-text-secondary">
-                THRIVE EDU is one parent organisation made of connected, autonomous units, grouped into
-                four clear themes so you can go straight to the one you need.
-              </p>
-
-              <div className="mt-10 divide-y divide-border border-t border-border">
-                {ecosystemThemes.map((a, i) => (
-                  <div key={a.title} className="flex gap-5 py-7 first:pt-0">
-                    <span className="font-heading text-h3 font-bold leading-none text-border sm:text-h2">
-                      0{i + 1}
-                    </span>
-                    <div className="min-w-0 flex-1">
-                      <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                        <p className="font-heading text-h5 font-bold text-text-primary">{a.title}</p>
-                        <p className="text-small italic text-text-secondary">{a.description}</p>
-                      </div>
-                      <ul className="mt-3 flex flex-wrap gap-x-2 gap-y-1">
-                        {a.items.map((item, itemIndex) => (
-                          <li key={item} className="text-small italic text-text-secondary">
-                            {item}
-                            {itemIndex < a.items.length - 1 && <span className="not-italic text-border"> ・</span>}
-                          </li>
-                        ))}
-                      </ul>
-                      <Link
-                        href={a.href}
-                        className="mt-3 inline-flex items-center gap-1.5 text-small font-semibold text-leaf-gold transition-colors hover:text-warm-amber"
-                      >
-                        Learn more
-                        <ArrowRight className="size-3.5" />
-                      </Link>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
