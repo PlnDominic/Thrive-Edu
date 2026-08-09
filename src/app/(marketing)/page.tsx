@@ -160,6 +160,7 @@ const testimonials = [
       "Thrive Edu provides exceptional teaching resources and has been an invaluable literacy partner for our school. Their dedication to helping us foster independent learners is unmatched. We are proud to work alongside a team that cares so deeply about student success.",
     name: "William Adu-Donkor",
     role: "Director, JoyJeff Academy",
+    image: "/images/testimonial-william-adu-donkor.jpg",
   },
   {
     quote:
