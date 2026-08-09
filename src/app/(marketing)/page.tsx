@@ -602,27 +602,23 @@ export default function HomePage() {
           <p className="text-caption font-semibold uppercase tracking-wide text-heading-accent">
             Our Featured Partners
           </p>
-          <div className="mt-8 grid grid-cols-3 gap-4 sm:gap-6">
-            {partners.map((partner) => (
-              <div
-                key={partner.name}
-                className="mx-auto flex aspect-square w-20 items-center justify-center border border-border bg-surface p-2 shadow-elevation-1 sm:w-28 sm:p-3"
-              >
-                {partner.logo ? (
-                  <div className="relative size-full">
-                    <Image
-                      src={partner.logo}
-                      alt={partner.name}
-                      fill
-                      sizes="7rem"
-                      className="object-contain"
-                    />
-                  </div>
-                ) : (
-                  <p className="text-caption font-semibold text-text-secondary">{partner.name}</p>
-                )}
-              </div>
-            ))}
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-x-12 gap-y-8 sm:gap-x-16">
+            {partners.map((partner) =>
+              partner.logo ? (
+                <Image
+                  key={partner.name}
+                  src={partner.logo}
+                  alt={partner.name}
+                  width={160}
+                  height={80}
+                  className="h-12 w-auto object-contain sm:h-16"
+                />
+              ) : (
+                <p key={partner.name} className="text-caption font-semibold text-text-secondary">
+                  {partner.name}
+                </p>
+              )
+            )}
           </div>
         </div>
       </section>
