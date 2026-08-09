@@ -199,14 +199,13 @@ export default function HomePage() {
           <div className="absolute inset-0 z-10 flex items-center justify-center px-6 text-center sm:px-10 lg:px-16">
             <div className="max-w-3xl">
               <h1 className="font-heading text-h3 font-bold leading-[1.1] tracking-tight text-white sm:text-h2 lg:text-h1">
-                Rooted in Ghana.
-                <br />
-                Reaching for
-                <br />
-                <span className="text-growth-green">Africa.</span>
+                Equipping and empowering schools and organizations to help every learner{" "}
+                <span className="text-growth-green">thrive.</span>
               </h1>
               <p className="mx-auto mt-6 max-w-lg text-body text-white/80 sm:text-body-lg">
-                Equipping and empowering schools and organizations to help every learner thrive.
+                Thrive EDU is an international education NGO. We help schools, organisations and communities
+                build the systems that lock in quality, so every learner gains the knowledge, skills and
+                attitudes to thrive.
               </p>
             </div>
           </div>
