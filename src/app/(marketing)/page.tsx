@@ -122,6 +122,33 @@ const shopProducts: ShopProduct[] = [
     cardCount: "30 Cards",
     image: "/images/shop-dansly-shapes-colours.png",
   },
+  {
+    title: "Phonics",
+    category: "Early Learners",
+    description: "A wipeable-clean flash card set that helps children build letter sounds and early reading skills.",
+    originalPrice: 60,
+    salePrice: 45,
+    cardCount: "30 Cards",
+    image: "/images/shop-dansly-phonics.png",
+  },
+  {
+    title: "Numerals",
+    category: "Early Learners",
+    description: "A wipeable-clean flash card set that helps children learn to count and recognize numbers.",
+    originalPrice: 60,
+    salePrice: 45,
+    cardCount: "30 Cards",
+    image: "/images/shop-dansly-numerals.png",
+  },
+  {
+    title: "Memory Verse",
+    category: "Early Learners",
+    description: "A wipeable-clean flash card set of memory verses to help children learn and recall scripture.",
+    originalPrice: 60,
+    salePrice: 45,
+    cardCount: "30 Cards",
+    image: "/images/shop-dansly-memory-verse.png",
+  },
 ];
 
 const testimonials = [
