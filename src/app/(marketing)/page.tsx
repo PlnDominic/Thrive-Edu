@@ -206,9 +206,7 @@ export default function HomePage() {
                 <span className="text-growth-green">Africa.</span>
               </h1>
               <p className="mx-auto mt-6 max-w-lg text-body text-white/80 sm:text-body-lg">
-                Thrive EDU is an international education NGO. We help schools, organisations and communities
-                build the systems that lock in quality, so every learner gains the knowledge, skills and
-                attitudes to thrive.
+                Equipping and empowering schools and organizations to help every learner thrive.
               </p>
             </div>
           </div>
