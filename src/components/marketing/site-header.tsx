@@ -56,7 +56,7 @@ function SiteHeader() {
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
         <Link href="/" className="flex items-center gap-2.5" onClick={() => setOpen(false)}>
           <Image src="/thrive-edu-logo.png" alt="THRIVE EDU" width={32} height={32} />
-          <span className="font-heading text-h5 font-bold tracking-tight text-forest-green">
+          <span className="font-heading text-h5 font-bold tracking-tight text-heading-accent">
             THRIVE EDU<span className="text-leaf-gold">.</span>
           </span>
         </Link>
@@ -81,20 +81,20 @@ function SiteHeader() {
                 <ChevronDown className="size-3.5 transition-transform duration-200 group-data-[state=open]:rotate-180" aria-hidden />
               </NavigationMenuPrimitive.Trigger>
               <NavigationMenuPrimitive.Content className="absolute left-0 top-full pt-3 data-[motion=from-start]:animate-in data-[motion=from-start]:fade-in-0 data-[motion=from-start]:slide-in-from-top-1">
-                <div className="w-[34rem] rounded-2xl border border-border bg-surface p-4 shadow-elevation-3">
-                  <div className="grid grid-cols-2 gap-x-4 gap-y-5">
+                <div className="w-[36rem] rounded-2xl border border-border bg-surface p-5 shadow-elevation-3">
+                  <div className="grid grid-cols-2 gap-x-6 gap-y-7">
                     {whatWeDoThemes.map((group) => (
                       <div key={group.theme}>
-                        <p className="px-3 text-caption font-semibold uppercase tracking-wide text-text-secondary">
+                        <p className="px-3 text-caption font-semibold uppercase tracking-wide text-heading-accent">
                           {group.theme}
                         </p>
-                        <ul className="mt-1.5 space-y-0.5">
+                        <ul className="mt-2.5 space-y-1">
                           {group.items.map((link) => (
                             <li key={link.href + link.label}>
                               <NavigationMenuPrimitive.Link asChild>
                                 <Link
                                   href={link.href}
-                                  className="block rounded-lg px-3 py-2 text-small font-medium text-text-primary transition-colors hover:bg-subtle-surface hover:text-forest-green"
+                                  className="block rounded-lg px-3 py-2.5 text-small font-medium leading-snug text-text-primary transition-colors hover:bg-subtle-surface hover:text-forest-green"
                                 >
                                   {link.label}
                                 </Link>
@@ -160,13 +160,16 @@ function SiteHeader() {
                 />
               </button>
               {whatWeDoOpen && (
-                <div className="flex flex-col gap-3 pb-2 pl-3 pt-1">
-                  {whatWeDoThemes.map((group) => (
-                    <div key={group.theme}>
-                      <p className="px-3 text-caption font-semibold uppercase tracking-wide text-text-secondary">
+                <div className="flex flex-col gap-1 pb-2 pl-3 pt-2">
+                  {whatWeDoThemes.map((group, i) => (
+                    <div
+                      key={group.theme}
+                      className={cn("pb-3 pt-3", i > 0 && "border-t border-border/60")}
+                    >
+                      <p className="px-3 text-caption font-semibold uppercase tracking-wide text-heading-accent">
                         {group.theme}
                       </p>
-                      <div className="mt-1 flex flex-col gap-1">
+                      <div className="mt-2 flex flex-col gap-1.5">
                         {group.items.map((link) => (
                           <MobileLink
                             key={link.href + link.label}

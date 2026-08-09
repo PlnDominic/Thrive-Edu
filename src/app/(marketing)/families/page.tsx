@@ -95,7 +95,7 @@ export default function FamiliesPage() {
         <div className="mx-auto max-w-7xl px-6">
           <div className="flex flex-col items-center justify-between gap-8 rounded-[1.75rem] bg-surface p-8 shadow-elevation-1 sm:flex-row sm:p-10">
             <div className="text-center sm:text-left">
-              <span className="inline-flex items-center rounded-full bg-primary/10 px-4 py-1.5 text-caption font-bold uppercase tracking-wide text-forest-green">
+              <span className="inline-flex items-center rounded-full bg-primary/10 px-4 py-1.5 text-caption font-bold uppercase tracking-wide text-heading-accent">
                 Also available
               </span>
               <h2 className="mt-4 font-heading text-h4 font-bold text-text-primary">Continue learning online</h2>

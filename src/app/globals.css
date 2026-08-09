@@ -29,6 +29,9 @@
   --color-ink-surface: #1a2916;
   --color-ink-border: #2a3a25;
 
+  /* Heading accent: deep green used for section eyebrows and the nav logo */
+  --color-heading-accent: #101c0d;
+
   /* Semantic */
   --color-success: #2e7d32;
   --color-warning: #e8a23a;
@@ -74,6 +77,8 @@
   --color-ink: var(--color-ink);
   --color-ink-surface: var(--color-ink-surface);
   --color-ink-border: var(--color-ink-border);
+
+  --color-heading-accent: var(--color-heading-accent);
 
   --color-success: var(--color-success);
   --color-warning: var(--color-warning);

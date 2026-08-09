@@ -130,7 +130,7 @@ export default function AboutPage() {
               </p>
             </div>
             <div className="rounded-3xl border border-border bg-surface p-8 shadow-elevation-1 sm:p-10">
-              <p className="text-caption font-semibold uppercase tracking-wide text-forest-green">Our mission</p>
+              <p className="text-caption font-semibold uppercase tracking-wide text-heading-accent">Our mission</p>
               <p className="mt-4 text-body-lg leading-relaxed text-text-secondary">
                 Thrive EDU partners with schools, parents, NGOs and communities to provide quality, innovative
                 products, programmes and teaching and learning materials that equip and empower all our

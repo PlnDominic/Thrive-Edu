@@ -21,7 +21,7 @@ export default function ContactPage() {
     <>
       <section className="border-b border-border bg-subtle-surface py-16">
         <div className="mx-auto max-w-3xl px-6 text-center">
-          <p className="mb-3 text-caption font-semibold uppercase tracking-wide text-forest-green">Contact us</p>
+          <p className="mb-3 text-caption font-semibold uppercase tracking-wide text-heading-accent">Contact us</p>
           <h1 className="font-heading text-h3 font-bold text-text-primary sm:text-h1">We&apos;d love to hear from you</h1>
           <p className="mt-4 text-body-lg text-text-secondary">
             Questions about enrollment, partnerships, or how THRIVE EDU works for your school? Send us a

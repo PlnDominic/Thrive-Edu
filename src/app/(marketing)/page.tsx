@@ -32,24 +32,28 @@ const ecosystemThemes = [
     description: "Foundational reading and the joy of it.",
     icon: BookOpen,
     href: "/ecosystem",
+    items: ["Thrive Literacy and Publications", "Thrive Mobile Library and Books Hub"],
   },
   {
     title: "Explore and Create",
     description: "Curiosity, making and hands-on discovery.",
     icon: FlaskConical,
     href: "/ecosystem",
+    items: ["Thrive STEM (Programme and Products)", "Thrive Talents Creative Hub"],
   },
   {
     title: "Skills and Futures",
     description: "Practical skills, leadership and livelihoods.",
     icon: Compass,
     href: "/ecosystem",
+    items: ["Thrive TVET", "Thrive 360 Leadership and Coaching Services"],
   },
   {
     title: "Strengthen Schools",
     description: "Lifting whole schools and their teachers.",
     icon: Building2,
     href: "/ecosystem",
+    items: ["Thrive Professional Development Institute", "Thrive Schools Improvement Services"],
   },
 ];
 
@@ -247,7 +251,7 @@ export default function HomePage() {
             {/* Content */}
             <div>
               <div className="mb-6 flex items-center gap-3">
-                <span className="inline-flex items-center rounded-full bg-subtle-surface px-4 py-2 text-caption font-bold uppercase tracking-wide text-forest-green">
+                <span className="inline-flex items-center rounded-full bg-subtle-surface px-4 py-2 text-caption font-bold uppercase tracking-wide text-heading-accent">
                   What we do
                 </span>
                 <Leaf className="size-5 text-leaf-gold" aria-hidden />
@@ -274,7 +278,21 @@ export default function HomePage() {
                       <a.icon className="size-5" />
                     </span>
                     <p className="mt-4 font-heading text-body-lg font-bold text-text-primary">{a.title}</p>
-                    <p className="mt-1.5 text-small text-text-secondary">{a.description}</p>
+                    <p className="mt-1.5 text-small italic text-text-secondary">{a.description}</p>
+                    <ul className="mt-3 space-y-1.5 border-t border-border pt-3">
+                      {a.items.map((item) => (
+                        <li key={item} className="flex items-start gap-2 text-small text-text-secondary">
+                          <span
+                            className={cn(
+                              "mt-1.5 size-1 shrink-0 rounded-full",
+                              i % 2 === 0 ? "bg-leaf-gold" : "bg-warm-amber"
+                            )}
+                            aria-hidden
+                          />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
                     <Link
                       href={a.href}
                       aria-label={`Learn more about ${a.title}`}
@@ -582,7 +600,7 @@ export default function HomePage() {
       {/* Featured partners */}
       <section className="border-t border-border bg-subtle-surface py-16">
         <div className="mx-auto max-w-5xl px-6 text-center">
-          <p className="text-caption font-semibold uppercase tracking-wide text-forest-green">
+          <p className="text-caption font-semibold uppercase tracking-wide text-heading-accent">
             Our Featured Partners
           </p>
           <div className="mt-8 grid grid-cols-3 gap-4 sm:gap-6">
