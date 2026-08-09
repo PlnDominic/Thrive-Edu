@@ -199,21 +199,21 @@ export default function HomePage() {
         <div className="relative min-h-[560px] overflow-hidden sm:min-h-[640px] lg:min-h-[720px]">
           <HeroVisual />
           <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/55 to-ink/10" aria-hidden />
-          <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col justify-end px-6 py-14 sm:px-10 sm:py-16 lg:px-16 lg:py-20">
-            <h1 className="max-w-2xl font-heading text-h2 font-bold leading-[1.05] tracking-tight text-white sm:text-h1 lg:text-display">
+          <div className="relative z-10 mx-auto flex h-full max-w-3xl flex-col items-center justify-center px-6 py-14 text-center sm:px-10 sm:py-16 lg:px-16 lg:py-20">
+            <h1 className="font-heading text-h4 font-bold leading-[1.1] tracking-tight text-white sm:text-h3 lg:text-h2">
               Rooted in Ghana.
               <br />
               Reaching for
               <br />
               <span className="text-growth-green">Africa.</span>
             </h1>
-            <p className="mt-6 max-w-lg text-body-lg text-white/80">
+            <p className="mt-4 max-w-md text-small text-white/80 sm:text-body">
               Thrive EDU is an international education NGO. We help schools, organisations and communities
               build the systems that lock in quality, so every learner gains the knowledge, skills and
               attitudes to thrive.
             </p>
-            <div className="mt-8 flex flex-wrap items-center gap-4">
-              <Button size="lg" className="rounded-full" asChild>
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
+              <Button className="rounded-full" asChild>
                 <Link href="/contact">
                   Submit an enquiry
                   <ArrowUpRight className="size-4" />
@@ -223,8 +223,8 @@ export default function HomePage() {
                 href="/support-our-work"
                 className="group flex items-center gap-3 text-small font-semibold text-white"
               >
-                <span className="flex size-12 items-center justify-center rounded-full bg-leaf-gold text-white transition-transform duration-200 group-hover:scale-105">
-                  <HeartHandshake className="size-5" />
+                <span className="flex size-10 items-center justify-center rounded-full bg-leaf-gold text-white transition-transform duration-200 group-hover:scale-105">
+                  <HeartHandshake className="size-4" />
                 </span>
                 Donate
               </Link>
