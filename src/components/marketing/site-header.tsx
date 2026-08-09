@@ -10,13 +10,38 @@ import { ChevronDown, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-const whatWeDoLinks = [
-  { label: "For Schools and Organisations", href: "/schools" },
-  { label: "Books and Curricula", href: "/books" },
-  { label: "For Families and Readers", href: "/families" },
-  { label: "For Young Adults", href: "/young-adults" },
+const whatWeDoThemes = [
+  {
+    theme: "Read and Learn",
+    items: [
+      { label: "Thrive Literacy and Publications", href: "/books" },
+      { label: "Thrive Mobile Library and Books Hub", href: "/families" },
+    ],
+  },
+  {
+    theme: "Explore and Create",
+    items: [
+      { label: "Thrive STEM (Programme and Products)", href: "/ecosystem" },
+      { label: "Thrive Talents Creative Hub", href: "/ecosystem" },
+    ],
+  },
+  {
+    theme: "Skills and Futures",
+    items: [
+      { label: "Thrive TVET", href: "/schools" },
+      { label: "Thrive 360 Leadership and Coaching Services", href: "/young-adults" },
+    ],
+  },
+  {
+    theme: "Strengthen Schools",
+    items: [
+      { label: "Thrive Professional Development Institute", href: "/schools" },
+      { label: "Thrive Schools Improvement Services", href: "/ecosystem" },
+    ],
+  },
 ];
 
+const whatWeDoLinks = whatWeDoThemes.flatMap((group) => group.items);
 const whatWeDoHrefs = whatWeDoLinks.map((l) => l.href);
 
 function SiteHeader() {
@@ -56,21 +81,30 @@ function SiteHeader() {
                 <ChevronDown className="size-3.5 transition-transform duration-200 group-data-[state=open]:rotate-180" aria-hidden />
               </NavigationMenuPrimitive.Trigger>
               <NavigationMenuPrimitive.Content className="absolute left-0 top-full pt-3 data-[motion=from-start]:animate-in data-[motion=from-start]:fade-in-0 data-[motion=from-start]:slide-in-from-top-1">
-                <div className="w-64 rounded-2xl border border-border bg-surface p-3 shadow-elevation-3">
-                  <ul className="space-y-1">
-                    {whatWeDoLinks.map((link) => (
-                      <li key={link.href}>
-                        <NavigationMenuPrimitive.Link asChild>
-                          <Link
-                            href={link.href}
-                            className="block rounded-lg px-3 py-2.5 text-small font-medium text-text-primary transition-colors hover:bg-subtle-surface hover:text-forest-green"
-                          >
-                            {link.label}
-                          </Link>
-                        </NavigationMenuPrimitive.Link>
-                      </li>
+                <div className="w-[34rem] rounded-2xl border border-border bg-surface p-4 shadow-elevation-3">
+                  <div className="grid grid-cols-2 gap-x-4 gap-y-5">
+                    {whatWeDoThemes.map((group) => (
+                      <div key={group.theme}>
+                        <p className="px-3 text-caption font-semibold uppercase tracking-wide text-text-secondary">
+                          {group.theme}
+                        </p>
+                        <ul className="mt-1.5 space-y-0.5">
+                          {group.items.map((link) => (
+                            <li key={link.href + link.label}>
+                              <NavigationMenuPrimitive.Link asChild>
+                                <Link
+                                  href={link.href}
+                                  className="block rounded-lg px-3 py-2 text-small font-medium text-text-primary transition-colors hover:bg-subtle-surface hover:text-forest-green"
+                                >
+                                  {link.label}
+                                </Link>
+                              </NavigationMenuPrimitive.Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     ))}
-                  </ul>
+                  </div>
                 </div>
               </NavigationMenuPrimitive.Content>
             </NavigationMenuPrimitive.Item>
@@ -126,15 +160,24 @@ function SiteHeader() {
                 />
               </button>
               {whatWeDoOpen && (
-                <div className="flex flex-col gap-1 pb-1 pl-3">
-                  {whatWeDoLinks.map((link) => (
-                    <MobileLink
-                      key={link.href}
-                      href={link.href}
-                      label={link.label}
-                      active={pathname === link.href}
-                      onClick={() => setOpen(false)}
-                    />
+                <div className="flex flex-col gap-3 pb-2 pl-3 pt-1">
+                  {whatWeDoThemes.map((group) => (
+                    <div key={group.theme}>
+                      <p className="px-3 text-caption font-semibold uppercase tracking-wide text-text-secondary">
+                        {group.theme}
+                      </p>
+                      <div className="mt-1 flex flex-col gap-1">
+                        {group.items.map((link) => (
+                          <MobileLink
+                            key={link.href + link.label}
+                            href={link.href}
+                            label={link.label}
+                            active={pathname === link.href}
+                            onClick={() => setOpen(false)}
+                          />
+                        ))}
+                      </div>
+                    </div>
                   ))}
                 </div>
               )}
