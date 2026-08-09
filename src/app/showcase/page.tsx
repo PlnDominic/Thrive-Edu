@@ -62,8 +62,8 @@ const colorGroups = [
   {
     label: "Primary",
     swatches: [
-      { name: "Lemon Green", varName: "--color-forest-green", hex: "#ADF802" },
-      { name: "Deep Lemon", varName: "--color-deep-green", hex: "#8CCC02" },
+      { name: "Lemon Green", varName: "--color-forest-green", hex: "#00FF42" },
+      { name: "Deep Lemon", varName: "--color-deep-green", hex: "#00CC35" },
       { name: "Growth Green", varName: "--color-growth-green", hex: "#4E8A3B" },
       { name: "Leaf Green", varName: "--color-leaf-green", hex: "#6FA74F" },
     ],
