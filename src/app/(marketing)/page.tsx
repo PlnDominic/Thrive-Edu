@@ -15,6 +15,8 @@ import {
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { SectionHeading } from "@/components/marketing/section-heading";
 import { CourseCard } from "@/components/marketing/course-card";
@@ -77,6 +79,29 @@ const partners = [
   { name: "JoyJeff Academy", logo: "/images/partner-logo-joyjeff-academy.jpg" as string | undefined },
   { name: "Good Stewards Golden Pen School", logo: "/images/partner-logo-good-stewards.jpg" as string | undefined },
   { name: "Froebel Educational Centre", logo: "/images/partner-logo-froebel.jpg" as string | undefined },
+];
+
+interface ShopProduct {
+  title: string;
+  category: string;
+  description: string;
+  cardCount: string;
+  image?: string;
+}
+
+const shopProducts: ShopProduct[] = [
+  {
+    title: "Vegetables and Fruits",
+    category: "Early Learners",
+    description: "Bright, wipeable flash cards that introduce young learners to everyday fruits and vegetables.",
+    cardCount: "30 Cards",
+  },
+  {
+    title: "Parts of the Human Body",
+    category: "Early Learners",
+    description: "A wipeable-clean flash card set that helps children learn and label parts of the human body.",
+    cardCount: "30 Cards",
+  },
 ];
 
 const testimonials = [
@@ -406,6 +431,54 @@ export default function HomePage() {
               />
             </div>
           )}
+        </div>
+      </section>
+
+      {/* Shop */}
+      <section className="border-t border-border bg-subtle-surface py-24">
+        <div className="mx-auto max-w-7xl px-6">
+          <SectionHeading
+            eyebrow="Shop"
+            title="Learning materials for home and classroom"
+            description="Flash cards and hands-on resources you can order directly from THRIVE EDU."
+          />
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {shopProducts.map((product) => (
+              <Card key={product.title} interactive elevation={2} className="flex flex-col overflow-hidden">
+                <div className="relative flex h-56 items-center justify-center overflow-hidden bg-border/40">
+                  {product.image ? (
+                    <Image
+                      src={product.image}
+                      alt={`${product.title} flash cards box`}
+                      fill
+                      sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                      className="object-contain p-4"
+                    />
+                  ) : (
+                    <span className="text-caption font-semibold text-text-secondary">{product.title}</span>
+                  )}
+                  <span className="absolute left-3 top-3 rounded-full bg-white px-2.5 py-1 text-caption font-bold uppercase tracking-wide text-forest-green shadow-elevation-1">
+                    {product.cardCount}
+                  </span>
+                </div>
+                <CardHeader className="pb-2">
+                  <Badge variant="neutral" className="w-fit">
+                    {product.category}
+                  </Badge>
+                  <p className="font-heading text-body-lg font-semibold text-text-primary">{product.title}</p>
+                </CardHeader>
+                <CardContent className="flex flex-1 flex-col">
+                  <p className="mb-4 flex-1 text-small text-text-secondary">{product.description}</p>
+                  <div className="flex items-center justify-between border-t border-border pt-4">
+                    <span className="text-small font-semibold text-text-secondary">Flash card set</span>
+                    <Button size="sm" className="rounded-full" asChild>
+                      <Link href="/contact">Enquire to order</Link>
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
       </section>
 
