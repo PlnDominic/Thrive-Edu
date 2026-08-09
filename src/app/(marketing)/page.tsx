@@ -267,18 +267,18 @@ export default function HomePage() {
             four clear themes so you can go straight to the one you need.
           </p>
 
-          <div className="mt-10 grid gap-4 sm:grid-cols-2">
+          <div className="mt-10 grid grid-cols-1 gap-4">
             {ecosystemThemes.map((a, i) => (
               <Link
                 key={a.title}
                 href={a.href}
-                className="group relative flex aspect-[4/5] flex-col justify-end overflow-hidden rounded-2xl p-6 shadow-elevation-2 sm:aspect-[6/5]"
+                className="group relative flex h-64 flex-col justify-end overflow-hidden p-6 shadow-elevation-2 sm:h-56"
               >
                 <Image
                   src={a.image}
                   alt=""
                   fill
-                  sizes="(min-width: 640px) 50vw, 100vw"
+                  sizes="100vw"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div
