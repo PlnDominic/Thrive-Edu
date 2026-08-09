@@ -6,12 +6,13 @@ import {
   BookOpen,
   Building2,
   ChevronsRight,
+  Compass,
+  FlaskConical,
   GraduationCap,
   HeartHandshake,
   Leaf,
   LineChart,
   Sparkles,
-  Users,
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -25,30 +26,30 @@ import { TestimonialCarousel } from "@/components/marketing/testimonial-carousel
 import { EmptyState } from "@/components/feedback/empty-state";
 import { courses } from "@/lib/courses-data";
 
-const audiences = [
+const ecosystemThemes = [
   {
-    title: "Students",
-    description: "Personalized learning paths, progress tracking, and smart recommendations.",
-    icon: GraduationCap,
-    href: "/dashboard/student",
-  },
-  {
-    title: "Parents",
-    description: "Real-time updates, insights, and tools to support your child's growth.",
-    icon: Users,
-    href: "/about",
-  },
-  {
-    title: "Teachers",
-    description: "Plan lessons, manage classrooms, assess performance, and inspire learners.",
+    title: "Read and Learn",
+    description: "Foundational reading and the joy of it.",
     icon: BookOpen,
-    href: "/contact",
+    href: "/ecosystem",
   },
   {
-    title: "School owners",
-    description: "Powerful analytics, administration, and decision-making, all in one place.",
+    title: "Explore and Create",
+    description: "Curiosity, making and hands-on discovery.",
+    icon: FlaskConical,
+    href: "/ecosystem",
+  },
+  {
+    title: "Skills and Futures",
+    description: "Practical skills, leadership and livelihoods.",
+    icon: Compass,
+    href: "/ecosystem",
+  },
+  {
+    title: "Strengthen Schools",
+    description: "Lifting whole schools and their teachers.",
     icon: Building2,
-    href: "/contact",
+    href: "/ecosystem",
   },
 ];
 
@@ -238,22 +239,22 @@ export default function HomePage() {
             <div>
               <div className="mb-6 flex items-center gap-3">
                 <span className="inline-flex items-center rounded-full bg-subtle-surface px-4 py-2 text-caption font-bold uppercase tracking-wide text-forest-green">
-                  Built for every role
+                  What we do
                 </span>
                 <Leaf className="size-5 text-leaf-gold" aria-hidden />
               </div>
               <h2 className="font-heading text-h2 font-bold leading-[1.05] text-text-primary sm:text-h1">
-                One Platform.
+                Our ecosystem,
                 <br />
-                <span className="text-leaf-gold">Every</span> Learner.
+                in <span className="text-leaf-gold">four</span> themes.
               </h2>
               <p className="mt-6 max-w-lg text-body-lg text-text-secondary">
-                THRIVE EDU adapts to the needs of every user: empowering students, supporting families,
-                enabling teachers, and driving schools forward.
+                THRIVE EDU is one parent organisation made of connected, autonomous units, grouped into
+                four clear themes so you can go straight to the one you need.
               </p>
 
               <div className="mt-10 grid grid-cols-2 gap-4">
-                {audiences.map((a, i) => (
+                {ecosystemThemes.map((a, i) => (
                   <div key={a.title} className="rounded-2xl border border-border bg-surface p-5">
                     <span
                       className={cn(
