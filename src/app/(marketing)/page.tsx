@@ -257,8 +257,8 @@ export default function HomePage() {
                 />
                 <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] shadow-elevation-2">
                   <Image
-                    src="/images/gallery-painting-focus.jpg"
-                    alt="A THRIVE EDU student focused on a painting during an outdoor art workshop"
+                    src="/images/every-learner.jpg"
+                    alt="A THRIVE EDU learner celebrating, holding up a phone showing the platform"
                     fill
                     sizes="(min-width: 1024px) 42vw, 100vw"
                     className="object-cover"
