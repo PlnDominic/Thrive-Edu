@@ -1,18 +1,24 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Inter_Tight } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 
-const interTight = Inter_Tight({
+// Self-hosted (latin subset) instead of next/font/google: the build
+// environment can't reliably reach fonts.gstatic.com, and Google
+// periodically rotates font file hashes, which breaks next/font/google's
+// build-time fetch with "Module not found" / 404 errors.
+const interTight = localFont({
+  src: "./fonts/inter-tight-latin-variable.woff2",
   variable: "--font-heading",
-  subsets: ["latin"],
-  weight: ["600", "700", "800"],
+  weight: "600 800",
+  display: "swap",
 });
 
-const inter = Inter({
+const inter = localFont({
+  src: "./fonts/inter-latin-variable.woff2",
   variable: "--font-body",
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: "400 600",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
