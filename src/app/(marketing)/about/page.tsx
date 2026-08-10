@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Award, Handshake, Heart, Lightbulb, ShieldCheck, Star, Zap } from "lucide-react";
+import { Award, Compass, Eye, Handshake, Heart, Lightbulb, ShieldCheck, Star, Zap } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -83,38 +83,18 @@ export default function AboutPage() {
 
       {/* Story */}
       <section className="py-24">
-        <div className="mx-auto grid max-w-6xl gap-12 px-6 lg:grid-cols-2 lg:items-center">
-          <div>
-            <SectionHeading eyebrow="Why we exist" title="Systems that make good teaching and learning last" />
-            <div className="mt-5 space-y-4 text-body text-text-secondary">
-              <p>
-                We do more than supply materials. We help partners build the systems and structures that lock
-                in quality, so good teaching and learning last. Everything we create is designed to embed
-                lasting structure, not just deliver content.
-              </p>
-              <p>
-                We work through partnership, and we deliver through five connected ventures. Together they
-                equip learners, teachers, schools and communities to thrive.
-              </p>
-            </div>
-          </div>
-          <div className="grid grid-cols-2 gap-4">
-            <div className="rounded-2xl bg-forest-green p-6 text-white">
-              <p className="font-heading text-h3 font-bold sm:text-h2">2019</p>
-              <p className="mt-1 text-small text-white/80">Founded in Accra</p>
-            </div>
-            <div className="rounded-2xl border border-border bg-surface p-6 shadow-elevation-1">
-              <p className="font-heading text-h3 font-bold text-text-primary sm:text-h2">48</p>
-              <p className="mt-1 text-small text-text-secondary">Partner schools</p>
-            </div>
-            <div className="rounded-2xl border border-border bg-surface p-6 shadow-elevation-1">
-              <p className="font-heading text-h3 font-bold text-text-primary sm:text-h2">12.4k</p>
-              <p className="mt-1 text-small text-text-secondary">Active learners</p>
-            </div>
-            <div className="rounded-2xl bg-leaf-gold p-6 text-white">
-              <p className="font-heading text-h3 font-bold sm:text-h2">320+</p>
-              <p className="mt-1 text-small text-white/85">Certified educators</p>
-            </div>
+        <div className="mx-auto max-w-3xl px-6">
+          <SectionHeading eyebrow="Why we exist" title="Systems that make good teaching and learning last" />
+          <div className="mt-5 space-y-4 text-body text-text-secondary">
+            <p>
+              We do more than supply materials. We help partners build the systems and structures that lock
+              in quality, so good teaching and learning last. Everything we create is designed to embed
+              lasting structure, not just deliver content.
+            </p>
+            <p>
+              We work through partnership, and we deliver through five connected ventures. Together they
+              equip learners, teachers, schools and communities to thrive.
+            </p>
           </div>
         </div>
       </section>
@@ -122,22 +102,71 @@ export default function AboutPage() {
       {/* Vision & mission */}
       <section className="border-t border-border py-24">
         <div className="mx-auto max-w-6xl px-6">
-          <SectionHeading eyebrow="Vision & mission" title="What we're working toward" align="center" className="mx-auto" />
-          <div className="mt-10 grid gap-6 lg:grid-cols-2">
-            <div className="rounded-3xl bg-forest-green p-8 text-white sm:p-10">
-              <p className="text-caption font-semibold uppercase tracking-wide text-white/70">Our vision</p>
-              <p className="mt-4 text-body-lg leading-relaxed">
-                To be the guiding light of education across Africa, inspiring excellence, innovation and
-                lifelong learning that empowers every child, educator and school to thrive.
+          <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
+            {/* Left: intro copy */}
+            <div>
+              <p className="text-caption font-semibold uppercase tracking-wide text-heading-accent">
+                Vision &amp; mission
               </p>
+              <h2 className="mt-4 font-heading text-h2 font-bold leading-[1.05] text-text-primary sm:text-h1">
+                What we&apos;re
+                <br />
+                working <span className="text-growth-green">toward.</span>
+              </h2>
+
+              <div className="mt-8 space-y-6">
+                <div>
+                  <p className="text-small font-semibold uppercase tracking-wide text-forest-green">Our vision</p>
+                  <p className="mt-1.5 text-body text-text-secondary">
+                    To be the guiding light of education across Africa, inspiring excellence, innovation and
+                    lifelong learning that empowers every child, educator and school to thrive.
+                  </p>
+                </div>
+                <div>
+                  <p className="text-small font-semibold uppercase tracking-wide text-forest-green">Our mission</p>
+                  <p className="mt-1.5 text-body text-text-secondary">
+                    Thrive EDU partners with schools, parents, NGOs and communities to provide quality,
+                    innovative products, programmes and teaching and learning materials that equip and
+                    empower all our stakeholders to thrive.
+                  </p>
+                </div>
+              </div>
+
+              <div className="mt-8 flex flex-wrap items-center gap-3">
+                <Button size="lg" className="rounded-full" asChild>
+                  <Link href="/contact">Partner with us</Link>
+                </Button>
+                <Link
+                  href="/ecosystem"
+                  className="text-small font-semibold text-forest-green underline-offset-4 hover:underline"
+                >
+                  See our ecosystem
+                </Link>
+              </div>
             </div>
-            <div className="rounded-3xl border border-border bg-surface p-8 shadow-elevation-1 sm:p-10">
-              <p className="text-caption font-semibold uppercase tracking-wide text-heading-accent">Our mission</p>
-              <p className="mt-4 text-body-lg leading-relaxed text-text-secondary">
-                Thrive EDU partners with schools, parents, NGOs and communities to provide quality, innovative
-                products, programmes and teaching and learning materials that equip and empower all our
-                stakeholders to thrive.
-              </p>
+
+            {/* Right: overlapping vision / mission cards */}
+            <div className="relative mx-auto h-[380px] w-full max-w-sm sm:h-[440px]">
+              <span
+                className="absolute inset-0 hidden rounded-[2.5rem] border border-dashed border-border sm:block"
+                aria-hidden
+              />
+
+              <div className="absolute left-0 top-0 flex h-52 w-52 flex-col justify-between rounded-[2rem] bg-ink p-6 shadow-elevation-3 sm:h-60 sm:w-60">
+                <span className="font-heading text-h1 font-bold text-white/10">01</span>
+                <p className="font-heading text-h5 font-bold text-white">Our Vision</p>
+                <span className="absolute -right-6 -top-6 flex size-20 items-center justify-center rounded-full bg-surface shadow-elevation-3 sm:size-24">
+                  <Eye className="size-8 text-forest-green sm:size-9" />
+                </span>
+              </div>
+
+              <div className="absolute bottom-0 right-0 flex h-52 w-52 flex-col justify-between rounded-[2rem] bg-forest-green p-6 shadow-elevation-2 sm:h-60 sm:w-60">
+                <span className="font-heading text-h1 font-bold text-text-primary/15">02</span>
+                <p className="font-heading text-h5 font-bold text-text-primary">Our Mission</p>
+                <span className="absolute -bottom-6 -left-6 flex size-20 items-center justify-center rounded-full bg-surface shadow-elevation-3 sm:size-24">
+                  <Compass className="size-8 text-forest-green sm:size-9" />
+                </span>
+              </div>
             </div>
           </div>
         </div>
