@@ -5,7 +5,7 @@ import type { LucideIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { SectionHeading } from "@/components/marketing/section-heading";
 import { orgValues, teamMembers } from "@/lib/team-data";
 
@@ -174,6 +174,7 @@ export default function AboutPage() {
             {teamMembers.map((member) => (
               <div key={member.name} className="flex items-center gap-4 rounded-2xl border border-border bg-surface p-5 shadow-elevation-1">
                 <Avatar className="size-12">
+                  {member.image && <AvatarImage src={member.image} alt={member.name} />}
                   <AvatarFallback>
                     {member.name
                       .split(" ")
