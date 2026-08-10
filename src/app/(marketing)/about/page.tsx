@@ -5,7 +5,7 @@ import type { LucideIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { SectionHeading } from "@/components/marketing/section-heading";
 import { orgValues, teamMembers } from "@/lib/team-data";
 
@@ -53,7 +53,7 @@ export default function AboutPage() {
               />
               <Image
                 src="/images/about-founder.png"
-                alt="Abigail Owusu Afriyie, Founder and CEO of THRIVE EDU"
+                alt="Salomey Owusu Barnes, Chief Executive Officer of THRIVE EDU"
                 width={566}
                 height={968}
                 priority
@@ -71,8 +71,8 @@ export default function AboutPage() {
               </div>
 
               <div className="absolute -bottom-5 left-1/2 z-20 -translate-x-1/2 rounded-2xl border border-border bg-surface px-4 py-3 shadow-elevation-3 sm:-bottom-6 sm:left-0 sm:translate-x-0">
-                <p className="text-small font-semibold text-text-primary">Abigail Owusu Afriyie</p>
-                <p className="text-caption text-text-secondary">Founder & CEO</p>
+                <p className="text-small font-semibold text-text-primary">Salomey Owusu Barnes</p>
+                <p className="text-caption text-text-secondary">Chief Executive Officer</p>
               </div>
             </div>
           </div>
@@ -174,6 +174,7 @@ export default function AboutPage() {
             {teamMembers.map((member) => (
               <div key={member.name} className="flex items-center gap-4 rounded-2xl border border-border bg-surface p-5 shadow-elevation-1">
                 <Avatar className="size-12">
+                  {member.image && <AvatarImage src={member.image} alt={member.name} />}
                   <AvatarFallback>
                     {member.name
                       .split(" ")
