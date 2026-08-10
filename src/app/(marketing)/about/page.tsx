@@ -5,8 +5,8 @@ import type { LucideIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { SectionHeading } from "@/components/marketing/section-heading";
+import { TeamCarousel } from "@/components/marketing/team-carousel";
 import { orgValues, teamMembers } from "@/lib/team-data";
 
 const valueIcons: Record<string, LucideIcon> = {
@@ -167,30 +167,7 @@ export default function AboutPage() {
       {/* Team */}
       <section className="py-24">
         <div className="mx-auto max-w-7xl px-6">
-          <SectionHeading
-            eyebrow="Our people"
-            title="Meet the team"
-            description="A small, dedicated team of educators, engineers, and family-success specialists."
-          />
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {teamMembers.map((member) => (
-              <div key={member.name} className="flex items-center gap-4 rounded-2xl border border-border bg-surface p-5 shadow-elevation-1">
-                <Avatar className="size-12">
-                  {member.image && <AvatarImage src={member.image} alt={member.name} />}
-                  <AvatarFallback>
-                    {member.name
-                      .split(" ")
-                      .map((n) => n[0])
-                      .join("")}
-                  </AvatarFallback>
-                </Avatar>
-                <div>
-                  <p className="font-heading text-body-lg font-semibold text-text-primary">{member.name}</p>
-                  <p className="text-small text-text-secondary">{member.role}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+          <TeamCarousel members={teamMembers} />
         </div>
       </section>
     </>
