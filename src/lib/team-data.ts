@@ -6,7 +6,7 @@ export interface TeamMember {
 
 export const teamMembers: TeamMember[] = [
   { name: "Dr. Abena Owusu", role: "Founder & CEO" },
-  { name: "Salomey Owusu Barnes", role: "Chief Executive Officer", image: "/images/Salomey Owusu Barnes.jpg" },
+  { name: "Salomey Owusu Barnes", role: "Chief Executive Officer", image: "/images/Salomey Owusu Barnes .jpeg" },
   { name: "Kwabena Mensah", role: "Head of Curriculum" },
   { name: "Naomi Adjei", role: "Director of Teaching" },
   { name: "Samuel Tetteh", role: "Head of Product" },
