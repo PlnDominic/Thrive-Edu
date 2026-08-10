@@ -51,14 +51,16 @@ export default function AboutPage() {
                 className="absolute left-1/2 top-1/2 hidden size-[280px] -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-dashed border-growth-green/25 sm:block lg:size-[380px]"
                 aria-hidden
               />
-              <Image
-                src="/images/about-founder.png"
-                alt="Salomey Owusu Barnes, Chief Executive Officer of THRIVE EDU"
-                width={566}
-                height={968}
-                priority
-                className="relative z-10 h-full w-auto drop-shadow-xl"
-              />
+              <div className="relative z-10 aspect-[4/5] h-full overflow-hidden shadow-elevation-2">
+                <Image
+                  src="/images/team-salomey-owusu-barnes.jpg"
+                  alt="Salomey Owusu Barnes, Chief Executive Officer of THRIVE EDU"
+                  fill
+                  sizes="(min-width: 1024px) 40vw, 80vw"
+                  priority
+                  className="object-cover"
+                />
+              </div>
 
               <div className="absolute right-0 top-4 z-20 hidden -rotate-3 flex-col items-center rounded-2xl bg-surface px-4 py-3 text-center shadow-elevation-3 sm:flex lg:right-4">
                 <div className="flex gap-0.5" aria-hidden>
