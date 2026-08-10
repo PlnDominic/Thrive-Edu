@@ -12,7 +12,6 @@ interface TeamCarouselProps {
 
 function TeamCarousel({ members }: TeamCarouselProps) {
   const scrollerRef = React.useRef<HTMLDivElement>(null);
-  const [featured, ...rest] = members;
 
   const scrollByCard = (direction: 1 | -1) => {
     scrollerRef.current?.scrollBy({ left: direction * 260, behavior: "smooth" });
@@ -51,29 +50,23 @@ function TeamCarousel({ members }: TeamCarouselProps) {
         ref={scrollerRef}
         className="mt-8 flex gap-4 overflow-x-auto scroll-smooth pb-2 snap-x snap-mandatory [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       >
-        {featured && (
-          <div className="flex h-80 w-64 shrink-0 snap-start flex-col justify-between bg-forest-green p-6 sm:w-72">
-            <div>
-              <p className="font-heading text-h5 font-bold text-text-primary">{featured.name}</p>
-              <p className="text-small font-medium text-text-primary/70">{featured.role}</p>
-            </div>
-            {featured.bio && <p className="text-small text-text-primary/80">{featured.bio}</p>}
-          </div>
-        )}
-
-        {rest.map((member) => (
-          <div key={member.name} className="relative h-80 w-64 shrink-0 snap-start overflow-hidden sm:w-72">
+        {members.map((member) => (
+          <div
+            key={member.name}
+            tabIndex={0}
+            className="group relative h-80 w-64 shrink-0 snap-start overflow-hidden bg-subtle-surface outline-none sm:w-72"
+          >
             {member.image ? (
               <Image
                 src={member.image}
                 alt={member.name}
                 fill
                 sizes="18rem"
-                className="object-cover object-top"
+                className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
               />
             ) : (
-              <div className="absolute inset-0 flex items-center justify-center bg-gradient-brand" aria-hidden>
-                <span className="font-heading text-display font-bold text-white/20">
+              <div className="absolute inset-0 flex items-center justify-center bg-subtle-surface" aria-hidden>
+                <span className="font-heading text-display font-bold text-text-primary/15">
                   {member.name
                     .split(" ")
                     .map((n) => n[0])
@@ -81,10 +74,11 @@ function TeamCarousel({ members }: TeamCarouselProps) {
                 </span>
               </div>
             )}
-            <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/10 to-transparent" aria-hidden />
-            <div className="absolute inset-x-0 bottom-0 p-5">
+
+            <div className="absolute inset-x-0 bottom-0 translate-y-full bg-ink/85 p-5 transition-transform duration-300 ease-out group-hover:translate-y-0 group-focus:translate-y-0 group-focus-within:translate-y-0">
               <p className="font-heading text-body-lg font-bold text-white">{member.name}</p>
               <p className="text-small text-white/70">{member.role}</p>
+              {member.bio && <p className="mt-2 text-small text-white/70">{member.bio}</p>}
             </div>
           </div>
         ))}
