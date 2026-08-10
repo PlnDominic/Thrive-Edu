@@ -5,8 +5,8 @@ import type { LucideIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { SectionHeading } from "@/components/marketing/section-heading";
+import { TeamCarousel } from "@/components/marketing/team-carousel";
 import { orgValues, teamMembers } from "@/lib/team-data";
 
 const valueIcons: Record<string, LucideIcon> = {
@@ -51,14 +51,16 @@ export default function AboutPage() {
                 className="absolute left-1/2 top-1/2 hidden size-[280px] -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-dashed border-growth-green/25 sm:block lg:size-[380px]"
                 aria-hidden
               />
-              <Image
-                src="/images/about-founder.png"
-                alt="Dr. Abena Owusu, Founder and CEO of THRIVE EDU"
-                width={566}
-                height={968}
-                priority
-                className="relative z-10 h-full w-auto drop-shadow-xl"
-              />
+              <div className="relative z-10 aspect-[4/5] h-full overflow-hidden shadow-elevation-2">
+                <Image
+                  src="/images/team-salomey-owusu-barnes.jpg"
+                  alt="Salomey Owusu Barnes, Chief Executive Officer of THRIVE EDU"
+                  fill
+                  sizes="(min-width: 1024px) 40vw, 80vw"
+                  priority
+                  className="object-cover"
+                />
+              </div>
 
               <div className="absolute right-0 top-4 z-20 hidden -rotate-3 flex-col items-center rounded-2xl bg-surface px-4 py-3 text-center shadow-elevation-3 sm:flex lg:right-4">
                 <div className="flex gap-0.5" aria-hidden>
@@ -71,8 +73,8 @@ export default function AboutPage() {
               </div>
 
               <div className="absolute -bottom-5 left-1/2 z-20 -translate-x-1/2 rounded-2xl border border-border bg-surface px-4 py-3 shadow-elevation-3 sm:-bottom-6 sm:left-0 sm:translate-x-0">
-                <p className="text-small font-semibold text-text-primary">Dr. Abena Owusu</p>
-                <p className="text-caption text-text-secondary">Founder & CEO</p>
+                <p className="text-small font-semibold text-text-primary">Salomey Owusu Barnes</p>
+                <p className="text-caption text-text-secondary">Chief Executive Officer</p>
               </div>
             </div>
           </div>
@@ -130,7 +132,7 @@ export default function AboutPage() {
               </p>
             </div>
             <div className="rounded-3xl border border-border bg-surface p-8 shadow-elevation-1 sm:p-10">
-              <p className="text-caption font-semibold uppercase tracking-wide text-forest-green">Our mission</p>
+              <p className="text-caption font-semibold uppercase tracking-wide text-heading-accent">Our mission</p>
               <p className="mt-4 text-body-lg leading-relaxed text-text-secondary">
                 Thrive EDU partners with schools, parents, NGOs and communities to provide quality, innovative
                 products, programmes and teaching and learning materials that equip and empower all our
@@ -165,30 +167,7 @@ export default function AboutPage() {
       {/* Team */}
       <section className="py-24">
         <div className="mx-auto max-w-7xl px-6">
-          <SectionHeading
-            eyebrow="Our people"
-            title="Meet the team"
-            description="A small, dedicated team of educators, engineers, and family-success specialists."
-          />
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {teamMembers.map((member) => (
-              <div key={member.name} className="flex items-center gap-4 rounded-2xl border border-border bg-surface p-5 shadow-elevation-1">
-                <Avatar className="size-12">
-                  {member.image && <AvatarImage src={member.image} alt={member.name} />}
-                  <AvatarFallback>
-                    {member.name
-                      .split(" ")
-                      .map((n) => n[0])
-                      .join("")}
-                  </AvatarFallback>
-                </Avatar>
-                <div>
-                  <p className="font-heading text-body-lg font-semibold text-text-primary">{member.name}</p>
-                  <p className="text-small text-text-secondary">{member.role}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+          <TeamCarousel members={teamMembers} />
         </div>
       </section>
     </>

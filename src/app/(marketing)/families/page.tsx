@@ -55,7 +55,7 @@ export default function FamiliesPage() {
               child, wherever your family is.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-              <Button size="lg" className="rounded-full text-white" asChild>
+              <Button size="lg" className="rounded-full" asChild>
                 <Link href="/books">Browse books</Link>
               </Button>
             </div>
@@ -95,7 +95,7 @@ export default function FamiliesPage() {
         <div className="mx-auto max-w-7xl px-6">
           <div className="flex flex-col items-center justify-between gap-8 rounded-[1.75rem] bg-surface p-8 shadow-elevation-1 sm:flex-row sm:p-10">
             <div className="text-center sm:text-left">
-              <span className="inline-flex items-center rounded-full bg-primary/10 px-4 py-1.5 text-caption font-bold uppercase tracking-wide text-forest-green">
+              <span className="inline-flex items-center rounded-full bg-primary/10 px-4 py-1.5 text-caption font-bold uppercase tracking-wide text-heading-accent">
                 Also available
               </span>
               <h2 className="mt-4 font-heading text-h4 font-bold text-text-primary">Continue learning online</h2>
@@ -105,7 +105,7 @@ export default function FamiliesPage() {
               </p>
             </div>
             <div className="flex shrink-0 flex-wrap items-center justify-center gap-3">
-              <Button className="rounded-full text-white" asChild>
+              <Button className="rounded-full" asChild>
                 <Link href="/courses">Browse courses</Link>
               </Button>
               <Button variant="secondary" className="rounded-full" asChild>

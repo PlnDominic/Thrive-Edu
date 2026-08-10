@@ -6,9 +6,9 @@
 /* -------------------------------------------------------------------- */
 
 :root {
-  /* Brand: primary greens */
-  --color-forest-green: #295c22;
-  --color-deep-green: #3a6e2c;
+  /* Brand: primary greens (lemon green family) */
+  --color-forest-green: #00ff42;
+  --color-deep-green: #00cc35;
   --color-growth-green: #4e8a3b;
   --color-leaf-green: #6fa74f;
 
@@ -29,6 +29,9 @@
   --color-ink-surface: #1a2916;
   --color-ink-border: #2a3a25;
 
+  /* Heading accent: deep green used for section eyebrows and the nav logo */
+  --color-heading-accent: #101c0d;
+
   /* Semantic */
   --color-success: #2e7d32;
   --color-warning: #e8a23a;
@@ -38,14 +41,14 @@
   /* Component-facing aliases */
   --color-primary: var(--color-forest-green);
   --color-primary-hover: var(--color-deep-green);
-  --color-primary-foreground: #ffffff;
+  --color-primary-foreground: var(--color-text-primary);
   --color-accent: var(--color-leaf-gold);
   --color-accent-foreground: var(--color-text-primary);
   --color-ring: var(--color-growth-green);
 
   --gradient-brand: linear-gradient(
     135deg,
-    #295c22 0%,
+    #00ff42 0%,
     #4e8a3b 60%,
     #d8a24a 100%
   );
@@ -74,6 +77,8 @@
   --color-ink: var(--color-ink);
   --color-ink-surface: var(--color-ink-surface);
   --color-ink-border: var(--color-ink-border);
+
+  --color-heading-accent: var(--color-heading-accent);
 
   --color-success: var(--color-success);
   --color-warning: var(--color-warning);

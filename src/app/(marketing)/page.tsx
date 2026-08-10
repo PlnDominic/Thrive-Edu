@@ -6,47 +6,56 @@ import {
   BookOpen,
   Building2,
   ChevronsRight,
+  Compass,
+  FlaskConical,
   GraduationCap,
   HeartHandshake,
   Leaf,
   LineChart,
   Sparkles,
-  Users,
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 import { SectionHeading } from "@/components/marketing/section-heading";
 import { CourseCard } from "@/components/marketing/course-card";
 import { HeroVisual } from "@/components/marketing/hero-visual";
 import { TestimonialCarousel } from "@/components/marketing/testimonial-carousel";
 import { EmptyState } from "@/components/feedback/empty-state";
 import { courses } from "@/lib/courses-data";
+import { partners } from "@/lib/partners-data";
 
-const audiences = [
+const ecosystemThemes = [
   {
-    title: "Students",
-    description: "Personalized learning paths, progress tracking, and smart recommendations.",
-    icon: GraduationCap,
-    href: "/dashboard/student",
-  },
-  {
-    title: "Parents",
-    description: "Real-time updates, insights, and tools to support your child's growth.",
-    icon: Users,
-    href: "/about",
-  },
-  {
-    title: "Teachers",
-    description: "Plan lessons, manage classrooms, assess performance, and inspire learners.",
+    title: "Read and Learn",
+    description: "Foundational reading and the joy of it.",
     icon: BookOpen,
-    href: "/contact",
+    href: "/ecosystem",
+    items: ["Thrive Literacy and Publications", "Thrive Mobile Library and Books Hub"],
+    image: "/images/gallery-outdoor-lesson.jpg",
   },
   {
-    title: "School owners",
-    description: "Powerful analytics, administration, and decision-making, all in one place.",
+    title: "Explore and Create",
+    description: "Curiosity, making and hands-on discovery.",
+    icon: FlaskConical,
+    href: "/ecosystem",
+    items: ["Thrive STEM (Programme and Products)", "Thrive Talents Creative Hub"],
+    image: "/images/gallery-painting-focus.jpg",
+  },
+  {
+    title: "Skills and Futures",
+    description: "Practical skills, leadership and livelihoods.",
+    icon: Compass,
+    href: "/ecosystem",
+    items: ["Thrive TVET", "Thrive 360 Leadership and Coaching Services"],
+    image: "/images/gallery-studio-arts.jpg",
+  },
+  {
+    title: "Strengthen Schools",
+    description: "Lifting whole schools and their teachers.",
     icon: Building2,
-    href: "/contact",
+    href: "/ecosystem",
+    items: ["Thrive Professional Development Institute", "Thrive Schools Improvement Services"],
+    image: "/images/gallery-painting-group-seated.jpg",
   },
 ];
 
@@ -73,21 +82,101 @@ const valueProps = [
   },
 ];
 
+interface ShopProduct {
+  title: string;
+  category: string;
+  description: string;
+  cardCount: string;
+  originalPrice: number;
+  salePrice: number;
+  image?: string;
+}
+
+const shopProducts: ShopProduct[] = [
+  {
+    title: "Vegetables and Fruits",
+    category: "Early Learners",
+    description: "Bright, wipeable flash cards that introduce young learners to everyday fruits and vegetables.",
+    cardCount: "30 Cards",
+    originalPrice: 60,
+    salePrice: 45,
+    image: "/images/shop-dansly-fruits-vegetables.png",
+  },
+  {
+    title: "Parts of the Human Body",
+    category: "Early Learners",
+    description: "A wipeable-clean flash card set that helps children learn and label parts of the human body.",
+    cardCount: "30 Cards",
+    originalPrice: 60,
+    salePrice: 45,
+    image: "/images/shop-dansly-human-body.png",
+  },
+  {
+    title: "Shapes and Colours",
+    category: "Early Learners",
+    description: "A wipeable-clean flash card set that helps children recognize shapes and colours with ease.",
+    originalPrice: 60,
+    salePrice: 45,
+    cardCount: "30 Cards",
+    image: "/images/shop-dansly-shapes-colours.png",
+  },
+  {
+    title: "Phonics",
+    category: "Early Learners",
+    description: "A wipeable-clean flash card set that helps children build letter sounds and early reading skills.",
+    originalPrice: 60,
+    salePrice: 45,
+    cardCount: "30 Cards",
+    image: "/images/shop-dansly-phonics.png",
+  },
+  {
+    title: "Numerals",
+    category: "Early Learners",
+    description: "A wipeable-clean flash card set that helps children learn to count and recognize numbers.",
+    originalPrice: 60,
+    salePrice: 45,
+    cardCount: "30 Cards",
+    image: "/images/shop-dansly-numerals.png",
+  },
+  {
+    title: "Memory Verse",
+    category: "Early Learners",
+    description: "A wipeable-clean flash card set of memory verses to help children learn and recall scripture.",
+    originalPrice: 60,
+    salePrice: 45,
+    cardCount: "30 Cards",
+    image: "/images/shop-dansly-memory-verse.png",
+  },
+];
+
 const testimonials = [
   {
-    quote: "Thrive Edu has been our go-to partner for extracurricular programming, consistently exceeding our expectations. More than just a service provider, they have invested in our school community like true family. We couldn't ask for a more reliable or dedicated team!",
-    name: "David Owusu",
-    role: "Director, Frobel",
-  },
-  {
-    quote: "Thrive Edu provides exceptional teaching resources and has been an invaluable literacy partner for our school. Their dedication to helping us foster independent learners is unmatched. We are proud to work alongside a team that cares so deeply about student success.",
+    quote:
+      "Thrive Edu provides exceptional teaching resources and has been an invaluable literacy partner for our school. Their dedication to helping us foster independent learners is unmatched. We are proud to work alongside a team that cares so deeply about student success.",
     name: "William Adu-Donkor",
-    role: "Director, Joyjeff",
+    role: "Director, JoyJeff Academy",
+    image: "/images/testimonial-william-adu-donkor.jpg",
   },
   {
-    quote: "At Goshen Hybrid academy, we believe that quality education requires innovation, commitment and the right educational tools.\n\nOur experience with Thrive Edu has been remarkable. Thrive Edu has introduced innovative approaches that support our teachers and making learning more engaging and efficient for our pupils.\n\nWe are proud to be associated with Thrive Edu, and I confidently recommend them to schools and educational institutions that are passionate about improving teaching and learning.\n\nTogether, Thrive Edu and Goshen Hybrid are working towards one goal: empowering learners and building a sustainable future through quality education.",
-    name: "Mr. Enock Osei Tutu",
-    role: "Headmaster, Goshen Hybrid",
+    quote:
+      "As a school, we are determined to empower and equip our students with the 21st-century skills they need to stay relevant. Through our partnership with Thrive-Edu, who supplied us with all our STEM materials, we can boldly say we are one of the leading schools in STEM education.",
+    name: "Abigail Owusu Afriyie",
+    role: "Assistant Director, Golden Pen School",
+    image: "/images/testimonial-abigail-owusu-afriyie.jpg",
+  },
+  {
+    quote:
+      "Thrive Edu has been our go-to partner for extracurricular programming, consistently exceeding our expectations. More than just a service provider, they have invested in our school community like true family. We couldn't ask for a more reliable or dedicated team!",
+    name: "David Owusu",
+    role: "Director, Froebel Educational Centre",
+    image: "/images/testimonial-david-owusu.jpg",
+  },
+  {
+    quote:
+      "At Goshen Hybrid Academy, we believe that quality education requires innovation, commitment, and the right educational tools. Our experience with Thrive Edu has been remarkable, introducing innovative approaches that support our teachers and make learning more engaging and efficient for our pupils. We are proud to be associated with Thrive Edu, and I confidently recommend them to schools passionate about improving teaching and learning.",
+    name: "Enock Osei Tutu",
+    role: "Headmaster, Goshen Hybrid Academy",
+    image: "/images/testimonial-enock-osei-tutu.jpg",
   },
 ];
 
@@ -102,141 +191,164 @@ export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="pt-3 sm:pt-5">
-        <div className="relative overflow-hidden rounded-[1.75rem] bg-surface shadow-elevation-2 sm:rounded-[2.25rem]">
-          <div className="relative grid gap-10 px-6 py-14 sm:px-10 sm:py-16 lg:grid-cols-2 lg:items-center lg:gap-8 lg:px-16 lg:py-20">
-            <div>
-              <h1 className="font-heading text-h2 font-bold leading-[1.05] tracking-tight text-text-primary sm:text-h1 lg:text-display">
-                Rooted in Ghana.
-                <br />
-                Reaching for
-                <br />
-                <span className="text-growth-green">Africa.</span>
+      <section className="relative">
+        <div className="relative min-h-[560px] overflow-hidden sm:min-h-[640px] lg:min-h-[720px]">
+          <HeroVisual />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/55 to-ink/10" aria-hidden />
+          {/* Heading + description, centered both axes */}
+          <div className="absolute inset-0 z-10 flex items-center justify-center px-6 text-center sm:px-10 lg:px-16">
+            <div className="max-w-3xl">
+              <h1 className="font-heading text-h3 font-bold leading-[1.1] tracking-tight text-white sm:text-h2 lg:text-h1">
+                Equipping and empowering schools and organizations to help every learner{" "}
+                <span className="text-growth-green">thrive.</span>
               </h1>
-              <p className="mt-6 max-w-lg text-body-lg text-text-secondary">
+              <p className="mx-auto mt-6 max-w-lg text-body text-white/80 sm:text-body-lg">
                 Thrive EDU is an international education NGO. We help schools, organisations and communities
                 build the systems that lock in quality, so every learner gains the knowledge, skills and
                 attitudes to thrive.
               </p>
-              <div className="mt-8 flex flex-wrap items-center gap-4">
-                <Button size="lg" className="rounded-full text-white" asChild>
-                  <Link href="/contact">
-                    Submit an enquiry
-                    <ArrowUpRight className="size-4" />
-                  </Link>
-                </Button>
-                <Link
-                  href="/support-our-work"
-                  className="group flex items-center gap-3 text-small font-semibold text-text-primary"
-                >
-                  <span className="flex size-12 items-center justify-center rounded-full bg-leaf-gold text-white transition-transform duration-200 group-hover:scale-105">
-                    <HeartHandshake className="size-5" />
-                  </span>
-                  Support our work
-                </Link>
-              </div>
             </div>
+          </div>
 
-            <HeroVisual />
+          {/* CTAs, pinned near the bottom, just above the stats band */}
+          <div className="absolute inset-x-0 bottom-6 z-10 flex flex-wrap items-center justify-center gap-4 px-6 sm:bottom-8">
+            <Button className="rounded-full" asChild>
+              <Link href="/contact">
+                Submit an enquiry
+                <ArrowUpRight className="size-4" />
+              </Link>
+            </Button>
+            <Link
+              href="/support-our-work"
+              className="group flex items-center gap-3 text-small font-semibold text-white"
+            >
+              <span className="flex size-10 items-center justify-center rounded-full bg-leaf-gold text-white transition-transform duration-200 group-hover:scale-105">
+                <HeartHandshake className="size-4" />
+              </span>
+              Donate
+            </Link>
           </div>
         </div>
 
-        {/* Stats band, overlapping the hero card */}
-        <div className="relative z-10 -mt-6 sm:-mt-8">
-          <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl bg-ink-border shadow-elevation-3 sm:grid-cols-4">
-            {stats.map((s) => (
-              <div key={s.label} className="bg-ink px-4 py-6 text-center sm:px-6">
-                <dt className="sr-only">{s.label}</dt>
-                <dd className="font-heading text-h4 font-bold text-white sm:text-h3">{s.value}</dd>
-                <p className="mt-1 text-caption text-white/60">{s.label}</p>
-              </div>
-            ))}
-          </dl>
-        </div>
+        {/* Stats band */}
+        <dl className="grid grid-cols-2 gap-px overflow-hidden bg-ink-border sm:grid-cols-4">
+          {stats.map((s) => (
+            <div key={s.label} className="bg-ink px-4 py-6 text-center sm:px-6">
+              <dt className="sr-only">{s.label}</dt>
+              <dd className="font-heading text-h4 font-bold text-white sm:text-h3">{s.value}</dd>
+              <p className="mt-1 text-caption text-white/60">{s.label}</p>
+            </div>
+          ))}
+        </dl>
       </section>
 
       {/* Built for every role */}
       <section className="py-24">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
-            {/* Photo blob */}
-            <div className="relative mx-auto aspect-[4/5] w-full max-w-md lg:max-w-none">
-              <div
-                className="absolute -right-4 -top-4 h-2/3 w-2/3 bg-background"
-                style={{ borderRadius: "40% 60% 65% 35% / 45% 40% 60% 55%" }}
-                aria-hidden
-              />
-              <div
-                className="absolute inset-0 translate-x-3 translate-y-3 bg-leaf-gold"
-                style={{ borderRadius: "68% 32% 27% 73% / 45% 62% 38% 55%" }}
-                aria-hidden
-              />
-              <div
-                className="absolute inset-0 overflow-hidden"
-                style={{ borderRadius: "68% 32% 27% 73% / 45% 62% 38% 55%" }}
-              >
-                <Image
-                  src="/images/every-learner.jpg"
-                  alt="A THRIVE EDU learner celebrating, holding up a phone showing the platform"
-                  fill
-                  sizes="(min-width: 1024px) 50vw, 100vw"
-                  className="object-cover"
-                  priority
-                />
-                <div className="absolute left-8 top-10 grid grid-cols-4 gap-2 opacity-40" aria-hidden>
-                  {Array.from({ length: 16 }).map((_, i) => (
-                    <span key={i} className="size-1 rounded-full bg-white" />
-                  ))}
-                </div>
-              </div>
-            </div>
-
+          <div className="grid gap-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:items-start">
             {/* Content */}
-            <div>
+            <div className="lg:sticky lg:top-28">
               <div className="mb-6 flex items-center gap-3">
-                <span className="inline-flex items-center rounded-full bg-subtle-surface px-4 py-2 text-caption font-bold uppercase tracking-wide text-forest-green">
-                  Built for every role
+                <span className="inline-flex items-center rounded-full bg-subtle-surface px-4 py-2 text-caption font-bold uppercase tracking-wide text-heading-accent">
+                  What we do
                 </span>
                 <Leaf className="size-5 text-leaf-gold" aria-hidden />
               </div>
               <h2 className="font-heading text-h2 font-bold leading-[1.05] text-text-primary sm:text-h1">
-                One Platform.
+                Our ecosystem,
                 <br />
-                <span className="text-leaf-gold">Every</span> Learner.
+                in <span className="text-leaf-gold">four</span> themes.
               </h2>
               <p className="mt-6 max-w-lg text-body-lg text-text-secondary">
-                THRIVE EDU adapts to the needs of every user: empowering students, supporting families,
-                enabling teachers, and driving schools forward.
+                THRIVE EDU is one parent organisation made of connected, autonomous units, grouped into
+                four clear themes so you can go straight to the one you need.
               </p>
-
-              <div className="mt-10 grid grid-cols-2 gap-4">
-                {audiences.map((a, i) => (
-                  <div key={a.title} className="rounded-2xl border border-border bg-surface p-5">
-                    <span
-                      className={cn(
-                        "flex size-11 items-center justify-center rounded-full",
-                        i % 2 === 0 ? "bg-leaf-gold/15 text-leaf-gold" : "bg-warm-amber/20 text-warm-amber"
-                      )}
-                    >
-                      <a.icon className="size-5" />
-                    </span>
-                    <p className="mt-4 font-heading text-body-lg font-bold text-text-primary">{a.title}</p>
-                    <p className="mt-1.5 text-small text-text-secondary">{a.description}</p>
-                    <Link
-                      href={a.href}
-                      aria-label={`Learn more about ${a.title}`}
-                      className={cn(
-                        "mt-3 inline-flex",
-                        i % 2 === 0 ? "text-leaf-gold" : "text-warm-amber"
-                      )}
-                    >
-                      <ArrowRight className="size-4" />
-                    </Link>
-                  </div>
-                ))}
-              </div>
-
             </div>
+
+            {/* Themes */}
+            <div className="grid grid-cols-1 gap-4">
+              {ecosystemThemes.map((a, i) => (
+                <Link
+                  key={a.title}
+                  href={a.href}
+                  className="group relative flex h-64 flex-col justify-end overflow-hidden p-6 shadow-elevation-2 sm:h-56"
+                >
+                  <Image
+                    src={a.image}
+                    alt=""
+                    fill
+                    sizes="(min-width: 1024px) 58vw, 100vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div
+                    className="absolute inset-0 bg-ink/80 transition-colors duration-300 group-hover:bg-ink/45 group-focus-visible:bg-ink/45 group-active:bg-ink/40"
+                    aria-hidden
+                  />
+                  <div className="relative z-10">
+                    <span className="font-heading text-h2 font-bold leading-none text-white/30">0{i + 1}</span>
+                    <p className="mt-2 font-heading text-h5 font-bold text-white">{a.title}</p>
+                    <p className="mt-1.5 text-small italic text-white/75">{a.description}</p>
+                    <ul className="mt-3 flex flex-wrap gap-x-2 gap-y-1">
+                      {a.items.map((item, itemIndex) => (
+                        <li key={item} className="text-caption italic text-white/65">
+                          {item}
+                          {itemIndex < a.items.length - 1 && <span className="not-italic text-white/35"> ・</span>}
+                        </li>
+                      ))}
+                    </ul>
+                    <span className="mt-4 inline-flex items-center gap-1.5 text-small font-semibold text-leaf-gold">
+                      Learn more
+                      <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-1" />
+                    </span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Shop */}
+      <section className="border-t border-border bg-surface py-20">
+        <div className="mx-auto max-w-7xl px-6">
+          <h2 className="text-center font-heading text-h4 font-bold uppercase tracking-wide text-text-primary sm:text-h3">
+            Best Sellers
+          </h2>
+          <div className="mx-auto mt-10 grid max-w-4xl grid-cols-2 gap-px overflow-hidden border border-border bg-border sm:grid-cols-3">
+            {shopProducts.map((product) => (
+              <Link
+                key={product.title}
+                href="/contact"
+                aria-label={`Enquire to order ${product.title}`}
+                className="group flex flex-col bg-surface"
+              >
+                <div className="relative flex h-40 items-center justify-center overflow-hidden bg-surface sm:h-56">
+                  {product.image ? (
+                    <Image
+                      src={product.image}
+                      alt={`${product.title} flash cards box`}
+                      fill
+                      sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
+                      className="object-contain p-4 transition-transform duration-300 group-hover:scale-105"
+                    />
+                  ) : (
+                    <span className="text-caption font-semibold text-text-secondary">{product.title}</span>
+                  )}
+                  <span className="absolute bottom-3 left-3 rounded-full bg-ink px-2.5 py-1 text-caption font-semibold text-white">
+                    Sale
+                  </span>
+                </div>
+                <div className="px-1 pb-6 pt-3">
+                  <p className="text-small text-text-secondary">{product.title}</p>
+                  <p className="mt-1 text-small">
+                    <span className="text-text-secondary/70 line-through">
+                      GH₵{product.originalPrice.toFixed(2)}
+                    </span>{" "}
+                    <span className="font-semibold text-text-primary">GH₵{product.salePrice.toFixed(2)}</span>
+                  </p>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
@@ -347,7 +459,7 @@ export default function HomePage() {
       </section>
 
       {/* Statement band */}
-      <div className="border-y-2 border-text-primary bg-background py-12 sm:py-16">
+      <div className="border-y-2 border-text-primary bg-surface py-12 sm:py-16">
         <p className="flex flex-wrap items-center justify-center gap-3 px-6 text-center font-heading text-h3 font-bold uppercase tracking-tight text-text-primary sm:gap-4 sm:text-h2 lg:text-h1">
           <span>Grow</span>
           <Sparkles className="size-5 shrink-0 text-leaf-gold sm:size-7" aria-hidden />
@@ -358,7 +470,7 @@ export default function HomePage() {
       </div>
 
       {/* Featured courses */}
-      <section className="py-24">
+      <section className="bg-surface py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <SectionHeading
@@ -425,7 +537,7 @@ export default function HomePage() {
                 className="rounded-full border-white/40 bg-white/10 text-white hover:bg-white/20"
                 asChild
               >
-                <Link href="/support-our-work">Support our work</Link>
+                <Link href="/support-our-work">Donate</Link>
               </Button>
             </div>
           </div>
@@ -433,10 +545,10 @@ export default function HomePage() {
           {/* Photo collage */}
           <div className="hidden grid-cols-3 gap-4 lg:grid">
             <div className="flex flex-col gap-4 pt-10">
-              <div className="relative aspect-[3/5] overflow-hidden rounded-[2.5rem] bg-warm-amber">
+              <div className="relative aspect-[3/5] overflow-hidden rounded-[2.5rem] bg-ink-border">
                 <Image
-                  src="/images/hero-student.png"
-                  alt="A Thrive EDU student"
+                  src="/images/cta-collage-blue-armchair.jpg"
+                  alt="A Thrive EDU learner working on her laptop"
                   fill
                   sizes="16vw"
                   className="object-cover"
@@ -444,19 +556,19 @@ export default function HomePage() {
               </div>
             </div>
             <div className="flex flex-col gap-4">
-              <div className="relative aspect-[3/4] overflow-hidden rounded-[2.5rem] bg-leaf-gold">
+              <div className="relative aspect-[3/4] overflow-hidden rounded-[2.5rem] bg-warm-amber">
                 <Image
-                  src="/images/gallery-studio-arts.jpg"
-                  alt="A Thrive EDU student painting"
+                  src="/images/cta-collage-orange-laptop.jpg"
+                  alt="A Thrive EDU learner holding a laptop"
                   fill
                   sizes="16vw"
                   className="object-cover"
                 />
               </div>
-              <div className="relative aspect-[3/4] overflow-hidden rounded-[2.5rem] bg-growth-green">
+              <div className="relative aspect-[3/4] overflow-hidden rounded-[2.5rem] bg-leaf-gold">
                 <Image
-                  src="/images/every-learner.jpg"
-                  alt="A Thrive EDU learner celebrating"
+                  src="/images/cta-collage-pink-backpack.jpg"
+                  alt="A Thrive EDU learner with a backpack and notebooks"
                   fill
                   sizes="16vw"
                   className="object-cover"
@@ -464,10 +576,10 @@ export default function HomePage() {
               </div>
             </div>
             <div className="flex flex-col gap-4 pt-20">
-              <div className="relative aspect-[3/5] overflow-hidden rounded-[2.5rem] bg-forest-green">
+              <div className="relative aspect-[3/5] overflow-hidden rounded-[2.5rem] bg-ink-border">
                 <Image
-                  src="/images/about-founder.png"
-                  alt="A Thrive EDU team member"
+                  src="/images/cta-collage-purple-phone.jpg"
+                  alt="A Thrive EDU learner checking his phone"
                   fill
                   sizes="16vw"
                   className="object-cover"
@@ -478,10 +590,37 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Featured partners */}
+      <section className="border-t border-border bg-surface py-16">
+        <div className="mx-auto max-w-5xl px-6 text-center">
+          <p className="text-caption font-semibold uppercase tracking-wide text-heading-accent">
+            Our Featured Partners
+          </p>
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-x-12 gap-y-8 sm:gap-x-20">
+            {partners.map((partner) =>
+              partner.logo ? (
+                <Image
+                  key={partner.name}
+                  src={partner.logo}
+                  alt={partner.name}
+                  width={220}
+                  height={110}
+                  className="h-20 w-auto object-contain sm:h-28"
+                />
+              ) : (
+                <p key={partner.name} className="text-caption font-semibold text-text-secondary">
+                  {partner.name}
+                </p>
+              )
+            )}
+          </div>
+        </div>
+      </section>
+
       {/* Testimonials */}
-      <section className="border-t border-border bg-background py-24 sm:py-28">
+      <section className="border-t border-border bg-surface py-24 sm:py-28">
         <div className="mx-auto max-w-6xl px-6">
-          <p className="text-center text-caption font-semibold uppercase tracking-wide text-forest-green">
+          <p className="text-center text-caption font-semibold uppercase tracking-wide text-black">
             From our community
           </p>
           <div className="mt-10">

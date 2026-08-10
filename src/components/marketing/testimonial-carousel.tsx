@@ -1,11 +1,13 @@
 "use client";
 
 import * as React from "react";
+import Image from "next/image";
 
 export interface Testimonial {
   quote: string;
   name: string;
   role: string;
+  image?: string;
 }
 
 interface TestimonialCarouselProps {
@@ -47,29 +49,53 @@ function TestimonialCarousel({ testimonials, intervalMs = 6000 }: TestimonialCar
           type="button"
           onClick={() => setIndex(prevIndex)}
           aria-label={`View testimonial from ${testimonials[prevIndex].name}`}
-          className="hidden h-64 w-28 shrink-0 bg-border/50 transition-opacity hover:opacity-70 sm:block lg:w-36"
-        />
+          className="relative hidden h-40 w-28 shrink-0 overflow-hidden bg-border/50 transition-opacity hover:opacity-70 sm:block lg:h-48 lg:w-36"
+        >
+          {testimonials[prevIndex].image && (
+            <Image
+              src={testimonials[prevIndex].image!}
+              alt=""
+              fill
+              sizes="9rem"
+              className="object-cover object-top"
+            />
+          )}
+        </button>
 
         <div
           key={index}
-          className="motion-safe:animate-[carousel-in_0.6s_cubic-bezier(0.16,1,0.3,1)_both] w-full max-w-sm shrink-0 bg-subtle-surface p-8 sm:p-10"
+          className="motion-safe:animate-[carousel-in_0.6s_cubic-bezier(0.16,1,0.3,1)_both] w-full max-w-sm shrink-0 bg-subtle-surface p-6 sm:p-8"
         >
           <p className="text-caption font-semibold uppercase tracking-widest text-text-secondary">
             {current.name}
           </p>
-          <div aria-hidden className="mt-6 aspect-square w-full bg-border/60" />
-          <blockquote className="mt-8 text-h5 font-bold leading-snug text-text-primary text-pretty whitespace-pre-line sm:text-h4">
+          <div className="relative mx-auto mt-4 aspect-[4/5] w-40 bg-border/60 sm:w-48">
+            {current.image && (
+              <Image src={current.image} alt={current.name} fill sizes="12rem" className="object-cover object-top" />
+            )}
+          </div>
+          <blockquote className="mt-5 text-h5 font-bold leading-snug text-text-primary text-pretty sm:text-h4">
             {current.quote}
           </blockquote>
-          <p className="mt-4 text-small text-text-secondary">{current.role}</p>
+          <p className="mt-3 text-small text-text-secondary">{current.role}</p>
         </div>
 
         <button
           type="button"
           onClick={() => setIndex(nextIndex)}
           aria-label={`View testimonial from ${testimonials[nextIndex].name}`}
-          className="hidden h-64 w-28 shrink-0 bg-border/50 transition-opacity hover:opacity-70 sm:block lg:w-36"
-        />
+          className="relative hidden h-40 w-28 shrink-0 overflow-hidden bg-border/50 transition-opacity hover:opacity-70 sm:block lg:h-48 lg:w-36"
+        >
+          {testimonials[nextIndex].image && (
+            <Image
+              src={testimonials[nextIndex].image!}
+              alt=""
+              fill
+              sizes="9rem"
+              className="object-cover object-top"
+            />
+          )}
+        </button>
       </div>
     </div>
   );

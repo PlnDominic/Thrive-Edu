@@ -3,7 +3,6 @@ import {
   Award,
   BookOpen,
   FlaskConical,
-  GraduationCap,
   Music,
   Palette,
   PartyPopper,
@@ -32,7 +31,14 @@ const galleryItems: GalleryItem[] = [
     height: "h-80",
     photo: "/images/gallery-science-fair.jpg",
   },
-  { title: "Graduation day", category: "Milestones", icon: GraduationCap, color: "bg-deep-green", height: "h-56" },
+  {
+    title: "Outdoor art workshop",
+    category: "Arts & Music",
+    icon: Palette,
+    color: "bg-deep-green",
+    height: "h-80",
+    photo: "/images/hero-painting-outdoors.jpg",
+  },
   { title: "Reading circle", category: "Language Arts", icon: BookOpen, color: "bg-growth-green", height: "h-64" },
   {
     title: "Studio arts showcase",
@@ -42,10 +48,38 @@ const galleryItems: GalleryItem[] = [
     height: "h-72",
     photo: "/images/gallery-studio-arts.jpg",
   },
-  { title: "Small-group tutoring", category: "Classroom", icon: Users, color: "bg-leaf-green", height: "h-56" },
-  { title: "Spring recital", category: "Arts & Music", icon: Music, color: "bg-warm-amber", height: "h-64" },
-  { title: "Achievement day", category: "Milestones", icon: Award, color: "bg-deep-green", height: "h-72" },
-  { title: "Community open house", category: "Community", icon: PartyPopper, color: "bg-forest-green", height: "h-56" },
+  {
+    title: "Outdoor lesson",
+    category: "Classroom",
+    icon: Users,
+    color: "bg-leaf-green",
+    height: "h-64",
+    photo: "/images/gallery-outdoor-lesson.jpg",
+  },
+  {
+    title: "Young artists at work",
+    category: "Arts & Music",
+    icon: Music,
+    color: "bg-warm-amber",
+    height: "h-72",
+    photo: "/images/gallery-painting-group-seated.jpg",
+  },
+  {
+    title: "Community art day",
+    category: "Community",
+    icon: Award,
+    color: "bg-deep-green",
+    height: "h-64",
+    photo: "/images/hero-painting-group.jpg",
+  },
+  {
+    title: "Focused brushwork",
+    category: "Arts & Music",
+    icon: PartyPopper,
+    color: "bg-forest-green",
+    height: "h-80",
+    photo: "/images/gallery-painting-focus.jpg",
+  },
   { title: "Peer mentoring", category: "Classroom", icon: Users, color: "bg-growth-green", height: "h-80" },
 ];
 
@@ -54,7 +88,7 @@ export default function GalleryPage() {
     <>
       <section className="border-b border-border bg-subtle-surface py-16">
         <div className="mx-auto max-w-3xl px-6 text-center">
-          <p className="mb-3 text-caption font-semibold uppercase tracking-wide text-forest-green">Gallery</p>
+          <p className="mb-3 text-caption font-semibold uppercase tracking-wide text-heading-accent">Gallery</p>
           <h1 className="font-heading text-h3 font-bold text-text-primary sm:text-h1">See THRIVE EDU in action</h1>
           <p className="mt-4 text-body-lg text-text-secondary">
             Moments from our classrooms, showcases, and community, where growth and achievement come to

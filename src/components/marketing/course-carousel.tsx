@@ -27,7 +27,7 @@ function CourseCarousel({ eyebrow, title, viewAllHref, courses, badge }: CourseC
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
           {eyebrow && (
-            <p className="mb-2 text-caption font-semibold uppercase tracking-wide text-forest-green">{eyebrow}</p>
+            <p className="mb-2 text-caption font-semibold uppercase tracking-wide text-heading-accent">{eyebrow}</p>
           )}
           <h2 className="font-heading text-h3 font-bold text-text-primary">{title}</h2>
         </div>
