@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Building2, Gift, HandCoins, HeartHandshake } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
@@ -63,24 +64,31 @@ export default function SupportOurWorkPage() {
   return (
     <>
       {/* Hero */}
-      <section className="px-3 pt-3 sm:px-5 sm:pt-5">
-        <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[1.75rem] bg-surface shadow-elevation-2 sm:rounded-[2.25rem]">
-          <div className="mx-auto max-w-3xl px-6 py-16 text-center sm:py-20">
-            <Badge variant="primary" className="mb-6">
-              Get Involved
-            </Badge>
-            <h1 className="font-heading text-h2 font-bold leading-[1.05] tracking-tight text-text-primary sm:text-h1 lg:text-display">
-              Support work that <span className="text-growth-green">reaches real classrooms.</span>
-            </h1>
-            <p className="mx-auto mt-6 max-w-xl text-body-lg text-text-secondary">
-              Every gift, partnership, and hour volunteered goes directly into the schools, teachers, and
-              learners we serve. Here is how you can help THRIVE EDU grow.
-            </p>
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-              <Button size="lg" className="rounded-full" asChild>
-                <Link href="/contact">Submit an enquiry</Link>
-              </Button>
-            </div>
+      <section className="relative min-h-[380px] overflow-hidden sm:min-h-[420px] lg:min-h-[480px]">
+        <Image
+          src="/images/gallery-outdoor-lesson.jpg"
+          alt="Students and community learning together with Thrive EDU"
+          fill
+          sizes="100vw"
+          priority
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/55 to-ink/10" aria-hidden />
+        <div className="relative z-10 mx-auto flex h-full max-w-3xl flex-col items-center justify-center px-6 py-16 text-center sm:px-10">
+          <Badge variant="primary" className="mb-6 bg-surface">
+            Get Involved
+          </Badge>
+          <h1 className="font-heading text-h3 font-bold leading-[1.05] tracking-tight text-white sm:text-h2 lg:text-h1">
+            Support work that <span className="text-growth-green">reaches real classrooms.</span>
+          </h1>
+          <p className="mx-auto mt-6 max-w-lg text-body text-white/80 sm:text-body-lg">
+            Every gift, partnership, and hour volunteered goes directly into the schools, teachers, and
+            learners we serve. Here is how you can help THRIVE EDU grow.
+          </p>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+            <Button size="lg" className="rounded-full" asChild>
+              <Link href="/contact">Submit an enquiry</Link>
+            </Button>
           </div>
         </div>
       </section>

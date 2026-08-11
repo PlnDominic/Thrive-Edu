@@ -13,52 +13,47 @@ export default function ImpactPage() {
   return (
     <>
       {/* Hero */}
-      <section className="px-3 pt-3 sm:px-5 sm:pt-5">
-        <div className="relative mx-auto max-w-7xl overflow-hidden bg-surface shadow-elevation-2">
-          <div className="grid lg:grid-cols-2 lg:items-center">
-            <div className="mx-auto max-w-xl px-6 py-16 text-center sm:py-20 lg:px-12 lg:text-left">
-              <Badge variant="primary" className="mb-6">
-                Impact
-              </Badge>
-              <h1 className="font-heading text-h2 font-bold leading-[1.05] tracking-tight text-text-primary sm:text-h1">
-                Impact, <span className="text-growth-green">shown simply.</span>
-              </h1>
-              <p className="mx-auto mt-6 max-w-xl text-body-lg text-text-secondary lg:mx-0">
-                Real numbers, real stories, and alignment with the Sustainable Development Goals. This is
-                what convinces both funders and institutions.
-              </p>
-              <div className="mt-8 flex flex-wrap items-center justify-center gap-3 lg:justify-start">
-                <Button size="lg" className="rounded-full" asChild>
-                  <Link href="/support-our-work">Donate</Link>
-                </Button>
-              </div>
-            </div>
-            <div className="relative h-72 sm:h-96 lg:h-full lg:min-h-[420px]">
-              <Image
-                src="/images/hero-painting-group.jpg"
-                alt="A group of Thrive EDU students at an outdoor painting workshop"
-                fill
-                sizes="(min-width: 1024px) 50vw, 100vw"
-                className="object-cover"
-                priority
-              />
-            </div>
+      <section className="relative min-h-[380px] overflow-hidden sm:min-h-[420px] lg:min-h-[480px]">
+        <Image
+          src="/images/hero-painting-group.jpg"
+          alt="A group of Thrive EDU students at an outdoor painting workshop"
+          fill
+          sizes="100vw"
+          priority
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/55 to-ink/10" aria-hidden />
+        <div className="relative z-10 mx-auto flex h-full max-w-3xl flex-col items-center justify-center px-6 py-16 text-center sm:px-10">
+          <Badge variant="primary" className="mb-6 bg-surface">
+            Impact
+          </Badge>
+          <h1 className="font-heading text-h3 font-bold leading-[1.05] tracking-tight text-white sm:text-h2 lg:text-h1">
+            Impact, <span className="text-growth-green">shown simply.</span>
+          </h1>
+          <p className="mx-auto mt-6 max-w-lg text-body text-white/80 sm:text-body-lg">
+            Real numbers, real stories, and alignment with the Sustainable Development Goals. This is
+            what convinces both funders and institutions.
+          </p>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+            <Button size="lg" className="rounded-full" asChild>
+              <Link href="/support-our-work">Donate</Link>
+            </Button>
           </div>
         </div>
-
-        {/* Headline figures */}
-        <div className="relative z-10 mx-auto -mt-6 max-w-4xl px-2 sm:-mt-8">
-          <dl className="grid grid-cols-1 gap-px overflow-hidden bg-ink-border shadow-elevation-3 sm:grid-cols-3">
-            {impactStats.map((s) => (
-              <div key={s.label} className="bg-ink px-6 py-8 text-center">
-                <dt className="sr-only">{s.label}</dt>
-                <dd className="font-heading text-h3 font-bold text-white sm:text-h2">{s.value}</dd>
-                <p className="mt-1 text-small text-white/60">{s.label}</p>
-              </div>
-            ))}
-          </dl>
-        </div>
       </section>
+
+      {/* Headline figures */}
+      <div className="relative z-10 mx-auto -mt-6 max-w-4xl px-2 sm:-mt-8">
+        <dl className="grid grid-cols-1 gap-px overflow-hidden bg-ink-border shadow-elevation-3 sm:grid-cols-3">
+          {impactStats.map((s) => (
+            <div key={s.label} className="bg-ink px-6 py-8 text-center">
+              <dt className="sr-only">{s.label}</dt>
+              <dd className="font-heading text-h3 font-bold text-white sm:text-h2">{s.value}</dd>
+              <p className="mt-1 text-small text-white/60">{s.label}</p>
+            </div>
+          ))}
+        </dl>
+      </div>
 
       {/* Stories */}
       <section className="py-24">
