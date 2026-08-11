@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Compass, HardHat, HeartHandshake, type LucideIcon } from "lucide-react";
 
@@ -30,24 +31,31 @@ export default function YoungAdultsPage() {
   return (
     <>
       {/* Hero */}
-      <section className="px-3 pt-3 sm:px-5 sm:pt-5">
-        <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[1.75rem] bg-surface shadow-elevation-2 sm:rounded-[2.25rem]">
-          <div className="mx-auto max-w-3xl px-6 py-16 text-center sm:py-20">
-            <Badge variant="primary" className="mb-6">
-              For Young Adults
-            </Badge>
-            <h1 className="font-heading text-h2 font-bold leading-[1.05] tracking-tight text-text-primary sm:text-h1 lg:text-display">
-              Grow your character, <span className="text-growth-green">skills, and voice.</span>
-            </h1>
-            <p className="mx-auto mt-6 max-w-xl text-body-lg text-text-secondary">
-              Leadership coaching and practical skills training built for young adults ready to stand
-              strong and thrive.
-            </p>
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-              <Button size="lg" className="rounded-full" asChild>
-                <Link href="/contact">Submit an enquiry</Link>
-              </Button>
-            </div>
+      <section className="relative min-h-[380px] overflow-hidden sm:min-h-[420px] lg:min-h-[480px]">
+        <Image
+          src="/images/hero-painting-outdoors.jpg"
+          alt="Young adults engaging in Thrive EDU leadership and coaching"
+          fill
+          sizes="100vw"
+          priority
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/55 to-ink/10" aria-hidden />
+        <div className="relative z-10 mx-auto flex h-full max-w-3xl flex-col items-center justify-center px-6 py-16 text-center sm:px-10">
+          <Badge variant="primary" className="mb-6 bg-surface">
+            For Young Adults
+          </Badge>
+          <h1 className="font-heading text-h3 font-bold leading-[1.05] tracking-tight text-white sm:text-h2 lg:text-h1">
+            Grow your character, <span className="text-growth-green">skills, and voice.</span>
+          </h1>
+          <p className="mx-auto mt-6 max-w-lg text-body text-white/80 sm:text-body-lg">
+            Leadership coaching and practical skills training built for young adults ready to stand
+            strong and thrive.
+          </p>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+            <Button size="lg" className="rounded-full" asChild>
+              <Link href="/contact">Submit an enquiry</Link>
+            </Button>
           </div>
         </div>
       </section>

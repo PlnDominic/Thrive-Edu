@@ -6,6 +6,8 @@ import { Clock, GraduationCap } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { SectionHeading } from "@/components/marketing/section-heading";
 import { CourseCard } from "@/components/marketing/course-card";
 import { CourseCarousel } from "@/components/marketing/course-carousel";
@@ -30,29 +32,31 @@ export default function CoursesPage() {
         </div>
       </div>
 
-      <section className="border-b border-border bg-subtle-surface py-16">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-            <SectionHeading
-              eyebrow="Storefront"
-              title="Explore our courses"
-              description="Live cohorts and self-paced tracks across Mathematics, Science, Language Arts, Arts & Music, Test Prep, and Life Skills, led by certified educators."
-            />
-            <div className="relative mx-auto flex w-full max-w-xs items-center justify-center lg:max-w-sm">
-              <span
-                className="absolute left-1/2 top-1/2 size-64 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-dashed border-growth-green/25 lg:size-80"
-                aria-hidden
-              />
-              <span className="absolute -right-6 -top-6 -z-10 size-40 rounded-full bg-leaf-gold/15" aria-hidden />
-              <Image
-                src="/images/courses-hero.png"
-                alt="A THRIVE EDU learner celebrating while studying on her laptop"
-                width={453}
-                height={597}
-                priority
-                className="relative z-10 h-auto w-full drop-shadow-xl"
-              />
-            </div>
+      {/* Hero */}
+      <section className="relative min-h-[380px] overflow-hidden sm:min-h-[420px] lg:min-h-[480px]">
+        <Image
+          src="/images/gallery-science-fair.jpg"
+          alt="Explore THRIVE EDU courses and practical learning tracks"
+          fill
+          sizes="100vw"
+          priority
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/55 to-ink/10" aria-hidden />
+        <div className="relative z-10 mx-auto flex h-full max-w-3xl flex-col items-center justify-center px-6 py-16 text-center sm:px-10">
+          <Badge variant="primary" className="mb-6 bg-surface">
+            Storefront & Programmes
+          </Badge>
+          <h1 className="font-heading text-h3 font-bold leading-[1.05] tracking-tight text-white sm:text-h2 lg:text-h1">
+            Explore our <span className="text-growth-green">courses & learning tracks.</span>
+          </h1>
+          <p className="mx-auto mt-6 max-w-lg text-body text-white/80 sm:text-body-lg">
+            Live cohorts and self-paced tracks across Mathematics, Science, Language Arts, Arts & Music, Test Prep, and Life Skills, led by certified educators.
+          </p>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+            <Button size="lg" className="rounded-full" asChild>
+              <Link href="/contact">Talk to admissions</Link>
+            </Button>
           </div>
         </div>
       </section>
