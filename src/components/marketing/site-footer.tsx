@@ -120,8 +120,8 @@ function SiteFooter() {
               {/* The full logo lockup's wordmark is dark green and disappears
                   against this dark footer, so use the leaf mark alone here
                   (paired with the white text label) instead of the full PNG. */}
-              <Image src="/thrive-edu-leaf.png" alt="" width={208} height={136} className="h-14 w-auto shrink-0" />
               <span className="font-heading text-h5 font-bold tracking-tight text-white">THRIVE EDU</span>
+              <Image src="/thrive-edu-leaf.png" alt="" width={208} height={136} className="h-14 w-auto shrink-0" />
             </Link>
             <p className="mt-4 max-w-xs text-small text-white/60">
               An international education NGO rooted in Ghana, reaching for Africa.

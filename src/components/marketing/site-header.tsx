@@ -55,7 +55,7 @@ function SiteHeader() {
     <header className="sticky top-0 z-40 border-b border-border bg-surface/90 backdrop-blur">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
         <Link href="/" className="flex items-center gap-2.5" onClick={() => setOpen(false)}>
-          <Image src="/thrive-edu-logo.png" alt="THRIVE EDU" width={64} height={64} className="h-16 w-16 shrink-0" />
+          <Image src="/thrive-edu-logo.png" alt="THRIVE EDU" width={72} height={72} className="h-[72px] w-[72px] shrink-0" />
           <span className="font-heading text-h5 font-bold tracking-tight text-heading-accent">
             THRIVE EDU<span className="text-leaf-gold">.</span>
           </span>
