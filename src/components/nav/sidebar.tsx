@@ -32,7 +32,7 @@ function Sidebar({ role, userName = "Amara Boateng", userRole = "Student", class
       <div className="flex h-20 items-center gap-3 border-b border-border px-6">
         <Image src="/thrive-edu-logo.png" alt="THRIVE EDU" width={32} height={32} className="shrink-0" />
         {!collapsed && (
-          <span className="font-heading text-h5 font-bold tracking-tight text-forest-green">
+          <span className="font-heading text-h5 font-bold tracking-tight text-forest-green-text">
             THRIVE EDU
           </span>
         )}
@@ -51,7 +51,7 @@ function Sidebar({ role, userName = "Amara Boateng", userRole = "Student", class
               className={cn(
                 "flex items-center gap-3 rounded-md px-3.5 py-2.5 text-small font-medium text-text-secondary transition-colors duration-150",
                 "hover:bg-subtle-surface hover:text-text-primary",
-                active && "bg-primary/10 text-forest-green"
+                active && "bg-primary/10 text-forest-green-text"
               )}
             >
               <Icon className="size-[18px] shrink-0" aria-hidden />

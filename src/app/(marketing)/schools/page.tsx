@@ -109,7 +109,7 @@ export default function SchoolsPage() {
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {offerings.map((offering) => (
               <div key={offering.title} className="rounded-2xl border border-border bg-surface p-8 shadow-elevation-1">
-                <span className="flex size-12 items-center justify-center rounded-full bg-primary/10 text-forest-green">
+                <span className="flex size-12 items-center justify-center rounded-full bg-primary/10 text-forest-green-text">
                   <offering.icon className="size-5" />
                 </span>
                 <h3 className="mt-5 font-heading text-h5 font-bold text-text-primary">{offering.title}</h3>
@@ -117,7 +117,7 @@ export default function SchoolsPage() {
                 {offering.href && (
                   <Link
                     href={offering.href}
-                    className="mt-4 inline-flex items-center gap-1.5 text-small font-semibold text-forest-green transition-colors hover:text-primary-hover"
+                    className="mt-4 inline-flex items-center gap-1.5 text-small font-semibold text-forest-green-text transition-colors hover:text-primary-hover"
                   >
                     {offering.linkLabel}
                   </Link>

@@ -21,34 +21,36 @@ const inter = localFont({
   display: "swap",
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://thriveedu.org";
-const socialImage = "/opengraph-image";
+// Resolves to the real production domain on Vercel automatically (falls
+// back to NEXT_PUBLIC_SITE_URL, then the known production domain). Needed
+// so the relative OG/icon paths below become absolute URLs that social
+// platforms can actually fetch when a link is shared.
+const siteUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
+  ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+  : (process.env.NEXT_PUBLIC_SITE_URL ?? "https://thriveedu.org");
+
+const siteTitle = "THRIVE EDU | Everyone Thrives With Us.";
+const siteDescription =
+  "THRIVE EDU is an international education NGO rooted in Ghana, reaching for Africa. We partner with schools, parents, NGOs and communities to equip and empower every learner to thrive.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "THRIVE EDU",
-  description:
-    "An international education NGO rooted in Ghana, creating personalized learning journeys for students, parents, teachers, and school owners.",
+  title: siteTitle,
+  description: siteDescription,
   openGraph: {
-    title: "THRIVE EDU",
-    description:
-      "An international education NGO rooted in Ghana, creating personalized learning journeys for students, parents, teachers, and school owners.",
+    title: siteTitle,
+    description: siteDescription,
     url: "/",
     siteName: "THRIVE EDU",
-    images: [
-      {
-        url: socialImage,
-        alt: "THRIVE EDU social preview",
-      },
-    ],
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "THRIVE EDU" }],
+    locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "THRIVE EDU",
-    description:
-      "An international education NGO rooted in Ghana, creating personalized learning journeys for students, parents, teachers, and school owners.",
-    images: [socialImage],
+    title: siteTitle,
+    description: siteDescription,
+    images: ["/og-image.png"],
   },
 };
 

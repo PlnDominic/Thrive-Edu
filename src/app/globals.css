@@ -12,6 +12,11 @@
   --color-growth-green: #4e8a3b;
   --color-leaf-green: #6fa74f;
 
+  /* Same lemon-green hue, deepened for legibility as text/icon color on
+     light backgrounds (bright #00ff42 has almost no contrast against
+     white). Buttons and fills keep the vivid --color-forest-green. */
+  --color-forest-green-text: #008a22;
+
   /* Brand: accents */
   --color-leaf-gold: #d8a24a;
   --color-warm-amber: #e7b96b;
@@ -61,6 +66,7 @@
 
   /* Colors */
   --color-forest-green: var(--color-forest-green);
+  --color-forest-green-text: var(--color-forest-green-text);
   --color-deep-green: var(--color-deep-green);
   --color-growth-green: var(--color-growth-green);
   --color-leaf-green: var(--color-leaf-green);

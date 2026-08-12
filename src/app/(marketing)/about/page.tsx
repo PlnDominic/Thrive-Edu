@@ -70,14 +70,14 @@ export default function AboutPage() {
 
               <div className="mt-8 space-y-6">
                 <div>
-                  <p className="text-small font-semibold uppercase tracking-wide text-forest-green">Our vision</p>
+                  <p className="text-small font-semibold uppercase tracking-wide text-forest-green-text">Our vision</p>
                   <p className="mt-1.5 text-body text-text-secondary">
                     To be the guiding light of education across Africa, inspiring excellence, innovation and
                     lifelong learning that empowers every child, educator and school to thrive.
                   </p>
                 </div>
                 <div>
-                  <p className="text-small font-semibold uppercase tracking-wide text-forest-green">Our mission</p>
+                  <p className="text-small font-semibold uppercase tracking-wide text-forest-green-text">Our mission</p>
                   <p className="mt-1.5 text-body text-text-secondary">
                     Thrive EDU partners with schools, parents, NGOs and communities to provide quality,
                     innovative products, programmes and teaching and learning materials that equip and
@@ -92,7 +92,7 @@ export default function AboutPage() {
                 </Button>
                 <Link
                   href="/ecosystem"
-                  className="text-small font-semibold text-forest-green underline-offset-4 hover:underline"
+                  className="text-small font-semibold text-forest-green-text underline-offset-4 hover:underline"
                 >
                   See our ecosystem
                 </Link>
@@ -110,7 +110,7 @@ export default function AboutPage() {
                 <span className="font-heading text-h1 font-bold text-white/10">01</span>
                 <p className="font-heading text-h5 font-bold text-white">Our Vision</p>
                 <span className="absolute -right-6 -top-6 flex size-20 items-center justify-center rounded-full bg-surface shadow-elevation-3 sm:size-24">
-                  <Eye className="size-8 text-forest-green sm:size-9" />
+                  <Eye className="size-8 text-forest-green-text sm:size-9" />
                 </span>
               </div>
 
@@ -118,7 +118,7 @@ export default function AboutPage() {
                 <span className="font-heading text-h1 font-bold text-text-primary/15">02</span>
                 <p className="font-heading text-h5 font-bold text-text-primary">Our Mission</p>
                 <span className="absolute -bottom-6 -left-6 flex size-20 items-center justify-center rounded-full bg-surface shadow-elevation-3 sm:size-24">
-                  <Compass className="size-8 text-forest-green sm:size-9" />
+                  <Compass className="size-8 text-forest-green-text sm:size-9" />
                 </span>
               </div>
             </div>

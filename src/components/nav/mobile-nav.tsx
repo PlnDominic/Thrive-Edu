@@ -36,7 +36,7 @@ function MobileNav({ role }: MobileNavProps) {
           <div className="flex h-20 items-center justify-between border-b border-border px-6">
             <div className="flex items-center gap-3">
               <Image src="/thrive-edu-logo.png" alt="THRIVE EDU" width={28} height={28} />
-              <Dialog.Title className="font-heading text-h5 font-bold text-forest-green">
+              <Dialog.Title className="font-heading text-h5 font-bold text-forest-green-text">
                 THRIVE EDU
               </Dialog.Title>
             </div>
@@ -62,7 +62,7 @@ function MobileNav({ role }: MobileNavProps) {
                   className={cn(
                     "flex items-center gap-3 rounded-md px-3.5 py-3 text-body font-medium text-text-secondary transition-colors",
                     "hover:bg-subtle-surface hover:text-text-primary",
-                    active && "bg-primary/10 text-forest-green"
+                    active && "bg-primary/10 text-forest-green-text"
                   )}
                 >
                   <Icon className="size-5" aria-hidden />
@@ -100,7 +100,7 @@ function MobileTabBar({ role }: MobileTabBarProps) {
             aria-current={active ? "page" : undefined}
             className={cn(
               "flex flex-1 flex-col items-center gap-1 py-2.5 text-caption font-medium text-text-secondary transition-colors",
-              active && "text-forest-green"
+              active && "text-forest-green-text"
             )}
           >
             <Icon className="size-5" aria-hidden />

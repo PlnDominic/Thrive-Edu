@@ -28,7 +28,7 @@ function NotificationList({ items }: NotificationListProps) {
               !n.read && "bg-primary/5"
             )}
           >
-            <span className="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-full bg-subtle-surface text-forest-green">
+            <span className="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-full bg-subtle-surface text-forest-green-text">
               <Icon className="size-4" />
             </span>
             <div className="min-w-0 flex-1">

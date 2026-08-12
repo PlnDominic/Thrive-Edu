@@ -101,14 +101,14 @@ export default function SupportOurWorkPage() {
           <div className="mt-14 grid gap-6 sm:grid-cols-2">
             {givingOptions.map((option) => (
               <div key={option.title} className="rounded-2xl border border-border bg-surface p-8 shadow-elevation-1">
-                <span className="flex size-12 items-center justify-center rounded-full bg-primary/10 text-forest-green">
+                <span className="flex size-12 items-center justify-center rounded-full bg-primary/10 text-forest-green-text">
                   <option.icon className="size-5" />
                 </span>
                 <h3 className="mt-5 font-heading text-h5 font-bold text-text-primary">{option.title}</h3>
                 <p className="mt-2 text-small text-text-secondary">{option.description}</p>
                 <Link
                   href="/contact"
-                  className="mt-4 inline-flex items-center gap-1.5 text-small font-semibold text-forest-green transition-colors hover:text-primary-hover"
+                  className="mt-4 inline-flex items-center gap-1.5 text-small font-semibold text-forest-green-text transition-colors hover:text-primary-hover"
                 >
                   {option.linkLabel}
                 </Link>
@@ -125,7 +125,7 @@ export default function SupportOurWorkPage() {
           <div className="mt-14 grid gap-px overflow-hidden rounded-2xl bg-border sm:grid-cols-3">
             {impactPoints.map((point) => (
               <div key={point.label} className="bg-surface px-6 py-10 text-center">
-                <p className="font-heading text-h2 font-bold text-forest-green">{point.stat}</p>
+                <p className="font-heading text-h2 font-bold text-forest-green-text">{point.stat}</p>
                 <p className="mt-2 text-small text-text-secondary">{point.label}</p>
               </div>
             ))}

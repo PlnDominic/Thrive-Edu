@@ -103,7 +103,7 @@ export default function EcosystemPage() {
                     {/* Content Block */}
                     <div className={venture.image ? "lg:col-span-7" : "lg:col-span-12"}>
                       <div className="flex items-center gap-4">
-                        <span className="flex size-12 shrink-0 items-center justify-center rounded-none bg-primary/10 text-forest-green sm:size-14">
+                        <span className="flex size-12 shrink-0 items-center justify-center rounded-none bg-primary/10 text-forest-green-text sm:size-14">
                           <Icon className="size-6" />
                         </span>
                         <p className="font-heading text-caption font-semibold uppercase tracking-wide text-text-secondary">
@@ -132,7 +132,7 @@ export default function EcosystemPage() {
                       <div className="mt-6">
                         <Link
                           href={venture.href}
-                          className="inline-flex items-center gap-2 rounded-none text-small font-semibold text-forest-green transition-colors hover:text-primary-hover"
+                          className="inline-flex items-center gap-2 rounded-none text-small font-semibold text-forest-green-text transition-colors hover:text-primary-hover"
                         >
                           {venture.linkLabel}
                           <ArrowRight className="size-4" />

@@ -32,7 +32,7 @@ function CommentThread({ comments }: CommentThreadProps) {
               <span className="text-caption text-text-secondary">{c.timestamp}</span>
             </div>
             <p className="mt-1 text-small text-text-primary">{c.text}</p>
-            <button type="button" className="mt-1.5 text-caption font-semibold text-forest-green hover:underline">
+            <button type="button" className="mt-1.5 text-caption font-semibold text-forest-green-text hover:underline">
               Reply
             </button>
           </div>

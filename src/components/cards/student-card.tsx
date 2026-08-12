@@ -68,7 +68,7 @@ function StudentCard({
           </div>
         </div>
       </CardContent>
-      <div className="flex items-center justify-between border-t border-border px-6 py-3.5 text-small font-medium text-forest-green opacity-0 transition-opacity group-hover:opacity-100">
+      <div className="flex items-center justify-between border-t border-border px-6 py-3.5 text-small font-medium text-forest-green-text opacity-0 transition-opacity group-hover:opacity-100">
         View full profile
         <ArrowUpRight className="size-4" />
       </div>

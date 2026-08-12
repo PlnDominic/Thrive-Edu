@@ -89,7 +89,7 @@ export default function CoursesPage() {
                   className={cn(
                     "rounded-full border border-border px-4 py-2 text-small font-medium text-text-secondary transition-colors",
                     "hover:bg-subtle-surface hover:text-text-primary",
-                    "data-[state=active]:border-forest-green data-[state=active]:bg-primary/10 data-[state=active]:font-semibold data-[state=active]:text-forest-green"
+                    "data-[state=active]:border-forest-green data-[state=active]:bg-primary/10 data-[state=active]:font-semibold data-[state=active]:text-forest-green-text"
                   )}
                 >
                   {s}

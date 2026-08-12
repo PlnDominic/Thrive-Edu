@@ -19,7 +19,7 @@ function CourseCard({ course, ribbon }: CourseCardProps) {
     <Card interactive elevation={2} className="group flex flex-col overflow-hidden">
       <div className={cn("relative flex h-32 items-center justify-center overflow-hidden", subjectColors[course.subject])}>
         {ribbon && (
-          <span className="absolute left-3 top-3 z-10 rounded-full bg-white px-2.5 py-1 text-caption font-bold uppercase tracking-wide text-forest-green shadow-elevation-1">
+          <span className="absolute left-3 top-3 z-10 rounded-full bg-white px-2.5 py-1 text-caption font-bold uppercase tracking-wide text-forest-green-text shadow-elevation-1">
             {ribbon}
           </span>
         )}

@@ -54,7 +54,7 @@ function MultiSelect({ options, value, onChange, placeholder = "Select…", clas
         {selected.map((o) => (
           <span
             key={o.value}
-            className="flex items-center gap-1 rounded-full bg-primary/10 px-2.5 py-1 text-caption font-semibold text-forest-green"
+            className="flex items-center gap-1 rounded-full bg-primary/10 px-2.5 py-1 text-caption font-semibold text-forest-green-text"
           >
             {o.label}
             <X

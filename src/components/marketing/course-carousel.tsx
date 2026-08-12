@@ -32,7 +32,7 @@ function CourseCarousel({ eyebrow, title, viewAllHref, courses, badge }: CourseC
           <h2 className="font-heading text-h3 font-bold text-text-primary">{title}</h2>
         </div>
         <div className="flex items-center gap-3">
-          <Link href={viewAllHref} className="text-small font-semibold text-forest-green hover:underline">
+          <Link href={viewAllHref} className="text-small font-semibold text-forest-green-text hover:underline">
             View all
           </Link>
           <div className="hidden items-center gap-2 sm:flex">
@@ -40,7 +40,7 @@ function CourseCarousel({ eyebrow, title, viewAllHref, courses, badge }: CourseC
               type="button"
               onClick={() => scrollByCard(-1)}
               aria-label="Scroll left"
-              className="flex size-9 items-center justify-center rounded-full border border-border bg-surface text-text-secondary transition-colors hover:border-growth-green/50 hover:text-forest-green"
+              className="flex size-9 items-center justify-center rounded-full border border-border bg-surface text-text-secondary transition-colors hover:border-growth-green/50 hover:text-forest-green-text"
             >
               <ArrowLeft className="size-4" />
             </button>
@@ -48,7 +48,7 @@ function CourseCarousel({ eyebrow, title, viewAllHref, courses, badge }: CourseC
               type="button"
               onClick={() => scrollByCard(1)}
               aria-label="Scroll right"
-              className="flex size-9 items-center justify-center rounded-full border border-border bg-surface text-text-secondary transition-colors hover:border-growth-green/50 hover:text-forest-green"
+              className="flex size-9 items-center justify-center rounded-full border border-border bg-surface text-text-secondary transition-colors hover:border-growth-green/50 hover:text-forest-green-text"
             >
               <ArrowRight className="size-4" />
             </button>

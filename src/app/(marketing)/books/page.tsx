@@ -67,7 +67,7 @@ export default function BooksPage() {
                   className={cn(
                     "rounded-full border border-border px-4 py-2 text-small font-medium text-text-secondary transition-colors",
                     "hover:bg-subtle-surface hover:text-text-primary",
-                    "data-[state=active]:border-forest-green data-[state=active]:bg-primary/10 data-[state=active]:font-semibold data-[state=active]:text-forest-green"
+                    "data-[state=active]:border-forest-green data-[state=active]:bg-primary/10 data-[state=active]:font-semibold data-[state=active]:text-forest-green-text"
                   )}
                 >
                   {s}
@@ -80,7 +80,7 @@ export default function BooksPage() {
                 <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                   {filtered.map((series) => (
                     <div key={series.title} className="rounded-2xl border border-border bg-surface p-6 shadow-elevation-1">
-                      <span className="flex size-11 items-center justify-center rounded-full bg-primary/10 text-forest-green">
+                      <span className="flex size-11 items-center justify-center rounded-full bg-primary/10 text-forest-green-text">
                         <BookOpen className="size-5" />
                       </span>
                       <p className="mt-4 text-caption font-semibold uppercase tracking-wide text-text-secondary">

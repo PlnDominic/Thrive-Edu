@@ -107,7 +107,7 @@ export default function ContactPage() {
               <ul className="mt-5 space-y-5">
                 {contactDetails.map((d) => (
                   <li key={d.label} className="flex items-start gap-3">
-                    <span className="flex size-10 shrink-0 items-center justify-center rounded-md bg-primary/10 text-forest-green">
+                    <span className="flex size-10 shrink-0 items-center justify-center rounded-md bg-primary/10 text-forest-green-text">
                       <d.icon className="size-5" />
                     </span>
                     <div>

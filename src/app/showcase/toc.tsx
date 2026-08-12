@@ -18,7 +18,7 @@ export function Toc() {
       <ul className="space-y-2 border-l border-border pl-4">
         {links.map((l) => (
           <li key={l.href}>
-            <a href={l.href} className="text-small text-text-secondary transition-colors hover:text-forest-green">
+            <a href={l.href} className="text-small text-text-secondary transition-colors hover:text-forest-green-text">
               {l.label}
             </a>
           </li>

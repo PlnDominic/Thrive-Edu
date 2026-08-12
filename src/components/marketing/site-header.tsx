@@ -55,7 +55,7 @@ function SiteHeader() {
     <header className="sticky top-0 z-40 border-b border-border bg-surface/90 backdrop-blur">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
         <Link href="/" className="flex items-center gap-2.5" onClick={() => setOpen(false)}>
-          <Image src="/thrive-edu-logo.png" alt="THRIVE EDU" width={44} height={44} className="shrink-0" />
+          <Image src="/thrive-edu-logo.png" alt="THRIVE EDU" width={64} height={64} className="h-16 w-16 shrink-0" />
           <span className="font-heading text-h5 font-bold tracking-tight text-heading-accent">
             THRIVE EDU<span className="text-leaf-gold">.</span>
           </span>
@@ -73,7 +73,7 @@ function SiteHeader() {
               <NavigationMenuPrimitive.Trigger
                 className={cn(
                   "group flex items-center gap-1.5 text-small font-medium text-text-secondary outline-none transition-colors hover:text-text-primary",
-                  whatWeDoActive && "font-semibold text-forest-green"
+                  whatWeDoActive && "font-semibold text-forest-green-text"
                 )}
               >
                 {whatWeDoActive && <span className="size-1.5 rounded-full bg-forest-green" aria-hidden />}
@@ -94,7 +94,7 @@ function SiteHeader() {
                               <NavigationMenuPrimitive.Link asChild>
                                 <Link
                                   href={link.href}
-                                  className="block rounded-lg px-3 py-1.5 text-small font-medium italic leading-snug text-text-primary transition-colors hover:bg-subtle-surface hover:text-forest-green"
+                                  className="block rounded-lg px-3 py-1.5 text-small font-medium italic leading-snug text-text-primary transition-colors hover:bg-subtle-surface hover:text-forest-green-text"
                                 >
                                   {link.label}
                                 </Link>
@@ -147,7 +147,7 @@ function SiteHeader() {
                 aria-expanded={whatWeDoOpen}
                 className={cn(
                   "flex w-full items-center justify-between rounded-md px-3 py-3 text-body font-medium text-text-secondary transition-colors hover:bg-subtle-surface hover:text-text-primary",
-                  whatWeDoActive && "font-semibold text-forest-green"
+                  whatWeDoActive && "font-semibold text-forest-green-text"
                 )}
               >
                 <span className="flex items-center gap-2">
@@ -222,7 +222,7 @@ function NavItem({ href, label, active }: { href: string; label: string; active:
           aria-current={active ? "page" : undefined}
           className={cn(
             "flex items-center gap-1.5 text-small font-medium text-text-secondary transition-colors hover:text-text-primary",
-            active && "font-semibold text-forest-green"
+            active && "font-semibold text-forest-green-text"
           )}
         >
           {active && <span className="size-1.5 rounded-full bg-forest-green" aria-hidden />}
@@ -257,7 +257,7 @@ function MobileLink({
         "block rounded-md px-3 py-3 text-body font-medium text-text-secondary transition-colors hover:bg-subtle-surface hover:text-text-primary",
         compact && "py-1.5",
         italic && "italic",
-        active && "bg-primary/10 font-semibold text-forest-green"
+        active && "bg-primary/10 font-semibold text-forest-green-text"
       )}
     >
       {label}

@@ -68,7 +68,7 @@ export default function YoungAdultsPage() {
           <div className="mt-14 grid gap-6 sm:grid-cols-2">
             {offerings.map((offering) => (
               <div key={offering.title} className="rounded-2xl border border-border bg-surface p-8 shadow-elevation-1">
-                <span className="flex size-12 items-center justify-center rounded-full bg-primary/10 text-forest-green">
+                <span className="flex size-12 items-center justify-center rounded-full bg-primary/10 text-forest-green-text">
                   <offering.icon className="size-5" />
                 </span>
                 <h3 className="mt-5 font-heading text-h5 font-bold text-text-primary">{offering.title}</h3>
