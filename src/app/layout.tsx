@@ -21,10 +21,35 @@ const inter = localFont({
   display: "swap",
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://thriveedu.org";
+const socialLogo = "/thrive-edu-logo.png";
+
 export const metadata: Metadata = {
-  title: "THRIVE EDU | Design System",
+  metadataBase: new URL(siteUrl),
+  title: "THRIVE EDU",
   description:
-    "A spatial, premium design system for THRIVE EDU: personalized learning journeys for students, parents, teachers, and school owners.",
+    "An international education NGO rooted in Ghana, creating personalized learning journeys for students, parents, teachers, and school owners.",
+  openGraph: {
+    title: "THRIVE EDU",
+    description:
+      "An international education NGO rooted in Ghana, creating personalized learning journeys for students, parents, teachers, and school owners.",
+    url: "/",
+    siteName: "THRIVE EDU",
+    images: [
+      {
+        url: socialLogo,
+        alt: "THRIVE EDU official logo",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "THRIVE EDU",
+    description:
+      "An international education NGO rooted in Ghana, creating personalized learning journeys for students, parents, teachers, and school owners.",
+    images: [socialLogo],
+  },
 };
 
 export const viewport: Viewport = {

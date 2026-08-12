@@ -117,7 +117,7 @@ function SiteFooter() {
         <div className="grid gap-10 pt-10 md:grid-cols-[2fr_1fr_1fr_1fr]">
           <div>
             <Link href="/" className="flex items-center gap-2.5">
-              <Image src="/thrive-edu-logo.png" alt="THRIVE EDU" width={32} height={32} />
+              <Image src="/thrive-edu-logo.png" alt="THRIVE EDU" width={44} height={44} className="shrink-0" />
               <span className="font-heading text-h5 font-bold tracking-tight text-white">THRIVE EDU</span>
             </Link>
             <p className="mt-4 max-w-xs text-small text-white/60">
