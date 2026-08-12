@@ -22,7 +22,7 @@ const inter = localFont({
 });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://thriveedu.org";
-const socialLogo = "/thrive-edu-logo.png";
+const socialImage = "/opengraph-image";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -37,8 +37,8 @@ export const metadata: Metadata = {
     siteName: "THRIVE EDU",
     images: [
       {
-        url: socialLogo,
-        alt: "THRIVE EDU official logo",
+        url: socialImage,
+        alt: "THRIVE EDU social preview",
       },
     ],
     type: "website",
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     title: "THRIVE EDU",
     description:
       "An international education NGO rooted in Ghana, creating personalized learning journeys for students, parents, teachers, and school owners.",
-    images: [socialLogo],
+    images: [socialImage],
   },
 };
 
