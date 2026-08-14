@@ -53,19 +53,12 @@ const columns = [
   },
   {
     heading: "Get involved",
-    links: [
-      { label: "Donate", href: "/support-our-work" },
-      { label: "Join our team", href: "/join-our-team" },
-      { label: "Resources and blog", href: "/resources" },
-    ],
+    links: [{ label: "Donate", href: "/support-our-work" }],
   },
   {
     heading: "For you",
     links: [
-      { label: "For schools and organisations", href: "/schools" },
-      { label: "Books and curricula", href: "/books" },
       { label: "For families and readers", href: "/families" },
-      { label: "For young adults", href: "/young-adults" },
       { label: "Courses", href: "/courses" },
       { label: "Student portal", href: "/dashboard/student" },
     ],

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { BookOpen, GraduationCap, HardHat, Library, type LucideIcon } from "lucide-react";
+import { GraduationCap, HardHat, Library, type LucideIcon } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -15,14 +15,6 @@ interface Offering {
 }
 
 const offerings: Offering[] = [
-  {
-    title: "Books",
-    description:
-      "Decodable readers, mathematics, financial literacy and picture books from Thrive Literacy and Publications.",
-    icon: BookOpen,
-    href: "/books",
-    linkLabel: "Browse our series",
-  },
   {
     title: "Mobile library",
     description: "A mobile and outreach library bringing books directly into homes and communities.",
@@ -63,11 +55,6 @@ export default function FamiliesPage() {
             Browse our published series, join our mobile library, and access home practice for your
             child, wherever your family is.
           </p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-            <Button size="lg" className="rounded-full" asChild>
-              <Link href="/books">Browse books</Link>
-            </Button>
-          </div>
         </div>
       </section>
 

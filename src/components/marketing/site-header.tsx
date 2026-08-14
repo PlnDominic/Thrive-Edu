@@ -13,10 +13,7 @@ import { cn } from "@/lib/utils";
 const whatWeDoThemes = [
   {
     theme: "Read and Learn",
-    items: [
-      { label: "Thrive Literacy and Publications", href: "/books" },
-      { label: "Thrive Mobile Library and Books Hub", href: "/families" },
-    ],
+    items: [{ label: "Thrive Mobile Library and Books Hub", href: "/families" }],
   },
   {
     theme: "Explore and Create",
@@ -26,18 +23,8 @@ const whatWeDoThemes = [
     ],
   },
   {
-    theme: "Skills and Futures",
-    items: [
-      { label: "Thrive TVET", href: "/schools" },
-      { label: "Thrive 360 Leadership and Coaching Services", href: "/young-adults" },
-    ],
-  },
-  {
     theme: "Strengthen Schools",
-    items: [
-      { label: "Thrive Professional Development Institute", href: "/schools" },
-      { label: "Thrive Schools Improvement Services", href: "/ecosystem" },
-    ],
+    items: [{ label: "Thrive Schools Improvement Services", href: "/ecosystem" }],
   },
 ];
 
