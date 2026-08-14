@@ -1,11 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Building2, Gift, HandCoins, HeartHandshake } from "lucide-react";
+import { Building2, Gift, HeartHandshake } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { SectionHeading } from "@/components/marketing/section-heading";
+import { DonatePanel } from "@/components/marketing/donate-panel";
 
 interface GivingOption {
   title: string;
@@ -14,14 +15,7 @@ interface GivingOption {
   linkLabel: string;
 }
 
-const givingOptions: GivingOption[] = [
-  {
-    title: "Give financially",
-    description:
-      "One-time or recurring gifts fund learning materials, teacher training, and classroom resources across our partner schools.",
-    icon: HandCoins,
-    linkLabel: "Talk to us about giving",
-  },
+const otherGivingOptions: GivingOption[] = [
   {
     title: "Partner as a school",
     description:
@@ -42,21 +36,6 @@ const givingOptions: GivingOption[] = [
       "Books, learning materials, equipment, and volunteer expertise all directly extend what we can offer learners.",
     icon: Gift,
     linkLabel: "Offer in-kind support",
-  },
-];
-
-const impactPoints = [
-  {
-    stat: "48",
-    label: "Partner schools reached through our ecosystem of programmes.",
-  },
-  {
-    stat: "12,400+",
-    label: "Active learners supported by our curricula and classroom tools.",
-  },
-  {
-    stat: "5",
-    label: "Ventures working together across books, training, and outreach.",
   },
 ];
 
@@ -95,40 +74,39 @@ export default function SupportOurWorkPage() {
 
       {/* Ways to give */}
       <section className="py-24">
-        <div className="mx-auto max-w-7xl px-6">
-          <SectionHeading eyebrow="Ways to help" title="Choose how you'd like to support us" />
+        <div className="mx-auto max-w-5xl px-6">
+          <SectionHeading eyebrow="Ways to help" title="Give directly to THRIVE EDU" align="center" className="mx-auto" />
+          <p className="mx-auto mt-4 max-w-xl text-center text-body text-text-secondary">
+            Choose an amount, then send it straight to us by Mobile Money or bank transfer. Every cedi goes
+            directly into books, training, and classrooms.
+          </p>
 
-          <div className="mt-14 grid gap-6 sm:grid-cols-2">
-            {givingOptions.map((option) => (
-              <div key={option.title} className="rounded-2xl border border-border bg-surface p-8 shadow-elevation-1">
-                <span className="flex size-12 items-center justify-center rounded-full bg-primary/10 text-forest-green-text">
-                  <option.icon className="size-5" />
-                </span>
-                <h3 className="mt-5 font-heading text-h5 font-bold text-text-primary">{option.title}</h3>
-                <p className="mt-2 text-small text-text-secondary">{option.description}</p>
-                <Link
-                  href="/contact"
-                  className="mt-4 inline-flex items-center gap-1.5 text-small font-semibold text-forest-green-text transition-colors hover:text-primary-hover"
-                >
-                  {option.linkLabel}
-                </Link>
-              </div>
-            ))}
+          <div className="mt-14">
+            <DonatePanel />
           </div>
-        </div>
-      </section>
 
-      {/* Why it matters */}
-      <section className="border-t border-border bg-subtle-surface py-24">
-        <div className="mx-auto max-w-7xl px-6">
-          <SectionHeading eyebrow="Why it matters" title="Your support, at work" align="center" className="mx-auto" />
-          <div className="mt-14 grid gap-px overflow-hidden rounded-2xl bg-border sm:grid-cols-3">
-            {impactPoints.map((point) => (
-              <div key={point.label} className="bg-surface px-6 py-10 text-center">
-                <p className="font-heading text-h2 font-bold text-forest-green-text">{point.stat}</p>
-                <p className="mt-2 text-small text-text-secondary">{point.label}</p>
-              </div>
-            ))}
+          {/* Other ways to give */}
+          <div className="mt-16 border-t border-border pt-14">
+            <p className="text-center text-small font-semibold uppercase tracking-wide text-text-secondary">
+              Other ways to give
+            </p>
+            <div className="mt-8 grid gap-6 sm:grid-cols-3">
+              {otherGivingOptions.map((option) => (
+                <div key={option.title} className="rounded-2xl border border-border bg-surface p-6">
+                  <span className="flex size-10 items-center justify-center rounded-full bg-primary/10 text-forest-green-text">
+                    <option.icon className="size-5" />
+                  </span>
+                  <h3 className="mt-4 font-heading text-h5 font-bold text-text-primary">{option.title}</h3>
+                  <p className="mt-2 text-small text-text-secondary">{option.description}</p>
+                  <Link
+                    href="/contact"
+                    className="mt-3 inline-flex items-center gap-1.5 text-small font-semibold text-forest-green-text transition-colors hover:text-primary-hover"
+                  >
+                    {option.linkLabel}
+                  </Link>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
