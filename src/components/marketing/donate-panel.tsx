@@ -1,29 +1,44 @@
 "use client";
 
 import * as React from "react";
-import { Check, Copy, Landmark, Smartphone } from "lucide-react";
+import { Check, ChevronDown, Copy, Landmark, Smartphone } from "lucide-react";
 
 const presetAmounts = [50, 100, 250, 500, 1000];
 
-interface DetailRow {
-  label: string;
+interface NetworkOption {
   value: string;
+  label: string;
+  number: string;
 }
 
-const mobileMoneyDetails: DetailRow[] = [
-  { label: "Network", value: "MTN Mobile Money" },
-  { label: "Number", value: "Add MoMo number" },
-  { label: "Account name", value: "THRIVE EDU" },
+const momoNetworks: NetworkOption[] = [
+  { value: "mtn", label: "MTN Mobile Money", number: "Add MTN MoMo number" },
+  { value: "telecel", label: "Telecel Cash (Vodafone)", number: "Add Telecel Cash number" },
+  { value: "airteltigo", label: "AirtelTigo Money", number: "Add AirtelTigo Money number" },
 ];
 
-const bankDetails: DetailRow[] = [
-  { label: "Bank", value: "Add bank name" },
-  { label: "Account name", value: "THRIVE EDU" },
-  { label: "Account number", value: "Add account number" },
-  { label: "Branch", value: "Add branch" },
+interface BankOption {
+  value: string;
+  label: string;
+  accountNumber: string;
+}
+
+const ghanaBanks: BankOption[] = [
+  { value: "gcb", label: "GCB Bank", accountNumber: "Add GCB Bank account number" },
+  { value: "ecobank", label: "Ecobank Ghana", accountNumber: "Add Ecobank account number" },
+  { value: "absa", label: "Absa Bank Ghana", accountNumber: "Add Absa account number" },
+  { value: "stanbic", label: "Stanbic Bank Ghana", accountNumber: "Add Stanbic account number" },
+  { value: "fidelity", label: "Fidelity Bank Ghana", accountNumber: "Add Fidelity account number" },
+  { value: "cal", label: "CalBank", accountNumber: "Add CalBank account number" },
+  { value: "zenith", label: "Zenith Bank Ghana", accountNumber: "Add Zenith account number" },
+  { value: "access", label: "Access Bank Ghana", accountNumber: "Add Access Bank account number" },
+  { value: "stanchart", label: "Standard Chartered Ghana", accountNumber: "Add Standard Chartered account number" },
+  { value: "republic", label: "Republic Bank Ghana", accountNumber: "Add Republic Bank account number" },
 ];
 
-function CopyRow({ label, value }: DetailRow) {
+const branch = "Add branch";
+
+function CopyButton({ value, label }: { value: string; label: string }) {
   const [copied, setCopied] = React.useState(false);
 
   const handleCopy = async () => {
@@ -37,19 +52,22 @@ function CopyRow({ label, value }: DetailRow) {
   };
 
   return (
-    <div className="flex items-center justify-between gap-3 border-b border-border py-3 last:border-b-0">
-      <div>
-        <p className="text-caption font-semibold uppercase tracking-wide text-text-secondary">{label}</p>
-        <p className="mt-0.5 font-heading text-body-lg font-bold text-text-primary">{value}</p>
-      </div>
-      <button
-        type="button"
-        onClick={handleCopy}
-        aria-label={`Copy ${label.toLowerCase()}`}
-        className="flex size-9 shrink-0 items-center justify-center rounded-full border border-border text-text-secondary transition-colors hover:border-growth-green/50 hover:text-forest-green-text"
-      >
-        {copied ? <Check className="size-4" /> : <Copy className="size-4" />}
-      </button>
+    <button
+      type="button"
+      onClick={handleCopy}
+      aria-label={`Copy ${label.toLowerCase()}`}
+      className="flex size-9 shrink-0 items-center justify-center rounded-full border border-border text-text-secondary transition-colors hover:border-growth-green/50 hover:text-forest-green-text"
+    >
+      {copied ? <Check className="size-4" /> : <Copy className="size-4" />}
+    </button>
+  );
+}
+
+function FieldRow({ label, children }: { label: string; children: React.ReactNode }) {
+  return (
+    <div className="border-b border-border py-3 last:border-b-0">
+      <p className="text-caption font-semibold uppercase tracking-wide text-text-secondary">{label}</p>
+      <div className="mt-1.5">{children}</div>
     </div>
   );
 }
@@ -57,8 +75,12 @@ function CopyRow({ label, value }: DetailRow) {
 function DonatePanel() {
   const [selected, setSelected] = React.useState<number | null>(100);
   const [customAmount, setCustomAmount] = React.useState("");
+  const [network, setNetwork] = React.useState(momoNetworks[0].value);
+  const [bank, setBank] = React.useState(ghanaBanks[0].value);
 
   const activeAmount = customAmount ? Number(customAmount) || 0 : selected;
+  const activeNetwork = momoNetworks.find((n) => n.value === network) ?? momoNetworks[0];
+  const activeBank = ghanaBanks.find((b) => b.value === bank) ?? ghanaBanks[0];
 
   return (
     <div className="overflow-hidden rounded-2xl border border-border bg-surface shadow-elevation-2">
@@ -121,10 +143,39 @@ function DonatePanel() {
             </span>
             <h3 className="font-heading text-h5 font-bold text-text-primary">Mobile Money</h3>
           </div>
+
           <div className="mt-5">
-            {mobileMoneyDetails.map((row) => (
-              <CopyRow key={row.label} {...row} />
-            ))}
+            <FieldRow label="Network">
+              <div className="relative">
+                <select
+                  value={network}
+                  onChange={(e) => setNetwork(e.target.value)}
+                  className="w-full appearance-none rounded-lg border border-border bg-surface px-3 py-2.5 pr-9 font-heading text-body-lg font-bold text-text-primary outline-none focus:border-growth-green/50"
+                >
+                  {momoNetworks.map((n) => (
+                    <option key={n.value} value={n.value}>
+                      {n.label}
+                    </option>
+                  ))}
+                </select>
+                <ChevronDown
+                  className="pointer-events-none absolute right-3 top-1/2 size-4 -translate-y-1/2 text-text-secondary"
+                  aria-hidden
+                />
+              </div>
+            </FieldRow>
+
+            <FieldRow label="Number">
+              <div className="flex items-center gap-2">
+                <input
+                  type="text"
+                  readOnly
+                  value={activeNetwork.number}
+                  className="w-full rounded-lg border border-border bg-subtle-surface px-3 py-2.5 font-heading text-body-lg font-bold text-text-primary outline-none"
+                />
+                <CopyButton value={activeNetwork.number} label="number" />
+              </div>
+            </FieldRow>
           </div>
         </div>
 
@@ -135,10 +186,46 @@ function DonatePanel() {
             </span>
             <h3 className="font-heading text-h5 font-bold text-text-primary">Bank Transfer</h3>
           </div>
+
           <div className="mt-5">
-            {bankDetails.map((row) => (
-              <CopyRow key={row.label} {...row} />
-            ))}
+            <FieldRow label="Bank">
+              <div className="relative">
+                <select
+                  value={bank}
+                  onChange={(e) => setBank(e.target.value)}
+                  className="w-full appearance-none rounded-lg border border-border bg-surface px-3 py-2.5 pr-9 font-heading text-body-lg font-bold text-text-primary outline-none focus:border-growth-green/50"
+                >
+                  {ghanaBanks.map((b) => (
+                    <option key={b.value} value={b.value}>
+                      {b.label}
+                    </option>
+                  ))}
+                </select>
+                <ChevronDown
+                  className="pointer-events-none absolute right-3 top-1/2 size-4 -translate-y-1/2 text-text-secondary"
+                  aria-hidden
+                />
+              </div>
+            </FieldRow>
+
+            <FieldRow label="Account number">
+              <div className="flex items-center gap-2">
+                <input
+                  type="text"
+                  readOnly
+                  value={activeBank.accountNumber}
+                  className="w-full rounded-lg border border-border bg-subtle-surface px-3 py-2.5 font-heading text-body-lg font-bold text-text-primary outline-none"
+                />
+                <CopyButton value={activeBank.accountNumber} label="account number" />
+              </div>
+            </FieldRow>
+
+            <FieldRow label="Branch">
+              <div className="flex items-center justify-between gap-2">
+                <p className="font-heading text-body-lg font-bold text-text-primary">{branch}</p>
+                <CopyButton value={branch} label="branch" />
+              </div>
+            </FieldRow>
           </div>
         </div>
       </div>
