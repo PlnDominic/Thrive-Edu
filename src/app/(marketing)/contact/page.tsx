@@ -9,7 +9,6 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { SectionHeading } from "@/components/marketing/section-heading";
-import { toast } from "@/hooks/use-toast";
 
 const contactDetails = [
   { icon: MapPin, label: "Visit us", value: "Kumasi, Ghana" },
@@ -49,16 +48,8 @@ export default function ContactPage() {
       <section className="py-16">
         <div className="mx-auto grid max-w-6xl gap-10 px-6 lg:grid-cols-[3fr_2fr]">
           <form
+            id="contact-form"
             className="space-y-5 rounded-lg border border-border bg-surface p-8 shadow-elevation-1"
-            onSubmit={(e) => {
-              e.preventDefault();
-              toast({
-                title: "Message sent",
-                description: "Thanks for reaching out. Our team will be in touch within one business day.",
-                variant: "success",
-              });
-              e.currentTarget.reset();
-            }}
           >
             <SectionHeading title="Send us a message" />
             <div className="grid gap-5 sm:grid-cols-2">
@@ -126,6 +117,61 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+
+      <ContactFormScript />
     </>
   );
 }
+
+function ContactFormScript() {
+  return (
+    <script
+      dangerouslySetInnerHTML={{
+        __html: `
+          (function() {
+            var form = document.getElementById('contact-form');
+            if (!form) return;
+            form.addEventListener('submit', function(e) {
+              e.preventDefault();
+              var submitBtn = form.querySelector('button[type="submit"]');
+              var originalText = submitBtn.textContent;
+              submitBtn.disabled = true;
+              submitBtn.textContent = 'Sending...';
+
+              var formData = new FormData(form);
+              var data = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                role: formData.get('role'),
+                message: formData.get('message'),
+              };
+
+              fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data),
+              })
+              .then(function(res) { return res.json(); })
+              .then(function(result) {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+                if (result.ok) {
+                  form.reset();
+                  alert('Message sent successfully! Our team will be in touch within one business day.');
+                } else {
+                  alert(result.error || 'Something went wrong. Please try again.');
+                }
+              })
+              .catch(function() {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+                alert('Something went wrong. Please try again.');
+              });
+            });
+          })();
+        `,
+      }}
+    />
+  );
+}
+
