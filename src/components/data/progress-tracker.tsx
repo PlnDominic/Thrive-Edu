@@ -22,7 +22,7 @@ function ProgressTracker({ steps, className }: ProgressTrackerProps) {
               className={cn(
                 "flex size-9 shrink-0 items-center justify-center rounded-full border-2 text-small font-bold transition-colors",
                 step.status === "complete" && "border-growth-green bg-growth-green text-white",
-                step.status === "current" && "border-forest-green bg-surface text-forest-green-text shadow-elevation-2",
+                step.status === "current" && "border-growth-green bg-surface text-forest-green-text shadow-elevation-1",
                 step.status === "upcoming" && "border-border bg-subtle-surface text-text-secondary"
               )}
             >

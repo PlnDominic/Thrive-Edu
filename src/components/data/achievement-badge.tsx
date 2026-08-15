@@ -15,9 +15,9 @@ function AchievementBadge({ label, icon: Icon = Award, earned = true, className 
     <div className={cn("flex w-24 flex-col items-center gap-2 text-center", className)}>
       <div
         className={cn(
-          "flex size-16 items-center justify-center rounded-full transition-transform duration-200",
+          "flex size-16 items-center justify-center rounded-full",
           earned
-            ? "bg-gradient-brand text-white shadow-elevation-2 hover:scale-105"
+            ? "bg-growth-green text-white shadow-elevation-1"
             : "border border-dashed border-border bg-subtle-surface text-text-secondary/50"
         )}
       >

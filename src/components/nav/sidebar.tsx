@@ -51,7 +51,7 @@ function Sidebar({ role, userName = "Amara Boateng", userRole = "Student", class
               className={cn(
                 "flex items-center gap-3 rounded-md px-3.5 py-2.5 text-small font-medium text-text-secondary transition-colors duration-150",
                 "hover:bg-subtle-surface hover:text-text-primary",
-                active && "bg-primary/10 text-forest-green-text"
+                active && "bg-growth-green/10 text-forest-green-text"
               )}
             >
               <Icon className="size-[18px] shrink-0" aria-hidden />
@@ -64,7 +64,7 @@ function Sidebar({ role, userName = "Amara Boateng", userRole = "Student", class
       <div className="border-t border-border p-4">
         <div className={cn("flex items-center gap-3", collapsed && "justify-center")}>
           <div
-            className="flex size-9 shrink-0 items-center justify-center rounded-full bg-gradient-brand text-caption font-bold text-white"
+            className="flex size-9 shrink-0 items-center justify-center rounded-full bg-growth-green text-caption font-bold text-white"
             aria-hidden
           >
             {userName

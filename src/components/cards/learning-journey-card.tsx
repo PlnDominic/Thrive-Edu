@@ -18,7 +18,7 @@ export interface LearningJourneyCardProps {
 
 function LearningJourneyCard({ subject, description, progress, milestones }: LearningJourneyCardProps) {
   return (
-    <Card elevation={2}>
+    <Card elevation={1}>
       <CardHeader>
         <CardTitle>{subject}</CardTitle>
         <CardDescription>{description}</CardDescription>

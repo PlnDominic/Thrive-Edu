@@ -161,7 +161,7 @@ function SiteFooter() {
               </Link>
             ))}
           </div>
-          <p>Kumasi, Ghana · hello@thriveedu.org · 0242806144</p>
+          <p>Kumasi, Ghana · info@thriveedu-africa.com · 0242806144</p>
         </div>
       </div>
     </footer>

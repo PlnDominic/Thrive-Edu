@@ -62,7 +62,7 @@ function MobileNav({ role }: MobileNavProps) {
                   className={cn(
                     "flex items-center gap-3 rounded-md px-3.5 py-3 text-body font-medium text-text-secondary transition-colors",
                     "hover:bg-subtle-surface hover:text-text-primary",
-                    active && "bg-primary/10 text-forest-green-text"
+                    active && "bg-growth-green/10 text-forest-green-text"
                   )}
                 >
                   <Icon className="size-5" aria-hidden />

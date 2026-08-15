@@ -17,7 +17,7 @@ function KPICard({ label, value, icon: Icon, changePercent, className }: KPICard
   return (
     <div className={cn("rounded-lg border border-border bg-surface p-6 shadow-elevation-1", className)}>
       <div className="mb-4 flex items-center justify-between">
-        <span className="flex size-10 items-center justify-center rounded-md bg-primary/10 text-forest-green-text">
+        <span className="flex size-10 items-center justify-center rounded-md bg-growth-green/10 text-forest-green-text">
           <Icon className="size-5" />
         </span>
         {changePercent !== undefined && (

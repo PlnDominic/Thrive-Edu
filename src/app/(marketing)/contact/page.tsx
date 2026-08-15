@@ -12,9 +12,9 @@ import { SectionHeading } from "@/components/marketing/section-heading";
 import { toast } from "@/hooks/use-toast";
 
 const contactDetails = [
-  { icon: MapPin, label: "Visit us", value: "12 Independence Avenue, Accra, Ghana" },
-  { icon: Mail, label: "Email us", value: "hello@thriveedu.org" },
-  { icon: Phone, label: "Call us", value: "+233 20 123 4567" },
+  { icon: MapPin, label: "Visit us", value: "Kumasi, Ghana" },
+  { icon: Mail, label: "Email us", value: "info@thriveedu-africa.com" },
+  { icon: Phone, label: "Call us", value: "0242806144" },
   { icon: Clock, label: "Office hours", value: "Mon–Fri, 8:00am – 5:00pm GMT" },
 ];
 
@@ -121,7 +121,7 @@ export default function ContactPage() {
 
             <div className="flex h-48 flex-col items-center justify-center gap-2 rounded-lg border border-dashed border-border bg-subtle-surface text-text-secondary">
               <MapPin className="size-6" />
-              <p className="text-small">Map: Accra, Ghana</p>
+              <p className="text-small">Map: Kumasi, Ghana</p>
             </div>
           </div>
         </div>

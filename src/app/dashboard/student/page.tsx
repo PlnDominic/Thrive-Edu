@@ -37,7 +37,7 @@ export default function StudentDashboardPage() {
     <div className="mx-auto flex max-w-6xl flex-col gap-8">
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div>
-          <h1 className="font-heading text-h3 font-bold text-text-primary sm:text-h2">Good afternoon, Amara</h1>
+          <h1 className="font-heading text-h4 font-bold text-text-primary sm:text-h3">Good afternoon, Amara</h1>
           <p className="mt-1 text-body text-text-secondary">Here&apos;s how your learning journey is going today.</p>
         </div>
         <Badge variant="gold" className="text-small">
@@ -55,7 +55,7 @@ export default function StudentDashboardPage() {
 
       <section>
         <h2 className="mb-4 font-heading text-h4 font-semibold text-text-primary">Your learning path</h2>
-        <Card elevation={2}>
+        <Card elevation={1}>
           <CardContent className="pt-6">
             <ProgressTracker
               steps={[
@@ -83,7 +83,7 @@ export default function StudentDashboardPage() {
           ]}
         />
 
-        <Card elevation={2}>
+        <Card elevation={1}>
           <CardHeader>
             <CardTitle>Goals</CardTitle>
             <CardDescription>Personal milestones you&apos;re working toward</CardDescription>
@@ -97,7 +97,7 @@ export default function StudentDashboardPage() {
                 </div>
                 <div className="h-2 w-full overflow-hidden rounded-full bg-subtle-surface">
                   <div
-                    className="h-full rounded-full bg-leaf-gold transition-all duration-300"
+                    className="h-full rounded-full bg-growth-green transition-all duration-300"
                     style={{ width: `${g.progress}%` }}
                   />
                 </div>
@@ -134,7 +134,7 @@ export default function StudentDashboardPage() {
       </section>
 
       <div className="grid gap-6 lg:grid-cols-2">
-        <Card elevation={2}>
+        <Card elevation={1}>
           <CardHeader>
             <CardTitle>Study minutes this week</CardTitle>
             <CardDescription>Performance analytics across subjects</CardDescription>
@@ -153,7 +153,7 @@ export default function StudentDashboardPage() {
             />
           </CardContent>
         </Card>
-        <Card elevation={2}>
+        <Card elevation={1}>
           <CardHeader>
             <CardTitle>Skill map</CardTitle>
             <CardDescription>Strength across core subjects</CardDescription>
@@ -174,7 +174,7 @@ export default function StudentDashboardPage() {
 
       <section>
         <h2 className="mb-4 font-heading text-h4 font-semibold text-text-primary">Achievements</h2>
-        <Card elevation={2}>
+        <Card elevation={1}>
           <CardContent className="flex flex-wrap gap-6 pt-6">
             <AchievementBadge label="Fast Learner" icon={Sparkles} />
             <AchievementBadge label="Perfect Week" icon={Flame} />

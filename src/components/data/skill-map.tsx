@@ -53,7 +53,7 @@ function SkillMap({ skills, size = 280, className }: SkillMapProps) {
         />
         {skills.map((s, i) => {
           const [x, y] = point(s.value, i);
-          return <circle key={s.skill} cx={x} cy={y} r={3.5} fill="var(--color-forest-green)" />;
+          return <circle key={s.skill} cx={x} cy={y} r={3.5} fill="var(--color-forest-green-text)" />;
         })}
       </svg>
       <div className="mt-4 grid w-full grid-cols-2 gap-x-6 gap-y-2 sm:grid-cols-3">
