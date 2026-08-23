@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { BookOpen, Building2, Image as ImageIcon, Users } from "lucide-react";
+import { ArrowUpRight, BookOpen, Building2, Image as ImageIcon, Users } from "lucide-react";
 
+import { AdminPageHeader } from "@/components/admin/page-header";
 import { getAllCourses } from "@/lib/data/courses";
 import { getAllVentures } from "@/lib/data/ventures";
 import { getAllGalleryItems } from "@/lib/data/gallery";
@@ -15,29 +16,68 @@ export default async function AdminHomePage() {
   ]);
 
   const cards = [
-    { href: "/admin/courses", label: "Courses", icon: BookOpen, count: courses.length },
-    { href: "/admin/ventures", label: "Ventures", icon: Building2, count: ventures.length },
-    { href: "/admin/gallery", label: "Gallery items", icon: ImageIcon, count: gallery.length },
-    { href: "/admin/team", label: "Team members", icon: Users, count: team.length },
+    {
+      href: "/admin/courses",
+      label: "Courses",
+      icon: BookOpen,
+      count: courses.length,
+      published: courses.filter((c) => c.published).length,
+      accent: "bg-forest-green",
+    },
+    {
+      href: "/admin/ventures",
+      label: "Ventures",
+      icon: Building2,
+      count: ventures.length,
+      published: ventures.filter((v) => v.published).length,
+      accent: "bg-deep-green",
+    },
+    {
+      href: "/admin/gallery",
+      label: "Gallery items",
+      icon: ImageIcon,
+      count: gallery.length,
+      published: gallery.filter((g) => g.published).length,
+      accent: "bg-leaf-gold",
+    },
+    {
+      href: "/admin/team",
+      label: "Team members",
+      icon: Users,
+      count: team.length,
+      published: team.filter((t) => t.published).length,
+      accent: "bg-warm-amber",
+    },
   ];
 
   return (
     <div>
-      <h1 className="font-heading text-h4 font-bold text-text-primary">Dashboard</h1>
-      <p className="mt-1 text-body text-text-secondary">Manage what shows up on the public site.</p>
+      <AdminPageHeader
+        eyebrow="Dashboard"
+        title="Welcome back"
+        description="Manage what shows up on the public site - every change goes live as soon as you save it."
+      />
 
-      <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {cards.map((card) => (
           <Link
             key={card.href}
             href={card.href}
-            className="rounded-2xl border border-border bg-surface p-6 shadow-elevation-1 transition-shadow hover:shadow-elevation-2"
+            className="group relative overflow-hidden rounded-2xl border border-border bg-surface p-6 shadow-elevation-1 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-elevation-3"
           >
-            <span className="flex size-11 items-center justify-center rounded-full bg-primary/10 text-forest-green-text">
-              <card.icon className="size-5" />
-            </span>
-            <p className="mt-4 font-heading text-h3 font-bold text-text-primary">{card.count}</p>
-            <p className="text-small text-text-secondary">{card.label}</p>
+            <div className="flex items-start justify-between">
+              <span
+                className={`flex size-11 items-center justify-center rounded-xl ${card.accent} text-white shadow-sm`}
+              >
+                <card.icon className="size-5" />
+              </span>
+              <ArrowUpRight className="size-4 text-text-secondary/40 transition-all duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-forest-green-text" />
+            </div>
+            <p className="mt-5 font-heading text-h2 font-bold tabular-nums text-text-primary">{card.count}</p>
+            <p className="mt-1 text-small font-medium text-text-secondary">{card.label}</p>
+            <p className="mt-3 text-caption text-text-secondary/70">
+              {card.published} published{card.count !== card.published ? ` · ${card.count - card.published} draft` : ""}
+            </p>
           </Link>
         ))}
       </div>

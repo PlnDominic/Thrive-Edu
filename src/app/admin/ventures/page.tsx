@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { EmptyState } from "@/components/feedback/empty-state";
+import { AdminPageHeader } from "@/components/admin/page-header";
 import { DeleteButton } from "@/components/admin/delete-button";
 import { getAllVentures } from "@/lib/data/ventures";
 import { deleteVenture } from "@/lib/actions/ventures";
@@ -14,25 +15,26 @@ export default async function AdminVenturesPage() {
 
   return (
     <div>
-      <div className="flex flex-wrap items-center justify-between gap-4">
-        <div>
-          <h1 className="font-heading text-h4 font-bold text-text-primary">Ventures</h1>
-          <p className="mt-1 text-body text-text-secondary">Cards shown on the /ecosystem page.</p>
-        </div>
-        <Button className="rounded-full" asChild>
-          <Link href="/admin/ventures/new">
-            <Plus className="size-4" />
-            New venture
-          </Link>
-        </Button>
-      </div>
+      <AdminPageHeader
+        eyebrow="Ecosystem"
+        title="Ventures"
+        description="Cards shown on the /ecosystem page."
+        action={
+          <Button className="rounded-full" asChild>
+            <Link href="/admin/ventures/new">
+              <Plus className="size-4" />
+              New venture
+            </Link>
+          </Button>
+        }
+      />
 
       {ventures.length === 0 ? (
         <div className="mt-8">
           <EmptyState icon={Building2} title="No ventures yet" description="Add your first venture." />
         </div>
       ) : (
-        <div className="mt-8 overflow-x-auto rounded-2xl border border-border bg-surface">
+        <div className="mt-8">
           <Table>
             <TableHeader>
               <TableRow>
@@ -52,14 +54,16 @@ export default async function AdminVenturesPage() {
                       {venture.published ? "Published" : "Draft"}
                     </Badge>
                   </TableCell>
-                  <TableCell className="flex justify-end gap-2 text-right">
-                    <Button variant="secondary" size="sm" className="rounded-full" asChild>
-                      <Link href={`/admin/ventures/${venture.id}`}>Edit</Link>
-                    </Button>
-                    <DeleteButton
-                      action={deleteVenture.bind(null, venture.id)}
-                      confirmMessage={`Delete "${venture.name}"? This can't be undone.`}
-                    />
+                  <TableCell className="text-right">
+                    <div className="flex justify-end gap-2">
+                      <Button variant="secondary" size="sm" className="rounded-full" asChild>
+                        <Link href={`/admin/ventures/${venture.id}`}>Edit</Link>
+                      </Button>
+                      <DeleteButton
+                        action={deleteVenture.bind(null, venture.id)}
+                        confirmMessage={`Delete "${venture.name}"? This can't be undone.`}
+                      />
+                    </div>
                   </TableCell>
                 </TableRow>
               ))}

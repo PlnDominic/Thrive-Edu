@@ -2,9 +2,10 @@
 
 import { useActionState } from "react";
 
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { AdminFormActions, AdminFormCard, AdminFormSection } from "@/components/admin/form-shell";
+import { ImageUploadField } from "@/components/admin/image-upload-field";
 import type { TeamActionState } from "@/lib/actions/team";
 import type { TeamMemberRow } from "@/lib/data/team";
 
@@ -21,48 +22,51 @@ export function TeamForm({ action, member, submitLabel }: TeamFormProps) {
   const [state, formAction, pending] = useActionState(action, {});
 
   return (
-    <form action={formAction} className="mt-8 flex max-w-2xl flex-col gap-5">
-      <div className="grid gap-5 sm:grid-cols-2">
-        <div className="flex flex-col gap-1.5">
-          <Label htmlFor="name">Name</Label>
-          <Input id="name" name="name" defaultValue={member?.name} required />
-        </div>
-        <div className="flex flex-col gap-1.5">
-          <Label htmlFor="role">Role</Label>
-          <Input id="role" name="role" defaultValue={member?.role} required />
-        </div>
-      </div>
+    <form action={formAction}>
+      <AdminFormCard>
+        <AdminFormSection title="Details">
+          <div className="grid gap-5 sm:grid-cols-2">
+            <div className="flex flex-col gap-1.5">
+              <Label htmlFor="name">Name</Label>
+              <Input id="name" name="name" defaultValue={member?.name} required />
+            </div>
+            <div className="flex flex-col gap-1.5">
+              <Label htmlFor="role">Role</Label>
+              <Input id="role" name="role" defaultValue={member?.role} required />
+            </div>
+          </div>
 
-      <div className="flex flex-col gap-1.5">
-        <Label htmlFor="image">Photo path</Label>
-        <Input id="image" name="image" defaultValue={member?.image ?? ""} placeholder="/images/team-...jpg" />
-        <p className="text-caption text-text-secondary">Leave blank to show initials instead.</p>
-      </div>
+          <div className="flex flex-col gap-1.5">
+            <Label htmlFor="bio">Bio</Label>
+            <textarea id="bio" name="bio" rows={3} defaultValue={member?.bio ?? ""} className={textareaClassName} />
+          </div>
+        </AdminFormSection>
 
-      <div className="flex flex-col gap-1.5">
-        <Label htmlFor="bio">Bio</Label>
-        <textarea id="bio" name="bio" rows={3} defaultValue={member?.bio ?? ""} className={textareaClassName} />
-      </div>
+        <AdminFormSection title="Media">
+          <ImageUploadField
+            name="image"
+            label="Photo"
+            defaultValue={member?.image}
+            helpText="Leave blank to show initials instead."
+          />
+        </AdminFormSection>
 
-      <div className="flex flex-col gap-1.5">
-        <Label htmlFor="sort_order">Sort order</Label>
-        <Input id="sort_order" name="sort_order" type="number" defaultValue={member?.sort_order ?? 0} className="max-w-xs" />
-      </div>
+        <AdminFormSection title="Display">
+          <div className="flex flex-col gap-1.5">
+            <Label htmlFor="sort_order">Sort order</Label>
+            <Input id="sort_order" name="sort_order" type="number" defaultValue={member?.sort_order ?? 0} className="max-w-xs" />
+          </div>
+        </AdminFormSection>
 
-      <label className="flex items-center gap-2 text-small text-text-primary">
-        <input type="checkbox" name="published" defaultChecked={member?.published ?? true} className="size-4" />
-        Published (visible on the about page)
-      </label>
+        <AdminFormSection title="Visibility">
+          <label className="flex items-center gap-2 text-small text-text-primary">
+            <input type="checkbox" name="published" defaultChecked={member?.published ?? true} className="size-4" />
+            Published (visible on the about page)
+          </label>
+        </AdminFormSection>
 
-      {state.error && (
-        <p role="alert" className="text-small font-medium text-error">
-          {state.error}
-        </p>
-      )}
-
-      <Button type="submit" className="w-fit rounded-full" loading={pending} disabled={pending}>
-        {submitLabel}
-      </Button>
+        <AdminFormActions pending={pending} submitLabel={submitLabel} cancelHref="/admin/team" error={state.error} />
+      </AdminFormCard>
     </form>
   );
 }

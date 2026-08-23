@@ -17,9 +17,12 @@ In the Supabase dashboard, open **SQL Editor** and run, in order:
    security (anyone can read published rows, only signed-in users can write).
 2. `supabase/migrations/0002_seed_content.sql` - seeds the ventures, gallery
    and team content that used to be hardcoded, so the site isn't empty.
+3. `supabase/migrations/0003_media_storage.sql` - creates a public `media`
+   Storage bucket for photos uploaded from the admin forms (public read,
+   only signed-in users can upload/replace/delete).
 
 (If you use the Supabase CLI instead, `supabase db push` from the repo root
-applies both in order.)
+applies all three in order.)
 
 ## 3. Set environment variables
 
