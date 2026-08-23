@@ -24,11 +24,6 @@ export function AdminSignupForm() {
   return (
     <form action={formAction} className="mt-8 flex flex-col gap-4">
       <div className="flex flex-col gap-1.5">
-        <Label htmlFor="inviteCode">Invite code</Label>
-        <Input id="inviteCode" name="inviteCode" autoComplete="off" required />
-      </div>
-
-      <div className="flex flex-col gap-1.5">
         <Label htmlFor="email">Email</Label>
         <Input id="email" name="email" type="email" autoComplete="email" required />
       </div>

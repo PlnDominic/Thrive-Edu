@@ -35,7 +35,6 @@ export async function signUp(_prevState: AuthActionState, formData: FormData): P
   const email = String(formData.get("email") ?? "").trim();
   const password = String(formData.get("password") ?? "");
   const confirmPassword = String(formData.get("confirmPassword") ?? "");
-  const inviteCode = String(formData.get("inviteCode") ?? "").trim();
 
   if (!email || !password) {
     return { error: "Enter your email and password." };
@@ -45,18 +44,6 @@ export async function signUp(_prevState: AuthActionState, formData: FormData): P
   }
   if (password !== confirmPassword) {
     return { error: "Passwords don't match." };
-  }
-
-  // Anyone who could sign up gets a working /admin login, and RLS grants
-  // every signed-in user full read/write on all CMS content - so signup
-  // must not be open to the public. Gate it behind a shared invite code
-  // only Thrive EDU staff have (set as ADMIN_INVITE_CODE).
-  const requiredCode = process.env.ADMIN_INVITE_CODE;
-  if (!requiredCode) {
-    return { error: "Admin signup isn't configured yet. Set ADMIN_INVITE_CODE to enable it." };
-  }
-  if (inviteCode !== requiredCode) {
-    return { error: "That invite code isn't valid." };
   }
 
   const supabase = await createClient();

@@ -25,7 +25,7 @@ export default function AdminSignupPage() {
       eyebrow="Admin"
       tagline="Courses, ventures, gallery and team - all managed from one place."
       title="Create an admin account"
-      description="You'll need the invite code shared by a Thrive EDU admin to sign up."
+      description="Sign up to manage courses, ventures, gallery and team."
       footer={
         <>
           Already have an account?{" "}

@@ -41,16 +41,16 @@ Either:
 
 - **Dashboard**: Authentication → Users → Add user. Enter the admin's email
   and a password (or send a magic invite).
-- **Self-service signup** (`/admin/signup`): set `ADMIN_INVITE_CODE` (see
-  `.env.example`) to a secret only your team knows, and share it with
-  whoever should have admin access. They sign up themselves with that code.
-  Leave it unset to disable signup entirely - the page shows an error and
-  the dashboard is the only way in.
+- **Self-service signup**: anyone can create their own account at
+  `/admin/signup`.
 
 Either way, that's it - they can now sign in at `/admin/login`. Every row in
 `auth.users` can sign in and manage **all** CMS content; there's no separate
-roles table in this first version, so the invite code is the only thing
-standing between a stranger and full write access - keep it private.
+roles table in this first version, and no invite code gating signup - the
+URL is the only thing standing between a stranger and full write access.
+If that's not the tradeoff you want, disable the public `/admin/signup`
+route (e.g. redirect it, or reintroduce an invite-code check) and create
+accounts from the dashboard only.
 
 By default Supabase requires email confirmation before a new signup can log
 in (a confirmation link is emailed to them). You can turn that off under
