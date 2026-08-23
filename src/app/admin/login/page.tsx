@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { AdminAuthShell } from "@/components/admin/auth-shell";
 import { AdminLoginForm } from "@/components/admin/login-form";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
 
@@ -24,16 +25,23 @@ export default async function AdminLoginPage({
   }
 
   return (
-    <div className="mx-auto flex min-h-screen max-w-md flex-col justify-center px-6 py-16">
-      <h1 className="font-heading text-h4 font-bold text-text-primary">Thrive EDU admin</h1>
-      <p className="mt-2 text-body text-text-secondary">Sign in to manage courses, ventures, gallery and team.</p>
+    <AdminAuthShell
+      image="/images/hero-painting-group.jpg"
+      imageAlt="Thrive EDU students at an outdoor painting workshop"
+      eyebrow="Admin"
+      tagline="Everything you publish here shows up across the site in seconds."
+      title="Welcome back"
+      description="Sign in to manage courses, ventures, gallery and team."
+      footer={
+        <>
+          Need an account?{" "}
+          <Link href="/admin/signup" className="font-semibold text-forest-green-text hover:underline">
+            Create one
+          </Link>
+        </>
+      }
+    >
       <AdminLoginForm next={next ?? "/admin"} />
-      <p className="mt-6 text-small text-text-secondary">
-        Need an account?{" "}
-        <Link href="/admin/signup" className="font-semibold text-forest-green-text hover:underline">
-          Create one
-        </Link>
-      </p>
-    </div>
+    </AdminAuthShell>
   );
 }
