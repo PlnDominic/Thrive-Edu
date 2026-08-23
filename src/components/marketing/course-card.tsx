@@ -5,16 +5,18 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { WishlistButton } from "@/components/marketing/wishlist-button";
 import { cn } from "@/lib/utils";
-import { subjectColors, type Course } from "@/lib/courses-data";
+import { subjectColors } from "@/lib/courses-data";
+import { ICON_REGISTRY, DEFAULT_ICON } from "@/lib/icon-registry";
 import { buildWhatsAppPurchaseLink } from "@/lib/whatsapp";
+import type { CourseRow } from "@/lib/data/courses";
 
 export interface CourseCardProps {
-  course: Course;
+  course: CourseRow;
   ribbon?: "Bestseller" | "New";
 }
 
 function CourseCard({ course, ribbon }: CourseCardProps) {
-  const Icon = course.icon;
+  const Icon = ICON_REGISTRY[course.icon] ?? DEFAULT_ICON;
 
   return (
     <Card interactive elevation={2} className="group flex flex-col overflow-hidden">
@@ -43,7 +45,7 @@ function CourseCard({ course, ribbon }: CourseCardProps) {
           </span>
           <span className="flex items-center gap-1">
             <Users className="size-3.5" />
-            {course.studentsEnrolled.toLocaleString()}
+            {course.students_enrolled.toLocaleString()}
           </span>
           <span>{course.format}</span>
         </div>

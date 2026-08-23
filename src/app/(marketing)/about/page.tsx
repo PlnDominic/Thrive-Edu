@@ -6,7 +6,8 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { SectionHeading } from "@/components/marketing/section-heading";
 import { TeamCarousel } from "@/components/marketing/team-carousel";
-import { orgValues, teamMembers } from "@/lib/team-data";
+import { orgValues } from "@/lib/team-data";
+import { getPublishedTeamMembers } from "@/lib/data/team";
 
 const valueImages = [
   "/images/hero-painting-outdoors.jpg",
@@ -17,7 +18,8 @@ const valueImages = [
   "/images/gallery-painting-group-seated.jpg",
 ];
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const teamMembers = await getPublishedTeamMembers();
   return (
     <>
       {/* Hero */}

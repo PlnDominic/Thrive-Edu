@@ -5,13 +5,13 @@ import Link from "next/link";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 import { CourseCarouselCard } from "@/components/marketing/course-carousel-card";
-import type { Course } from "@/lib/courses-data";
+import type { CourseRow } from "@/lib/data/courses";
 
 export interface CourseCarouselProps {
   eyebrow?: string;
   title: string;
   viewAllHref: string;
-  courses: Course[];
+  courses: CourseRow[];
   badge?: string;
 }
 
