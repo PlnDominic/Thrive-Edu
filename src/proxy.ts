@@ -11,6 +11,8 @@ export async function proxy(request: NextRequest) {
   const env = getSupabaseEnv();
   const isAdminRoute = request.nextUrl.pathname.startsWith("/admin");
   const isLoginRoute = request.nextUrl.pathname === "/admin/login";
+  const isSignupRoute = request.nextUrl.pathname === "/admin/signup";
+  const isPublicAdminRoute = isLoginRoute || isSignupRoute;
 
   if (!env) {
     // Supabase isn't configured yet - let /admin render its own setup notice
@@ -35,13 +37,13 @@ export async function proxy(request: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser();
 
-  if (isAdminRoute && !isLoginRoute && !user) {
+  if (isAdminRoute && !isPublicAdminRoute && !user) {
     const loginUrl = new URL("/admin/login", request.url);
     loginUrl.searchParams.set("next", request.nextUrl.pathname);
     return NextResponse.redirect(loginUrl);
   }
 
-  if (isLoginRoute && user) {
+  if (isPublicAdminRoute && user) {
     return NextResponse.redirect(new URL("/admin", request.url));
   }
 

@@ -37,13 +37,25 @@ Settings → Environment Variables) for production.
 
 ## 4. Create your first admin user
 
-The CMS has no public sign-up - admins are created directly in Supabase:
+Either:
 
-1. Dashboard → **Authentication → Users → Add user**.
-2. Enter the admin's email and a password (or send a magic invite).
-3. That's it - they can now sign in at `/admin/login`. Every row in
-   `auth.users` can sign in and manage all CMS content; there's no separate
-   roles table in this first version.
+- **Dashboard**: Authentication → Users → Add user. Enter the admin's email
+  and a password (or send a magic invite).
+- **Self-service signup** (`/admin/signup`): set `ADMIN_INVITE_CODE` (see
+  `.env.example`) to a secret only your team knows, and share it with
+  whoever should have admin access. They sign up themselves with that code.
+  Leave it unset to disable signup entirely - the page shows an error and
+  the dashboard is the only way in.
+
+Either way, that's it - they can now sign in at `/admin/login`. Every row in
+`auth.users` can sign in and manage **all** CMS content; there's no separate
+roles table in this first version, so the invite code is the only thing
+standing between a stranger and full write access - keep it private.
+
+By default Supabase requires email confirmation before a new signup can log
+in (a confirmation link is emailed to them). You can turn that off under
+Authentication → Providers → Email → "Confirm email" if you'd rather new
+admins get in immediately.
 
 ## What's managed where
 
