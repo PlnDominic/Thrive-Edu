@@ -2,18 +2,20 @@ import { Plus, Star } from "lucide-react";
 
 import { WishlistButton } from "@/components/marketing/wishlist-button";
 import { cn } from "@/lib/utils";
-import { subjectColors, type Course } from "@/lib/courses-data";
+import { subjectColors } from "@/lib/courses-data";
+import { ICON_REGISTRY, DEFAULT_ICON } from "@/lib/icon-registry";
 import { buildWhatsAppPurchaseLink } from "@/lib/whatsapp";
+import type { CourseRow } from "@/lib/data/courses";
 
 export interface CourseCarouselCardProps {
-  course: Course;
+  course: CourseRow;
   badge?: string;
 }
 
 function CourseCarouselCard({ course, badge }: CourseCarouselCardProps) {
-  const Icon = course.icon;
-  const discountPct = course.compareAtPrice
-    ? Math.round(((course.compareAtPrice - course.price) / course.compareAtPrice) * 100)
+  const Icon = ICON_REGISTRY[course.icon] ?? DEFAULT_ICON;
+  const discountPct = course.compare_at_price
+    ? Math.round(((course.compare_at_price - course.price) / course.compare_at_price) * 100)
     : undefined;
 
   return (
@@ -47,13 +49,13 @@ function CourseCarouselCard({ course, badge }: CourseCarouselCardProps) {
               />
             ))}
           </div>
-          <span className="text-caption text-text-secondary">({course.studentsEnrolled})</span>
+          <span className="text-caption text-text-secondary">({course.students_enrolled})</span>
         </div>
         <div className="mt-3 flex items-center justify-between">
           <div className="flex items-baseline gap-1.5">
             <span className="font-heading text-body-lg font-bold text-text-primary">₵{course.price}</span>
-            {course.compareAtPrice && (
-              <span className="text-caption text-text-secondary line-through">₵{course.compareAtPrice}</span>
+            {course.compare_at_price && (
+              <span className="text-caption text-text-secondary line-through">₵{course.compare_at_price}</span>
             )}
           </div>
           <a

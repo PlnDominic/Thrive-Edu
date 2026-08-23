@@ -4,10 +4,10 @@ import * as React from "react";
 import Image from "next/image";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
-import type { TeamMember } from "@/lib/team-data";
+import type { TeamMemberRow } from "@/lib/data/team";
 
 interface TeamCarouselProps {
-  members: TeamMember[];
+  members: TeamMemberRow[];
 }
 
 function TeamCarousel({ members }: TeamCarouselProps) {
@@ -52,7 +52,7 @@ function TeamCarousel({ members }: TeamCarouselProps) {
       >
         {members.map((member) => (
           <div
-            key={member.name}
+            key={member.id}
             tabIndex={0}
             className="group relative h-80 w-64 shrink-0 snap-start overflow-hidden bg-subtle-surface outline-none sm:w-72"
           >

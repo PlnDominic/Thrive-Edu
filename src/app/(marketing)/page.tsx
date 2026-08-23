@@ -21,7 +21,7 @@ import { CourseCard } from "@/components/marketing/course-card";
 import { HeroVisual } from "@/components/marketing/hero-visual";
 import { TestimonialCarousel } from "@/components/marketing/testimonial-carousel";
 import { EmptyState } from "@/components/feedback/empty-state";
-import { courses } from "@/lib/courses-data";
+import { getPublishedCourses } from "@/lib/data/courses";
 import { partners } from "@/lib/partners-data";
 
 const ecosystemThemes = [
@@ -187,7 +187,8 @@ const stats = [
   { label: "Average satisfaction", value: "4.8/5" },
 ];
 
-export default function HomePage() {
+export default async function HomePage() {
+  const courses = await getPublishedCourses();
   return (
     <>
       {/* Hero */}

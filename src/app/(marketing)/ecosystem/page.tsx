@@ -1,35 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
-import {
-  ArrowRight,
-  BookOpen,
-  Building2,
-  Compass,
-  FlaskConical,
-  GraduationCap,
-  HardHat,
-  Library,
-  Palette,
-  type LucideIcon,
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { SectionHeading } from "@/components/marketing/section-heading";
-import { ventures } from "@/lib/ventures-data";
+import { getIcon } from "@/lib/icon-registry";
+import { getPublishedVentures } from "@/lib/data/ventures";
 
-const ventureIcons: Record<string, LucideIcon> = {
-  "literacy-and-publications": BookOpen,
-  "mobile-library-and-books-hub": Library,
-  "stem-programme-and-products": FlaskConical,
-  "talents-creative-hub": Palette,
-  "professional-development-institute": GraduationCap,
-  "schools-improvement-services": Building2,
-  tvet: HardHat,
-  "360-leadership-and-coaching": Compass,
-};
+export default async function EcosystemPage() {
+  const ventures = await getPublishedVentures();
 
-export default function EcosystemPage() {
   return (
     <>
       {/* Hero */}
@@ -74,12 +55,12 @@ export default function EcosystemPage() {
 
           <div className="mt-14 space-y-12">
             {ventures.map((venture, index) => {
-              const Icon = ventureIcons[venture.slug] ?? BookOpen;
+              const Icon = getIcon(venture.icon);
               const isEven = index % 2 === 0;
 
               return (
                 <div
-                  key={venture.slug}
+                  key={venture.id}
                   className="group relative overflow-hidden rounded-none border border-border bg-surface p-6 shadow-sm transition-all duration-300 hover:shadow-md sm:p-8 lg:p-10"
                 >
                   <div
@@ -134,7 +115,7 @@ export default function EcosystemPage() {
                           href={venture.href}
                           className="inline-flex items-center gap-2 rounded-none text-small font-semibold text-forest-green-text transition-colors hover:text-primary-hover"
                         >
-                          {venture.linkLabel}
+                          {venture.link_label}
                           <ArrowRight className="size-4" />
                         </Link>
                       </div>

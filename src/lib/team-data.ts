@@ -1,23 +1,5 @@
-export interface TeamMember {
-  name: string;
-  role: string;
-  image?: string;
-  bio?: string;
-}
-
-export const teamMembers: TeamMember[] = [
-  {
-    name: "Salomey Owusu Barnes",
-    role: "Chief Executive Officer",
-    image: "/images/team-salomey-owusu-barnes.jpg",
-    bio: "Leads THRIVE EDU's mission to equip and empower schools and organisations across Ghana.",
-  },
-  { name: "Kwabena Mensah", role: "Head of Curriculum" },
-  { name: "Naomi Adjei", role: "Director of Teaching" },
-  { name: "Samuel Tetteh", role: "Head of Product" },
-  { name: "Efua Danso", role: "Family Success Lead" },
-  { name: "Yaw Boateng", role: "Data & Insights Lead" },
-];
+// Team members now live in Supabase (see src/lib/data/team.ts) and are
+// managed from /admin. Org values stay static content here.
 
 export interface ValueItem {
   title: string;
