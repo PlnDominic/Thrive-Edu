@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { redirect } from "next/navigation";
 import { BookOpen, Building2, Image as ImageIcon, LogOut, Users } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -26,8 +25,11 @@ export default async function AdminLayout({ children }: { children: React.ReactN
     data: { user },
   } = await supabase.auth.getUser();
 
+  // No session: this must be /admin/login (proxy.ts already redirects every
+  // other /admin/* route to it when unauthenticated) - render it plain,
+  // without the signed-in chrome below.
   if (!user) {
-    redirect("/admin/login");
+    return children;
   }
 
   return (
