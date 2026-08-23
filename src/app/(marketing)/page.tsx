@@ -23,6 +23,7 @@ import { TestimonialCarousel } from "@/components/marketing/testimonial-carousel
 import { EmptyState } from "@/components/feedback/empty-state";
 import { getPublishedCourses } from "@/lib/data/courses";
 import { partners } from "@/lib/partners-data";
+import { shopProducts } from "@/lib/shop-data";
 import { buildWhatsAppPurchaseLink } from "@/lib/whatsapp";
 
 const ecosystemThemes = [
@@ -80,73 +81,6 @@ const valueProps = [
     title: "Human-centered support",
     description: "Behind every dashboard is a real support team ready to help students and families thrive.",
     icon: HeartHandshake,
-  },
-];
-
-interface ShopProduct {
-  title: string;
-  category: string;
-  description: string;
-  cardCount: string;
-  originalPrice: number;
-  salePrice: number;
-  image?: string;
-}
-
-const shopProducts: ShopProduct[] = [
-  {
-    title: "Vegetables and Fruits",
-    category: "Early Learners",
-    description: "Bright, wipeable flash cards that introduce young learners to everyday fruits and vegetables.",
-    cardCount: "30 Cards",
-    originalPrice: 60,
-    salePrice: 45,
-    image: "/images/shop-dansly-fruits-vegetables.png",
-  },
-  {
-    title: "Parts of the Human Body",
-    category: "Early Learners",
-    description: "A wipeable-clean flash card set that helps children learn and label parts of the human body.",
-    cardCount: "30 Cards",
-    originalPrice: 60,
-    salePrice: 45,
-    image: "/images/shop-dansly-human-body.png",
-  },
-  {
-    title: "Shapes and Colours",
-    category: "Early Learners",
-    description: "A wipeable-clean flash card set that helps children recognize shapes and colours with ease.",
-    originalPrice: 60,
-    salePrice: 45,
-    cardCount: "30 Cards",
-    image: "/images/shop-dansly-shapes-colours.png",
-  },
-  {
-    title: "Phonics",
-    category: "Early Learners",
-    description: "A wipeable-clean flash card set that helps children build letter sounds and early reading skills.",
-    originalPrice: 60,
-    salePrice: 45,
-    cardCount: "30 Cards",
-    image: "/images/shop-dansly-phonics.png",
-  },
-  {
-    title: "Numerals",
-    category: "Early Learners",
-    description: "A wipeable-clean flash card set that helps children learn to count and recognize numbers.",
-    originalPrice: 60,
-    salePrice: 45,
-    cardCount: "30 Cards",
-    image: "/images/shop-dansly-numerals.png",
-  },
-  {
-    title: "Memory Verse",
-    category: "Early Learners",
-    description: "A wipeable-clean flash card set of memory verses to help children learn and recall scripture.",
-    originalPrice: 60,
-    salePrice: 45,
-    cardCount: "30 Cards",
-    image: "/images/shop-dansly-memory-verse.png",
   },
 ];
 
@@ -293,7 +227,7 @@ export default async function HomePage() {
       </section>
 
       {/* Shop */}
-      <section className="border-t border-border bg-surface py-20">
+      <section id="shop" className="border-t border-border bg-surface py-20">
         <div className="mx-auto max-w-7xl px-6">
           <h2 className="text-center font-heading text-h4 font-bold uppercase tracking-wide text-text-primary sm:text-h3">
             Best Sellers
@@ -301,8 +235,8 @@ export default async function HomePage() {
           <div className="mx-auto mt-10 grid max-w-4xl grid-cols-2 gap-px overflow-hidden border border-border bg-border sm:grid-cols-3">
             {shopProducts.map((product) => (
               <a
-                key={product.title}
-                href={buildWhatsAppPurchaseLink(product.title, product.salePrice, product.image)}
+                key={product.slug}
+                href={buildWhatsAppPurchaseLink(product.title, product.salePrice, `/shop/${product.slug}`)}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`Buy ${product.title} on WhatsApp`}
