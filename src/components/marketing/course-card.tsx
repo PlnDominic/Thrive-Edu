@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { WishlistButton } from "@/components/marketing/wishlist-button";
 import { cn } from "@/lib/utils";
 import { subjectColors, type Course } from "@/lib/courses-data";
+import { buildWhatsAppPurchaseLink } from "@/lib/whatsapp";
 
 export interface CourseCardProps {
   course: Course;
@@ -48,8 +49,14 @@ function CourseCard({ course, ribbon }: CourseCardProps) {
         </div>
         <div className="flex items-center justify-between border-t border-border pt-4">
           <span className="font-heading text-h4 font-bold text-text-primary">₵{course.price}</span>
-          <Button size="sm" className="rounded-full">
-            Enroll now
+          <Button size="sm" className="rounded-full" asChild>
+            <a
+              href={buildWhatsAppPurchaseLink(course.title, course.price)}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Enroll now
+            </a>
           </Button>
         </div>
       </CardContent>

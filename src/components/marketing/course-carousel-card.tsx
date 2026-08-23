@@ -1,9 +1,9 @@
-import Link from "next/link";
 import { Plus, Star } from "lucide-react";
 
 import { WishlistButton } from "@/components/marketing/wishlist-button";
 import { cn } from "@/lib/utils";
 import { subjectColors, type Course } from "@/lib/courses-data";
+import { buildWhatsAppPurchaseLink } from "@/lib/whatsapp";
 
 export interface CourseCarouselCardProps {
   course: Course;
@@ -56,13 +56,15 @@ function CourseCarouselCard({ course, badge }: CourseCarouselCardProps) {
               <span className="text-caption text-text-secondary line-through">₵{course.compareAtPrice}</span>
             )}
           </div>
-          <Link
-            href="/courses"
-            aria-label={`Enroll in ${course.title}`}
+          <a
+            href={buildWhatsAppPurchaseLink(course.title, course.price)}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Buy ${course.title} on WhatsApp`}
             className="flex size-8 items-center justify-center rounded-full bg-ink text-white transition-colors hover:bg-forest-green"
           >
             <Plus className="size-4" />
-          </Link>
+          </a>
         </div>
       </div>
     </div>
