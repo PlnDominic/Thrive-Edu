@@ -23,6 +23,7 @@ import { TestimonialCarousel } from "@/components/marketing/testimonial-carousel
 import { EmptyState } from "@/components/feedback/empty-state";
 import { getPublishedCourses } from "@/lib/data/courses";
 import { partners } from "@/lib/partners-data";
+import { buildWhatsAppPurchaseLink } from "@/lib/whatsapp";
 
 const ecosystemThemes = [
   {
@@ -317,10 +318,12 @@ export default async function HomePage() {
           </h2>
           <div className="mx-auto mt-10 grid max-w-4xl grid-cols-2 gap-px overflow-hidden border border-border bg-border sm:grid-cols-3">
             {shopProducts.map((product) => (
-              <Link
+              <a
                 key={product.title}
-                href="/contact"
-                aria-label={`Enquire to order ${product.title}`}
+                href={buildWhatsAppPurchaseLink(product.title, product.salePrice)}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Buy ${product.title} on WhatsApp`}
                 className="group flex flex-col bg-surface"
               >
                 <div className="relative flex h-40 items-center justify-center overflow-hidden bg-surface sm:h-56">
@@ -348,7 +351,7 @@ export default async function HomePage() {
                     <span className="font-semibold text-text-primary">GH₵{product.salePrice.toFixed(2)}</span>
                   </p>
                 </div>
-              </Link>
+              </a>
             ))}
           </div>
         </div>
