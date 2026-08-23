@@ -29,3 +29,15 @@ export function buildWhatsAppPurchaseLink(
   const params = new URLSearchParams({ text: message });
   return `https://wa.me/${WHATSAPP_BUSINESS_NUMBER}?${params.toString()}`;
 }
+
+// For a bundle deal (e.g. "all 6 flash card boxes for GH₵300") rather than
+// a single product.
+export function buildWhatsAppBundleLink(productNames: string[], price: number, previewPath?: string | null): string {
+  const previewText = previewPath ? `\n${new URL(previewPath, getSiteUrl()).toString()}` : "";
+  const message = `Hi Thrive EDU! I'd like to buy the full set: ${productNames.join(
+    ", "
+  )} (₵${price}). Is it available?${previewText}`;
+
+  const params = new URLSearchParams({ text: message });
+  return `https://wa.me/${WHATSAPP_BUSINESS_NUMBER}?${params.toString()}`;
+}

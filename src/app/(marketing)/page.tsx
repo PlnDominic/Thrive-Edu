@@ -23,8 +23,8 @@ import { TestimonialCarousel } from "@/components/marketing/testimonial-carousel
 import { EmptyState } from "@/components/feedback/empty-state";
 import { getPublishedCourses } from "@/lib/data/courses";
 import { partners } from "@/lib/partners-data";
-import { shopProducts } from "@/lib/shop-data";
-import { buildWhatsAppPurchaseLink } from "@/lib/whatsapp";
+import { bundlePrice, shopProducts } from "@/lib/shop-data";
+import { buildWhatsAppBundleLink, buildWhatsAppPurchaseLink } from "@/lib/whatsapp";
 
 const ecosystemThemes = [
   {
@@ -236,7 +236,7 @@ export default async function HomePage() {
             {shopProducts.map((product) => (
               <a
                 key={product.slug}
-                href={buildWhatsAppPurchaseLink(product.title, product.salePrice, `/shop/${product.slug}`)}
+                href={buildWhatsAppPurchaseLink(product.title, product.price, `/shop/${product.slug}`)}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`Buy ${product.title} on WhatsApp`}
@@ -254,21 +254,35 @@ export default async function HomePage() {
                   ) : (
                     <span className="text-caption font-semibold text-text-secondary">{product.title}</span>
                   )}
-                  <span className="absolute bottom-3 left-3 rounded-full bg-ink px-2.5 py-1 text-caption font-semibold text-white">
-                    Sale
-                  </span>
                 </div>
                 <div className="px-1 pb-6 pt-3">
                   <p className="text-small text-text-secondary">{product.title}</p>
-                  <p className="mt-1 text-small">
-                    <span className="text-text-secondary/70 line-through">
-                      GH₵{product.originalPrice.toFixed(2)}
-                    </span>{" "}
-                    <span className="font-semibold text-text-primary">GH₵{product.salePrice.toFixed(2)}</span>
-                  </p>
+                  <p className="mt-1 text-small font-semibold text-text-primary">GH₵{product.price.toFixed(2)}</p>
                 </div>
               </a>
             ))}
+          </div>
+
+          {/* Bundle deal */}
+          <div className="mx-auto mt-6 flex max-w-4xl flex-col items-center justify-between gap-4 rounded-2xl border border-border bg-subtle-surface px-6 py-5 text-center sm:flex-row sm:text-left">
+            <div>
+              <p className="font-heading text-body-lg font-bold text-text-primary">Get all 6 boxes for GH₵300.00</p>
+              <p className="mt-1 text-small text-text-secondary">
+                That&apos;s the full flash card set for less than buying them one by one.
+              </p>
+            </div>
+            <a
+              href={buildWhatsAppBundleLink(
+                shopProducts.map((p) => p.title),
+                bundlePrice,
+                "/shop"
+              )}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex shrink-0 items-center justify-center rounded-full bg-ink px-6 py-3 text-small font-semibold text-white transition-colors hover:bg-forest-green"
+            >
+              Buy the full set on WhatsApp
+            </a>
           </div>
         </div>
       </section>

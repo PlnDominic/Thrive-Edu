@@ -29,7 +29,7 @@ export async function generateMetadata({
   if (!product) return {};
 
   const title = `${product.title} | THRIVE EDU`;
-  const description = `${product.description} GH₵${product.salePrice} (was GH₵${product.originalPrice}).`;
+  const description = `${product.description} GH₵${product.price}.`;
 
   return {
     title,
@@ -82,16 +82,11 @@ export default async function ShopProductPage({ params }: { params: Promise<{ sl
             <p className="mt-3 text-body text-text-secondary">{product.description}</p>
             <p className="mt-2 text-small text-text-secondary">{product.cardCount}</p>
 
-            <p className="mt-5 text-h4 font-bold">
-              <span className="text-text-secondary/70 text-body-lg line-through">
-                GH₵{product.originalPrice.toFixed(2)}
-              </span>{" "}
-              <span className="text-text-primary">GH₵{product.salePrice.toFixed(2)}</span>
-            </p>
+            <p className="mt-5 font-heading text-h4 font-bold text-text-primary">GH₵{product.price.toFixed(2)}</p>
 
             <Button size="lg" className="mt-6 rounded-full" asChild>
               <a
-                href={buildWhatsAppPurchaseLink(product.title, product.salePrice, `/shop/${product.slug}`)}
+                href={buildWhatsAppPurchaseLink(product.title, product.price, `/shop/${product.slug}`)}
                 target="_blank"
                 rel="noopener noreferrer"
               >
