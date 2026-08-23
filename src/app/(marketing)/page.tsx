@@ -302,7 +302,7 @@ export default async function HomePage() {
             {shopProducts.map((product) => (
               <a
                 key={product.title}
-                href={buildWhatsAppPurchaseLink(product.title, product.salePrice)}
+                href={buildWhatsAppPurchaseLink(product.title, product.salePrice, product.image)}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`Buy ${product.title} on WhatsApp`}

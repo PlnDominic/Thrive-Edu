@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
+import { getSiteUrl } from "@/lib/site-url";
 
 // Self-hosted (rather than fetched from Google Fonts at build time via
 // next/font/google) so production builds never depend on a live fetch to
@@ -21,13 +22,7 @@ const inter = localFont({
   display: "swap",
 });
 
-// Resolves to the real production domain on Vercel automatically (falls
-// back to NEXT_PUBLIC_SITE_URL, then the known production domain). Needed
-// so the relative OG/icon paths below become absolute URLs that social
-// platforms can actually fetch when a link is shared.
-const siteUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
-  ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-  : (process.env.NEXT_PUBLIC_SITE_URL ?? "https://thriveedu.org");
+const siteUrl = getSiteUrl();
 
 const siteTitle = "THRIVE EDU | Everyone Thrives With Us.";
 const siteDescription =
