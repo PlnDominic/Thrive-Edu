@@ -181,13 +181,6 @@ const testimonials = [
   },
 ];
 
-const stats = [
-  { label: "Active learners", value: "12,400+" },
-  { label: "Certified educators", value: "320+" },
-  { label: "Partner schools", value: "48" },
-  { label: "Average satisfaction", value: "4.8/5" },
-];
-
 export default async function HomePage() {
   const courses = await getPublishedCourses();
   return (
@@ -231,17 +224,6 @@ export default async function HomePage() {
             </Link>
           </div>
         </div>
-
-        {/* Stats band */}
-        <dl className="grid grid-cols-2 gap-px overflow-hidden bg-ink-border sm:grid-cols-4">
-          {stats.map((s) => (
-            <div key={s.label} className="bg-ink px-4 py-6 text-center sm:px-6">
-              <dt className="sr-only">{s.label}</dt>
-              <dd className="font-heading text-h4 font-bold text-white sm:text-h3">{s.value}</dd>
-              <p className="mt-1 text-caption text-white/60">{s.label}</p>
-            </div>
-          ))}
-        </dl>
       </section>
 
       {/* Built for every role */}
