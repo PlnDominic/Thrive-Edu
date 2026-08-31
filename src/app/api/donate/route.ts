@@ -8,7 +8,10 @@ interface DonateRequestBody {
   email?: unknown;
   phone?: unknown;
   amount?: unknown;
+  currency?: unknown;
 }
+
+const SUPPORTED_CURRENCIES = ["GHS", "USD"] as const;
 
 export async function POST(request: NextRequest) {
   let body: DonateRequestBody;
@@ -18,7 +21,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Invalid request body." }, { status: 400 });
   }
 
-  const { firstName, lastName, email, phone, amount } = body;
+  const { firstName, lastName, email, phone, amount, currency } = body;
 
   if (
     typeof firstName !== "string" ||
@@ -38,10 +41,16 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Enter a valid donation amount." }, { status: 400 });
   }
 
+  const currencyCode =
+    typeof currency === "string" && SUPPORTED_CURRENCIES.includes(currency.toUpperCase() as never)
+      ? currency.toUpperCase()
+      : "GHS";
+
   const origin = request.nextUrl.origin;
 
   const result = await submitPayment({
     amount: amountNumber,
+    currency: currencyCode,
     firstName: firstName.trim(),
     lastName: lastName.trim(),
     email: email.trim(),

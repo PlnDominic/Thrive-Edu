@@ -12,7 +12,12 @@ import {
   Smartphone,
 } from "lucide-react";
 
-const presetAmounts = [50, 100, 250, 500, 1000];
+type Currency = "GHS" | "USD";
+
+const currencyMeta: Record<Currency, { symbol: string; label: string; presets: number[] }> = {
+  GHS: { symbol: "GH₵", label: "Cedis", presets: [50, 100, 250, 500, 1000] },
+  USD: { symbol: "$", label: "Dollars", presets: [10, 25, 50, 100, 250] },
+};
 
 interface BankOption {
   value: string;
@@ -126,7 +131,8 @@ function usePaymentStatus() {
 }
 
 function DonatePanel() {
-  const [selected, setSelected] = React.useState<number | null>(100);
+  const [currency, setCurrency] = React.useState<Currency>("GHS");
+  const [selected, setSelected] = React.useState<number | null>(currencyMeta.GHS.presets[1]);
   const [customAmount, setCustomAmount] = React.useState("");
   const [bank, setBank] = React.useState(ghanaBanks[0].value);
 
@@ -139,8 +145,15 @@ function DonatePanel() {
 
   const paymentStatus = usePaymentStatus();
 
+  const { symbol, presets } = currencyMeta[currency];
   const activeAmount = customAmount ? Number(customAmount) || 0 : selected;
   const activeBank = ghanaBanks.find((b) => b.value === bank) ?? ghanaBanks[0];
+
+  const handleCurrencyChange = (next: Currency) => {
+    setCurrency(next);
+    setCustomAmount("");
+    setSelected(currencyMeta[next].presets[1]);
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -160,7 +173,7 @@ function DonatePanel() {
       const res = await fetch("/api/donate", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ firstName, lastName, email, phone, amount: activeAmount }),
+        body: JSON.stringify({ firstName, lastName, email, phone, amount: activeAmount, currency }),
       });
       const data = (await res.json()) as { redirectUrl?: string; error?: string };
       if (!res.ok || !data.redirectUrl) {
@@ -186,12 +199,33 @@ function DonatePanel() {
         </div>
       )}
 
+      {/* Currency picker */}
+      <div className="flex items-center gap-3 px-8 pt-8 sm:px-10 sm:pt-10">
+        <p className="text-small font-semibold uppercase tracking-wide text-text-secondary">Currency</p>
+        <div className="inline-flex rounded-full border border-border bg-subtle-surface p-1">
+          {(Object.keys(currencyMeta) as Currency[]).map((code) => (
+            <button
+              key={code}
+              type="button"
+              onClick={() => handleCurrencyChange(code)}
+              className={`rounded-full px-3.5 py-1.5 text-small font-semibold transition-colors ${
+                currency === code
+                  ? "bg-forest-green text-text-primary"
+                  : "text-text-secondary hover:text-text-primary"
+              }`}
+            >
+              {currencyMeta[code].symbol} {code}
+            </button>
+          ))}
+        </div>
+      </div>
+
       {/* Amount picker */}
       <div className="flex flex-col gap-6 p-8 sm:flex-row sm:items-center sm:justify-between sm:p-10">
         <div>
           <p className="text-small font-semibold uppercase tracking-wide text-text-secondary">Choose an amount</p>
           <div className="mt-3 flex flex-wrap gap-2">
-            {presetAmounts.map((amount) => (
+            {presets.map((amount) => (
               <button
                 key={amount}
                 type="button"
@@ -205,7 +239,8 @@ function DonatePanel() {
                     : "border-border bg-surface text-text-secondary hover:border-growth-green/50"
                 }`}
               >
-                GH₵{amount}
+                {symbol}
+                {amount}
               </button>
             ))}
           </div>
@@ -218,7 +253,7 @@ function DonatePanel() {
           <div>
             <p className="text-small font-semibold uppercase tracking-wide text-text-secondary sm:hidden">Or</p>
             <label className="mt-1 flex items-center gap-1 rounded-full border border-border bg-subtle-surface px-4 py-2 text-small font-semibold text-text-primary focus-within:border-growth-green/50">
-              GH₵
+              {symbol}
               <input
                 type="number"
                 min={1}
@@ -312,59 +347,74 @@ function DonatePanel() {
             className="mt-5 flex w-full items-center justify-center gap-2 rounded-full bg-forest-green px-5 py-3 text-small font-bold text-text-primary transition-opacity hover:opacity-90 disabled:opacity-60"
           >
             {submitting && <Loader2 className="size-4 animate-spin" />}
-            {submitting ? "Redirecting to checkout..." : `Donate GH₵${activeAmount || 0} now`}
+            {submitting ? "Redirecting to checkout..." : `Donate ${symbol}${activeAmount || 0} now`}
           </button>
         </form>
 
-        <div className="bg-surface p-8 sm:p-10">
-          <div className="flex items-center gap-3">
-            <span className="flex size-10 items-center justify-center rounded-full bg-primary/10 text-forest-green-text">
-              <Landmark className="size-5" />
-            </span>
-            <h3 className="font-heading text-h5 font-bold text-text-primary">Bank Transfer</h3>
+        {currency === "GHS" ? (
+          <div className="bg-surface p-8 sm:p-10">
+            <div className="flex items-center gap-3">
+              <span className="flex size-10 items-center justify-center rounded-full bg-primary/10 text-forest-green-text">
+                <Landmark className="size-5" />
+              </span>
+              <h3 className="font-heading text-h5 font-bold text-text-primary">Bank Transfer</h3>
+            </div>
+
+            <div className="mt-5">
+              <FieldRow label="Bank">
+                <div className="relative">
+                  <select
+                    value={bank}
+                    onChange={(e) => setBank(e.target.value)}
+                    className="w-full appearance-none rounded-lg border border-border bg-surface px-3 py-2.5 pr-9 font-heading text-body-lg font-bold text-text-primary outline-none focus:border-growth-green/50"
+                  >
+                    {ghanaBanks.map((b) => (
+                      <option key={b.value} value={b.value}>
+                        {b.label}
+                      </option>
+                    ))}
+                  </select>
+                  <ChevronDown
+                    className="pointer-events-none absolute right-3 top-1/2 size-4 -translate-y-1/2 text-text-secondary"
+                    aria-hidden
+                  />
+                </div>
+              </FieldRow>
+
+              <FieldRow label="Account number">
+                <div className="flex items-center gap-2">
+                  <input
+                    type="text"
+                    readOnly
+                    value={activeBank.accountNumber}
+                    className="w-full rounded-lg border border-border bg-subtle-surface px-3 py-2.5 font-heading text-body-lg font-bold text-text-primary outline-none"
+                  />
+                  <CopyButton value={activeBank.accountNumber} label="account number" />
+                </div>
+              </FieldRow>
+
+              <FieldRow label="Branch">
+                <div className="flex items-center justify-between gap-2">
+                  <p className="font-heading text-body-lg font-bold text-text-primary">{branch}</p>
+                  <CopyButton value={branch} label="branch" />
+                </div>
+              </FieldRow>
+            </div>
           </div>
-
-          <div className="mt-5">
-            <FieldRow label="Bank">
-              <div className="relative">
-                <select
-                  value={bank}
-                  onChange={(e) => setBank(e.target.value)}
-                  className="w-full appearance-none rounded-lg border border-border bg-surface px-3 py-2.5 pr-9 font-heading text-body-lg font-bold text-text-primary outline-none focus:border-growth-green/50"
-                >
-                  {ghanaBanks.map((b) => (
-                    <option key={b.value} value={b.value}>
-                      {b.label}
-                    </option>
-                  ))}
-                </select>
-                <ChevronDown
-                  className="pointer-events-none absolute right-3 top-1/2 size-4 -translate-y-1/2 text-text-secondary"
-                  aria-hidden
-                />
-              </div>
-            </FieldRow>
-
-            <FieldRow label="Account number">
-              <div className="flex items-center gap-2">
-                <input
-                  type="text"
-                  readOnly
-                  value={activeBank.accountNumber}
-                  className="w-full rounded-lg border border-border bg-subtle-surface px-3 py-2.5 font-heading text-body-lg font-bold text-text-primary outline-none"
-                />
-                <CopyButton value={activeBank.accountNumber} label="account number" />
-              </div>
-            </FieldRow>
-
-            <FieldRow label="Branch">
-              <div className="flex items-center justify-between gap-2">
-                <p className="font-heading text-body-lg font-bold text-text-primary">{branch}</p>
-                <CopyButton value={branch} label="branch" />
-              </div>
-            </FieldRow>
+        ) : (
+          <div className="flex flex-col justify-center bg-surface p-8 sm:p-10">
+            <div className="flex items-center gap-3">
+              <span className="flex size-10 items-center justify-center rounded-full bg-primary/10 text-forest-green-text">
+                <Landmark className="size-5" />
+              </span>
+              <h3 className="font-heading text-h5 font-bold text-text-primary">Bank Transfer</h3>
+            </div>
+            <p className="mt-4 text-small text-text-secondary">
+              Bank transfer is available in cedis. Switch to <span className="font-semibold">GH₵</span> above for
+              account details, or use the card/mobile money checkout on the left to give in dollars.
+            </p>
           </div>
-        </div>
+        )}
       </div>
 
       {/* Footer note */}
