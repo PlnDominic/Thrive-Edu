@@ -9,12 +9,13 @@
 //   NEXT_PUBLIC_SUPABASE_URL
 //   NEXT_PUBLIC_SUPABASE_ANON_KEY
 //
-// Only needs anon-key, read-only access - it selects a single row from a
-// couple of public tables (already readable by anyone per the RLS policies
-// in supabase/migrations/0001_admin_cms.sql), so no service-role key or
-// write access is required.
-
-import { createClient } from "@supabase/supabase-js";
+// Uses a plain REST `fetch` against PostgREST rather than
+// `@supabase/supabase-js` - the JS client also spins up a realtime/websocket
+// client on construction, which needs Node 22+ (or a polyfill) and pulls in
+// a dependency for no benefit here. This only needs anon-key, read-only
+// access - a couple of public tables (already readable by anyone per the
+// RLS policies in supabase/migrations/0001_admin_cms.sql), so no
+// service-role key or write access is required.
 
 const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
@@ -30,23 +31,34 @@ if (!url || !anonKey) {
 // a couple in case one is empty or its RLS policy ever changes.
 const TABLES = ["courses", "ventures", "gallery_items", "team_members"];
 
-const supabase = createClient(url, anonKey);
-
 let ok = false;
 
 for (const table of TABLES) {
-  const { error, count } = await supabase
-    .from(table)
-    .select("id", { count: "exact", head: true })
-    .limit(1);
+  const endpoint = `${url.replace(/\/$/, "")}/rest/v1/${table}?select=id&limit=1`;
 
-  if (error) {
-    console.warn(`supabase-keepalive: ${table} query failed: ${error.message}`);
+  let response;
+  try {
+    response = await fetch(endpoint, {
+      headers: {
+        apikey: anonKey,
+        Authorization: `Bearer ${anonKey}`,
+      },
+    });
+  } catch (err) {
+    console.warn(`supabase-keepalive: ${table} request failed: ${err.message}`);
     continue;
   }
 
+  if (!response.ok) {
+    console.warn(
+      `supabase-keepalive: ${table} query failed: ${response.status} ${response.statusText}`
+    );
+    continue;
+  }
+
+  const rows = await response.json();
   console.log(
-    `supabase-keepalive: ${new Date().toISOString()} - queried "${table}" (${count ?? 0} rows) OK`
+    `supabase-keepalive: ${new Date().toISOString()} - queried "${table}" (${rows.length} row(s)) OK`
   );
   ok = true;
   break;
