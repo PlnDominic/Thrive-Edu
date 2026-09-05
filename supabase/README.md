@@ -71,3 +71,22 @@ admins get in immediately.
 
 Each item has a `published` toggle - unpublished items only show up in the
 admin list, not on the public site.
+
+## Keeping the free-tier project from pausing
+
+Supabase's free tier auto-pauses a project after 7 days with no API
+activity. `.github/workflows/supabase-keepalive.yml` runs
+`scripts/supabase-keepalive.mjs` every Monday at 09:00 UTC (and on demand
+via the Actions tab's "Run workflow" button) to do a lightweight read query
+against the CMS tables so that never happens.
+
+For it to work, add these two repo secrets under **Settings → Secrets and
+variables → Actions** (same values as your `.env.local`):
+
+```
+NEXT_PUBLIC_SUPABASE_URL
+NEXT_PUBLIC_SUPABASE_ANON_KEY
+```
+
+No service-role key is needed - the script only does anon-key reads that
+are already public per the RLS policies in `0001_admin_cms.sql`.
