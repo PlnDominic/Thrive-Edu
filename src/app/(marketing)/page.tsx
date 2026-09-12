@@ -23,7 +23,7 @@ import { TestimonialCarousel } from "@/components/marketing/testimonial-carousel
 import { EmptyState } from "@/components/feedback/empty-state";
 import { getPublishedCourses } from "@/lib/data/courses";
 import { partners } from "@/lib/partners-data";
-import { bundlePrice, flashCardProducts, shopProducts } from "@/lib/shop-data";
+import { bundlePrice, flashCardProducts, otherProducts } from "@/lib/shop-data";
 import { buildWhatsAppBundleLink, buildWhatsAppPurchaseLink } from "@/lib/whatsapp";
 
 const ecosystemThemes = [
@@ -233,7 +233,7 @@ export default async function HomePage() {
             Best Sellers
           </h2>
           <div className="mx-auto mt-10 grid max-w-4xl grid-cols-2 gap-px overflow-hidden border border-border bg-border sm:grid-cols-3">
-            {shopProducts.map((product) => (
+            {flashCardProducts.map((product) => (
               <a
                 key={product.slug}
                 href={buildWhatsAppPurchaseLink(product.title, product.price, `/shop/${product.slug}`)}
@@ -284,6 +284,50 @@ export default async function HomePage() {
               Buy the full set on WhatsApp
             </a>
           </div>
+
+          {/* Other products - kept visually separate from the flash card set/bundle above */}
+          {otherProducts.length > 0 ? (
+            <div className="mx-auto mt-16 max-w-4xl">
+              <h3 className="text-center font-heading text-body-lg font-bold uppercase tracking-wide text-text-secondary">
+                Also in the shop
+              </h3>
+              <div className="mt-6 grid gap-6 sm:grid-cols-2">
+                {otherProducts.map((product) => (
+                  <div
+                    key={product.slug}
+                    className="flex flex-col gap-4 rounded-2xl border border-border bg-surface p-5 sm:flex-row sm:items-center"
+                  >
+                    <div className="relative mx-auto h-40 w-32 shrink-0 overflow-hidden rounded-lg bg-subtle-surface sm:mx-0">
+                      {product.image ? (
+                        <Image
+                          src={product.image}
+                          alt={product.title}
+                          fill
+                          sizes="128px"
+                          className="object-contain p-2"
+                        />
+                      ) : null}
+                    </div>
+                    <div className="flex flex-1 flex-col text-center sm:text-left">
+                      <p className="font-heading text-body font-bold text-text-primary">{product.title}</p>
+                      <p className="mt-1 text-small text-text-secondary">{product.description}</p>
+                      <div className="mt-3 flex flex-col items-center gap-3 sm:flex-row sm:justify-between">
+                        <p className="text-small font-semibold text-text-primary">GH₵{product.price.toFixed(2)}</p>
+                        <a
+                          href={buildWhatsAppPurchaseLink(product.title, product.price, `/shop/${product.slug}`)}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex shrink-0 items-center justify-center rounded-full bg-ink px-5 py-2.5 text-small font-semibold text-white transition-colors hover:bg-forest-green"
+                        >
+                          Buy on WhatsApp
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ) : null}
         </div>
       </section>
 
