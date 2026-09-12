@@ -4,7 +4,7 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { bundlePrice, shopProducts } from "@/lib/shop-data";
+import { bundlePrice, flashCardProducts } from "@/lib/shop-data";
 import { buildWhatsAppBundleLink } from "@/lib/whatsapp";
 
 // The "buy all 6" bundle deal - its only real job, like /shop/[slug], is to
@@ -20,13 +20,13 @@ export const metadata: Metadata = {
   openGraph: {
     title,
     description,
-    images: [{ url: shopProducts[0].ogImage, width: 1200, height: 1200, alt: "THRIVE EDU flash card set" }],
+    images: [{ url: flashCardProducts[0].ogImage, width: 1200, height: 1200, alt: "THRIVE EDU flash card set" }],
   },
   twitter: {
     card: "summary_large_image",
     title,
     description,
-    images: [shopProducts[0].ogImage],
+    images: [flashCardProducts[0].ogImage],
   },
 };
 
@@ -48,7 +48,7 @@ export default function ShopBundlePage() {
         </p>
 
         <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3">
-          {shopProducts.map((product) => (
+          {flashCardProducts.map((product) => (
             <div key={product.slug} className="rounded-2xl border border-border bg-surface p-4">
               <div className="relative aspect-square overflow-hidden">
                 <Image
@@ -67,7 +67,7 @@ export default function ShopBundlePage() {
         <Button size="lg" className="mt-8 rounded-full" asChild>
           <a
             href={buildWhatsAppBundleLink(
-              shopProducts.map((p) => p.title),
+              flashCardProducts.map((p) => p.title),
               bundlePrice,
               "/shop"
             )}

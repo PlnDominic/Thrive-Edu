@@ -3,7 +3,9 @@ export interface ShopProduct {
   title: string;
   category: string;
   description: string;
-  cardCount: string;
+  // Short "what you get" line shown under the description, e.g. a flash
+  // card box's "30 Cards". Not every product has one.
+  cardCount?: string;
   price: number;
   image: string;
   // A compressed, square JPEG copy of `image` (public/images/og/*.jpg),
@@ -13,7 +15,9 @@ export interface ShopProduct {
   ogImage: string;
 }
 
-export const shopProducts: ShopProduct[] = [
+// The 6 flash card boxes - these are the ones sold together as the "buy all
+// 6" bundle below, so keep this array to just them.
+export const flashCardProducts: ShopProduct[] = [
   {
     slug: "vegetables-and-fruits",
     title: "Vegetables and Fruits",
@@ -78,6 +82,24 @@ export const shopProducts: ShopProduct[] = [
 
 // Buying all 6 flash card boxes together costs less than 6 x price.
 export const bundlePrice = 300;
+
+// Other best-selling products that aren't part of the flash card bundle.
+export const otherProducts: ShopProduct[] = [
+  {
+    slug: "thrive-readers-journal-and-planner",
+    title: "Thrive Readers Journal & Planner",
+    category: "Journals & Planners",
+    description:
+      "A guided reading journal and planner that helps young readers track what they read, reflect on it, and build a consistent reading habit.",
+    price: 70,
+    image: "/images/shop-thrive-readers-journal-planner.png",
+    ogImage: "/images/og/shop-thrive-readers-journal-planner.jpg",
+  },
+];
+
+// Everything shown in the "Best Sellers" section on the homepage, and every
+// product that gets its own /shop/[slug] page.
+export const shopProducts: ShopProduct[] = [...flashCardProducts, ...otherProducts];
 
 export function getShopProduct(slug: string): ShopProduct | undefined {
   return shopProducts.find((p) => p.slug === slug);

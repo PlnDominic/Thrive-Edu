@@ -23,7 +23,7 @@ import { TestimonialCarousel } from "@/components/marketing/testimonial-carousel
 import { EmptyState } from "@/components/feedback/empty-state";
 import { getPublishedCourses } from "@/lib/data/courses";
 import { partners } from "@/lib/partners-data";
-import { bundlePrice, shopProducts } from "@/lib/shop-data";
+import { bundlePrice, flashCardProducts, shopProducts } from "@/lib/shop-data";
 import { buildWhatsAppBundleLink, buildWhatsAppPurchaseLink } from "@/lib/whatsapp";
 
 const ecosystemThemes = [
@@ -246,7 +246,7 @@ export default async function HomePage() {
                   {product.image ? (
                     <Image
                       src={product.image}
-                      alt={`${product.title} flash cards box`}
+                      alt={product.title}
                       fill
                       sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
                       className="object-contain p-4 transition-transform duration-300 group-hover:scale-105"
@@ -273,7 +273,7 @@ export default async function HomePage() {
             </div>
             <a
               href={buildWhatsAppBundleLink(
-                shopProducts.map((p) => p.title),
+                flashCardProducts.map((p) => p.title),
                 bundlePrice,
                 "/shop"
               )}

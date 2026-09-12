@@ -68,7 +68,7 @@ export default async function ShopProductPage({ params }: { params: Promise<{ sl
           <div className="relative aspect-square overflow-hidden rounded-2xl border border-border bg-surface">
             <Image
               src={product.image}
-              alt={`${product.title} flash cards box`}
+              alt={product.title}
               fill
               sizes="(min-width: 640px) 50vw, 100vw"
               className="object-contain p-6"
@@ -80,7 +80,9 @@ export default async function ShopProductPage({ params }: { params: Promise<{ sl
             <Badge variant="neutral">{product.category}</Badge>
             <h1 className="mt-3 font-heading text-h4 font-bold text-text-primary sm:text-h3">{product.title}</h1>
             <p className="mt-3 text-body text-text-secondary">{product.description}</p>
-            <p className="mt-2 text-small text-text-secondary">{product.cardCount}</p>
+            {product.cardCount ? (
+              <p className="mt-2 text-small text-text-secondary">{product.cardCount}</p>
+            ) : null}
 
             <p className="mt-5 font-heading text-h4 font-bold text-text-primary">GH₵{product.price.toFixed(2)}</p>
 
